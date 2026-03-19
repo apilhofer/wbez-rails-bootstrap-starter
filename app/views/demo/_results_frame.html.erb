@@ -1,0 +1,9 @@
+<%= turbo_frame_tag "demo_results", data: { turbo_action: "advance" } do %>
+  <%= render "demo/results",
+      tabs: @tabs,
+      current_tab: @current_tab,
+      table_headers: @table_headers,
+      table_rows: @table_rows,
+      current_page: @current_page,
+      total_pages: @total_pages %>
+<% end %>

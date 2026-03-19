@@ -1,0 +1,59 @@
+<div class="bg-white">
+  <%= render "shared/ui/site_header" %>
+
+  <main class="content-shell px-3 py-4">
+    <div class="mb-4">
+      <div class="wbez-kicker mb-2">Validation page</div>
+      <h1 class="editorial-heading display-5">WBEZ Bootstrap Starter Demo</h1>
+      <p class="lead">This page exercises Bootstrap components, shared partials, Turbo Frames, and editorial patterns.</p>
+      <%= render "shared/ui/alert", kind: :success, title: "Bootstrap starter is active", message: "The app is using Bootstrap, Rails partials, and WBEZ-inspired composition." %>
+    </div>
+
+    <section class="my-5">
+      <%= render "shared/ui/section_header", title: "Core components" %>
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <%= render "shared/ui/story_card", kicker: "Feature", title: "Editorial story card", dek: "Use this for article promos and lead modules.", meta: "Today" %>
+        </div>
+        <div class="col-lg-4">
+          <%= render "shared/ui/card", title: "Buttons and badges", body: "Bootstrap primitives with WBEZ styling." do %>
+            <div class="d-flex flex-wrap gap-2 mt-3">
+              <%= render "shared/ui/button", label: "Primary", variant: :primary %>
+              <%= render "shared/ui/button", label: "Listen", variant: :listen %>
+              <%= render "shared/ui/badge", label: "Breaking", kind: :primary %>
+            </div>
+          <% end %>
+        </div>
+        <div class="col-lg-4">
+          <%= render "shared/ui/card", title: "Empty / utility panel", body: "A neutral Bootstrap card with restrained WBEZ treatment." %>
+        </div>
+      </div>
+    </section>
+
+    <%= render "demo/results_frame" %>
+
+    <section class="my-5">
+      <%= render "shared/ui/section_header", title: "Form validation" %>
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="card wbez-card">
+            <div class="card-body">
+              <%= form_with url: demo_path, method: :get do |f| %>
+                <%= render "shared/ui/field", form: f, name: :email, label: "Email address", as: :email_field, hint: "Use standard Rails helpers with shared field styling." %>
+                <%= render "shared/ui/field", form: f, name: :topic, label: "Topic", as: :select, options: [["News","news"],["Membership","membership"],["Events","events"]] %>
+                <%= render "shared/ui/field", form: f, name: :notes, label: "Notes", as: :text_area %>
+                <%= render "shared/ui/field", form: f, name: :subscribe, label: "Subscribe to updates", as: :check_box %>
+                <div class="d-flex gap-2">
+                  <%= render "shared/ui/button", label: "Submit", type: "submit", variant: :primary %>
+                  <%= render "shared/ui/button", label: "Cancel", href: demo_path, variant: :secondary %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <%= render "shared/ui/site_footer" %>
+</div>

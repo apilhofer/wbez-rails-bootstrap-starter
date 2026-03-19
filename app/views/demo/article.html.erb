@@ -1,0 +1,67 @@
+<div class="bg-white">
+  <%= render "shared/ui/site_header" %>
+
+  <main class="content-shell px-3 py-4">
+    <div class="row g-5">
+      <div class="col-lg-8">
+        <%= render "shared/ui/article_shell" do %>
+          <%= render "shared/ui/article_header",
+              kicker: "Curious City",
+              title: "Did martial law help Chicago recover after the Great Fire?",
+              dek: "A WBEZ-style article demo built with Bootstrap components, editorial partials, and lorem ipsum body copy.",
+              byline: "Aron Pilhofer",
+              published_at: "March 18, 2026" %>
+
+          <%= render "shared/ui/figure", caption: "Lead image placeholder with caption and credit treatment." %>
+
+          <div class="mb-4 p-3 border rounded bg-light">
+            <strong>Listen:</strong> Article audio player placeholder
+          </div>
+
+          <div class="mb-4 p-4 border rounded">
+            <strong>Read this story for free</strong>
+            <p class="mb-3">Sign up for a newsletter-style gate treatment.</p>
+            <div class="d-flex gap-2">
+              <input class="form-control" placeholder="Email address">
+              <button class="btn btn-wbez">Continue</button>
+            </div>
+          </div>
+
+          <div class="prose-wbez">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eleifend, lorem sed porttitor semper, augue turpis congue augue, a suscipit turpis mauris sit amet turpis.</p>
+            <p>Morbi pulvinar, neque sit amet feugiat ultricies, risus justo tempus tortor, vitae posuere est nisl et massa. Donec sagittis blandit tellus, at gravida urna efficitur vel.</p>
+
+            <%= render "shared/ui/pull_quote", quote: "This is the kind of editorial pause that gives a WBEZ-style story its rhythm.", attribution: "Curious City" %>
+
+            <h2>How the city responded</h2>
+            <p>Praesent non sapien a nibh vulputate feugiat. Donec at justo nec erat efficitur faucibus. Suspendisse potenti. Cras luctus sem vel nibh vulputate, eget tincidunt urna viverra.</p>
+            <p>Aliquam erat volutpat. Pellentesque et luctus nisl. Nulla facilisi. Sed a arcu volutpat, posuere augue vitae, luctus nibh.</p>
+
+            <%= render "shared/ui/responsive_embed" %>
+
+            <h3>Why it still matters</h3>
+            <p>Sed dictum nibh sed mi laoreet, vitae pharetra tortor sollicitudin. Integer aliquam mauris id lorem vulputate, at fermentum risus pharetra.</p>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="col-lg-4">
+        <%= render "shared/ui/section_header", title: "The Latest" %>
+        <div class="demo-rail-card py-3">
+          <div class="story-kicker mb-1">Latest News</div>
+          <div class="story-title h5">Chicago transit agencies brace for another funding showdown</div>
+        </div>
+        <div class="demo-rail-card py-3">
+          <div class="story-kicker mb-1">Arts & Culture</div>
+          <div class="story-title h5">A spring guide to music festivals across the city</div>
+        </div>
+        <div class="demo-rail-card py-3">
+          <div class="story-kicker mb-1">Politics</div>
+          <div class="story-title h5">The mayor's education agenda enters a pivotal week</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <%= render "shared/ui/site_footer" %>
+</div>

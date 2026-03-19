@@ -1,0 +1,9 @@
+<nav aria-label="Pagination">
+  <ul class="pagination">
+    <% 1.upto(local_assigns.fetch(:total_pages)) do |page| %>
+      <li class="page-item <%= 'active' if page == local_assigns.fetch(:current_page) %>">
+        <%= link_to page, "#{local_assigns.fetch(:base_path)}#{local_assigns.fetch(:base_path).include?('?') ? '&' : '?'}page=#{page}", class: "page-link", data: (local_assigns[:turbo_frame].present? ? { turbo_frame: local_assigns[:turbo_frame] } : {}) %>
+      </li>
+    <% end %>
+  </ul>
+</nav>

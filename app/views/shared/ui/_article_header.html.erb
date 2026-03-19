@@ -1,0 +1,6 @@
+<header class="mb-4">
+  <% if local_assigns[:kicker].present? %><div class="wbez-kicker mb-2"><%= local_assigns[:kicker] %></div><% end %>
+  <h1 class="article-title display-4 mb-3"><%= local_assigns[:title] %></h1>
+  <% if local_assigns[:dek].present? %><p class="article-dek mb-3"><%= local_assigns[:dek] %></p><% end %>
+  <div class="article-meta"><%= [local_assigns[:byline] && "By #{local_assigns[:byline]}", local_assigns[:published_at]].compact.join(" • ") %></div>
+</header>

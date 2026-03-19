@@ -1,0 +1,242 @@
+@import "bootstrap/scss/bootstrap";
+
+:root {
+  --wbez-red: #ed0000;
+  --wbez-red-dark: #cf0000;
+  --wbez-black: #252525;
+  --wbez-muted: #636466;
+  --wbez-border: #dcddde;
+  --wbez-subtle: #f3f3f3;
+  --wbez-serif: "Charter", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  --wbez-sans: "Source Sans Pro", Arial, sans-serif;
+  --wbez-brand: "Arial Narrow", "Helvetica Neue Condensed", var(--wbez-sans);
+}
+
+body {
+  font-family: var(--wbez-sans);
+  color: var(--wbez-black);
+  background: #fff;
+}
+
+a {
+  color: var(--wbez-red);
+}
+
+a:hover {
+  color: var(--wbez-red-dark);
+}
+
+.content-shell {
+  max-width: 1080px;
+  margin-inline: auto;
+}
+
+.reading-shell {
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+.app-shell {
+  max-width: 1300px;
+  margin-inline: auto;
+}
+
+.editorial-heading,
+.article-title,
+.prose-wbez h1,
+.prose-wbez h2,
+.prose-wbez h3,
+.pull-quote-text {
+  font-family: var(--wbez-serif);
+  line-height: 1.2;
+}
+
+.wbez-kicker {
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  font-size: .85rem;
+  color: var(--wbez-muted);
+  font-weight: 700;
+}
+
+.article-dek {
+  font-size: 1.25rem;
+  color: rgba(37,37,37,.82);
+  max-width: 48rem;
+}
+
+.article-meta {
+  color: var(--wbez-muted);
+  font-size: .95rem;
+}
+
+.prose-wbez {
+  font-size: 1.1rem;
+  line-height: 1.75;
+}
+
+.prose-wbez p {
+  margin-bottom: 1rem;
+}
+
+.prose-wbez h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.prose-wbez h3 {
+  margin-top: 2rem;
+  margin-bottom: .75rem;
+  font-size: 1.5rem;
+}
+
+.prose-wbez blockquote {
+  border-left: 4px solid var(--wbez-red);
+  padding-left: 1rem;
+  margin: 2rem 0;
+  font-style: italic;
+}
+
+.site-topbar {
+  background: #000;
+  color: #fff;
+  font-weight: 700;
+  font-size: .95rem;
+}
+
+.site-topbar .brand-divider {
+  opacity: .5;
+}
+
+.site-masthead {
+  background: #000;
+  color: #fff;
+  border-top: 4px solid var(--wbez-red);
+}
+
+.site-strapline {
+  background: #fff;
+  border-top: 0;
+  border-bottom: 1px solid #d9d9d9;
+  padding-top: 25px;
+  padding-bottom: 50px;
+}
+
+.site-strapline-text {
+  font-family: var(--wbez-brand);
+  color: #6b6b6b;
+  font-weight: 700;
+  font-size: clamp(1.1rem, 1.4vw, 1.6rem);
+  line-height: 1;
+}
+
+.brand-lockup {
+  font-family: var(--wbez-brand);
+  font-weight: 900;
+  letter-spacing: -.03em;
+  line-height: 1;
+}
+
+.brand-lockup .brand-red {
+  color: var(--wbez-red);
+}
+
+.btn-wbez {
+  --bs-btn-bg: var(--wbez-red);
+  --bs-btn-border-color: var(--wbez-red);
+  --bs-btn-color: #fff;
+  --bs-btn-hover-bg: var(--wbez-red-dark);
+  --bs-btn-hover-border-color: var(--wbez-red-dark);
+  --bs-btn-active-bg: var(--wbez-red-dark);
+  --bs-btn-active-border-color: var(--wbez-red-dark);
+}
+
+.btn-listen {
+  --bs-btn-color: #fff;
+  --bs-btn-border-color: rgba(255,255,255,.8);
+  --bs-btn-hover-color: #000;
+  --bs-btn-hover-bg: #fff;
+  --bs-btn-hover-border-color: #fff;
+}
+
+.wbez-card {
+  border: 1px solid var(--wbez-border);
+  box-shadow: none;
+  border-radius: .25rem;
+}
+
+.story-kicker {
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  font-size: .8rem;
+  color: var(--wbez-muted);
+  font-weight: 700;
+}
+
+.story-title {
+  font-family: var(--wbez-serif);
+  line-height: 1.15;
+}
+
+.story-meta {
+  color: var(--wbez-muted);
+  font-size: .9rem;
+}
+
+.pull-quote {
+  border-left: 4px solid var(--wbez-red);
+  padding-left: 1rem;
+  margin: 2rem 0;
+}
+
+.section-rule {
+  border-bottom: 2px solid var(--wbez-border);
+}
+
+.footer-dark {
+  background: #111;
+  color: #fff;
+}
+
+.demo-hero-image,
+.demo-figure-image {
+  background: linear-gradient(135deg, #d7d7d7, #f3f3f3);
+  min-height: 280px;
+  width: 100%;
+}
+
+.demo-rail-card + .demo-rail-card {
+  border-top: 1px solid var(--wbez-border);
+}
+
+.offcanvas-wbez {
+  background: #000;
+  color: #fff;
+}
+
+.offcanvas-wbez a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.offcanvas-wbez a:hover {
+  color: #fff;
+  background: rgba(255,255,255,.08);
+}
+
+.site-topbar-separator {
+  width: 1px;
+  height: 32px;
+  background: rgba(255,255,255,.8);
+}
+
+.site-strapline-rule {
+  height: 3px;
+  background: #d1d1d1;
+}
+
+.site-masthead .btn-link {
+  font-weight: 700;
+  letter-spacing: .02em;
+}

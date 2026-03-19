@@ -1,0 +1,6 @@
+<div class="d-flex align-items-end justify-content-between gap-3 section-rule pb-2 mb-4">
+  <h2 class="editorial-heading h2 m-0"><%= local_assigns[:title] %></h2>
+  <% if local_assigns[:link_text].present? %>
+    <a href="<%= local_assigns[:href] || '#' %>" class="fw-semibold text-decoration-none"><%= local_assigns[:link_text] %></a>
+  <% end %>
+</div>

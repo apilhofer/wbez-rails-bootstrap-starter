@@ -1,0 +1,9 @@
+<div class="card wbez-card <%= local_assigns[:class] %>">
+  <div class="card-body">
+    <% if local_assigns[:title].present? %><h3 class="<%= local_assigns[:editorial] ? 'story-title h3' : 'h5' %>"><%= local_assigns[:title] %></h3><% end %>
+    <% if local_assigns[:meta].present? %><div class="story-meta mb-2"><%= local_assigns[:meta] %></div><% end %>
+    <% if local_assigns[:body].present? %><p class="mb-0"><%= local_assigns[:body] %></p><% end %>
+    <%= yield if block_given? %>
+    <% if local_assigns[:actions].present? %><div class="mt-3"><%= local_assigns[:actions] %></div><% end %>
+  </div>
+</div>

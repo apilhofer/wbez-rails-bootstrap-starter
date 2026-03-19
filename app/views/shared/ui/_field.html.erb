@@ -1,0 +1,27 @@
+<%
+  field_id = local_assigns[:id] || "#{local_assigns[:form].object_name}_#{local_assigns[:name]}"
+  field_type = local_assigns.fetch(:as, :text_field).to_sym
+%>
+<div class="mb-3">
+  <% if local_assigns[:label].present? && field_type != :check_box %>
+    <label class="form-label fw-semibold" for="<%= field_id %>"><%= local_assigns[:label] %></label>
+  <% end %>
+
+  <% case field_type %>
+  <% when :text_area %>
+    <%= local_assigns[:form].text_area local_assigns[:name], rows: local_assigns.fetch(:rows, 4), class: "form-control", id: field_id %>
+  <% when :select %>
+    <%= local_assigns[:form].select local_assigns[:name], local_assigns.fetch(:options, []), local_assigns.fetch(:select_options, {}), class: "form-select", id: field_id %>
+  <% when :email_field %>
+    <%= local_assigns[:form].email_field local_assigns[:name], class: "form-control", id: field_id %>
+  <% when :check_box %>
+    <div class="form-check">
+      <%= local_assigns[:form].check_box local_assigns[:name], class: "form-check-input", id: field_id %>
+      <label class="form-check-label" for="<%= field_id %>"><%= local_assigns[:checkbox_label] || local_assigns[:label] %></label>
+    </div>
+  <% else %>
+    <%= local_assigns[:form].text_field local_assigns[:name], class: "form-control", id: field_id %>
+  <% end %>
+
+  <% if local_assigns[:hint].present? %><div class="form-text"><%= local_assigns[:hint] %></div><% end %>
+</div>

@@ -1,0 +1,29 @@
+<div class="bg-white">
+  <%= render "shared/ui/site_header" %>
+
+  <main class="content-shell px-3 py-4">
+    <header class="mb-5">
+      <div class="wbez-kicker mb-2">Brand assets</div>
+      <h1 class="editorial-heading display-5">Logos demo</h1>
+      <p class="lead">These logos are downloaded locally by the installer so the header/footer can use real assets instead of hand-built text.</p>
+    </header>
+
+    <div class="row g-4">
+      <% @logos.each do |name, asset_name| %>
+        <div class="col-md-6 col-xl-4">
+          <div class="card wbez-card h-100">
+            <div class="card-body">
+              <div class="story-kicker mb-2"><%= name %></div>
+              <div class="border rounded bg-light p-3 d-flex align-items-center justify-content-center" style="min-height: 110px;">
+                <%= image_tag asset_name, alt: name, class: "img-fluid", style: "max-height: 54px;" %>
+              </div>
+              <div class="story-meta mt-3"><code><%= asset_name %></code></div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </main>
+
+  <%= render "shared/ui/site_footer" %>
+</div>

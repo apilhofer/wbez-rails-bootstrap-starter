@@ -1,0 +1,8 @@
+<div class="card wbez-card h-100">
+  <div class="card-body">
+    <% if local_assigns[:kicker].present? %><div class="story-kicker mb-2"><%= local_assigns[:kicker] %></div><% end %>
+    <h3 class="story-title h4"><%= local_assigns[:title] %></h3>
+    <% if local_assigns[:dek].present? %><p class="card-text"><%= local_assigns[:dek] %></p><% end %>
+    <% if local_assigns[:meta].present? %><div class="story-meta mt-3"><%= local_assigns[:meta] %></div><% end %>
+  </div>
+</div>

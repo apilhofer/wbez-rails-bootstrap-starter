@@ -1,0 +1,14 @@
+<div class="row g-4 align-items-start">
+  <div class="col-lg-7">
+    <div class="demo-hero-image rounded"></div>
+  </div>
+  <div class="col-lg-5">
+    <% if local_assigns[:kicker].present? %><div class="story-kicker mb-2"><%= local_assigns[:kicker] %></div><% end %>
+    <h1 class="story-title display-5"><%= local_assigns[:title] %></h1>
+    <% if local_assigns[:dek].present? %><p class="lead"><%= local_assigns[:dek] %></p><% end %>
+    <div class="d-flex gap-2 mt-4">
+      <a href="#" class="<%= ui_btn_class(:primary) %>">Read more</a>
+      <a href="#" class="btn btn-outline-secondary">Latest coverage</a>
+    </div>
+  </div>
+</div>

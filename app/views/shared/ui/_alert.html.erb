@@ -1,0 +1,12 @@
+<%
+  klass = case local_assigns.fetch(:kind, :info).to_sym
+          when :success then "alert-success"
+          when :warning then "alert-warning"
+          when :error then "alert-danger"
+          else "alert-info"
+          end
+%>
+<div class="alert <%= klass %>" role="alert">
+  <% if local_assigns[:title].present? %><strong><%= local_assigns[:title] %></strong><br><% end %>
+  <%= local_assigns[:message] %>
+</div>

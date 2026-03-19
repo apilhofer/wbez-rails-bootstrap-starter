@@ -1,0 +1,40 @@
+---
+description: Enforce Rails 8 WBEZ Bootstrap styling
+globs: [
+  "app/views/**/*",
+  "app/helpers/**/*",
+  "app/controllers/**/*",
+  "app/assets/**/*",
+  "config/**/*",
+  "docs/design-system/**/*"
+]
+alwaysApply: true
+---
+
+This project uses Rails 8, Hotwire/Turbo, Bootstrap, and WBEZ-inspired editorial patterns.
+
+Requirements:
+- Always use Rails-native patterns.
+- Always preserve Turbo and Hotwire compatibility.
+- Prefer ERB partials, helpers, and Stimulus over custom JS frameworks.
+- Prefer Bootstrap components wherever possible.
+- Follow WBEZ design rules from `docs/design-system/bootstrap-wbez.md`.
+- Reuse shared UI partials in `app/views/shared/ui` before creating new markup patterns.
+
+Do:
+- Use Bootstrap for navbar, offcanvas, buttons, cards, alerts, badges, forms, tabs, pagination, tables, and grid layout.
+- Use Source Sans Pro for UI.
+- Use Charter for editorial headlines and pull quotes.
+- Use neutral surfaces and WBEZ red for primary actions.
+- Keep layouts restrained, content-first, and high-contrast.
+- Use `.prose-wbez` for article bodies.
+- Use Turbo Frames for in-page result switching and pagination.
+
+Do not:
+- Introduce Tailwind, daisyUI, or React-style component patterns unless explicitly requested.
+- Hardcode lots of inline styles in ERB.
+- Invent new design tokens in views.
+- Replace standard Rails form/link behavior with unnecessary JavaScript.
+- Use playful gradients, glassmorphism, or over-decorated components.
+
+- Use `/demo/logos` to inspect available downloaded brand assets before inventing logo treatments.

@@ -1,0 +1,6 @@
+<% classes = [ui_btn_class(local_assigns.fetch(:variant, :primary)), local_assigns[:class]].compact.join(" ") %>
+<% if local_assigns[:href].present? %>
+  <%= link_to local_assigns[:label], local_assigns[:href], class: classes %>
+<% else %>
+  <button type="<%= local_assigns.fetch(:type, 'button') %>" class="<%= classes %>"><%= local_assigns[:label] %></button>
+<% end %>

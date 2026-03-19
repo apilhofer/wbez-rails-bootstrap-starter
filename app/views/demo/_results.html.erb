@@ -1,0 +1,40 @@
+<section id="results" class="my-5">
+  <%= render "shared/ui/section_header", title: "Tabs and table" %>
+
+  <%= render "shared/ui/tabs", tabs: tabs, current: current_tab, turbo_frame: "demo_results" %>
+
+  <% case current_tab.to_sym %>
+  <% when :overview %>
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <%= render "shared/ui/card", title: "Overview", editorial: true, body: "This tab demonstrates frame-swapped summary content using Bootstrap cards." %>
+      </div>
+      <div class="col-lg-4">
+        <%= render "shared/ui/card", title: "Active items", meta: "Current page: #{current_page}", body: "There are #{table_rows.length} visible rows in this page slice." %>
+      </div>
+      <div class="col-lg-4">
+        <%= render "shared/ui/card", title: "Editorial rhythm", body: "Use tabs for modular prototype flows and internal tools." %>
+      </div>
+    </div>
+  <% when :table %>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead><tr><% table_headers.each { |h| %><th><%= h %></th><% } %></tr></thead>
+        <tbody>
+          <% table_rows.each do |row| %>
+            <tr><% row.each { |cell| %><td><%= cell %></td><% } %></tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <%= render "shared/ui/pagination", current_page: current_page, total_pages: total_pages, base_path: demo_path(tab: current_tab), turbo_frame: "demo_results" %>
+  <% when :form %>
+    <%= render "shared/ui/card", title: "Form-focused tab", body: "This demonstrates that the frame can swap into a different content mode." do %>
+      <form class="mt-3">
+        <div class="mb-3"><label class="form-label">Search term</label><input class="form-control" placeholder="Search demo content"></div>
+        <div class="mb-3"><label class="form-label">Category</label><select class="form-select"><option>News</option><option>Membership</option><option>Events</option></select></div>
+        <div class="d-flex gap-2"><button type="button" class="btn btn-wbez">Apply</button><button type="button" class="btn btn-outline-secondary">Reset</button></div>
+      </form>
+    <% end %>
+  <% end %>
+</section>

@@ -1,0 +1,7 @@
+<ul class="nav nav-tabs mb-4">
+  <% local_assigns.fetch(:tabs, []).each do |tab| %>
+    <li class="nav-item">
+      <%= link_to tab[:label], tab[:href], class: active_tab_class(local_assigns.fetch(:current).to_s == tab[:key].to_s), data: (local_assigns[:turbo_frame].present? ? { turbo_frame: local_assigns[:turbo_frame] } : {}) %>
+    </li>
+  <% end %>
+</ul>

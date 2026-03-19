@@ -1,0 +1,10 @@
+<%
+  klass = case local_assigns.fetch(:kind, :secondary).to_sym
+          when :primary then "text-bg-danger"
+          when :success then "text-bg-success"
+          when :warning then "text-bg-warning"
+          when :info then "text-bg-info"
+          else "text-bg-secondary"
+          end
+%>
+<span class="badge <%= klass %>"><%= local_assigns[:label] %></span>
