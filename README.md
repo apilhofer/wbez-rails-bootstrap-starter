@@ -41,3 +41,21 @@ Note: demo routes are development-only and do not replace your app root route.
 
 
 Demo routes are development-only and do not modify your app root route.
+
+## Cursor-native additions
+
+This package includes:
+- a stronger `AGENTS.md`
+- a Cursor rule file in `.cursor/rules/wbez-bootstrap.mdc`
+- a `docs/design-system/cursor-native-guide.md` handoff/reference guide
+- a `/demo/cookbook` page for editorial patterns
+
+### Demo routes (development only)
+- `/demo`
+- `/demo/home`
+- `/demo/article`
+- `/demo/logos`
+- `/demo/icons`
+- `/demo/cookbook`
+
+These demo routes do not modify the application root route.

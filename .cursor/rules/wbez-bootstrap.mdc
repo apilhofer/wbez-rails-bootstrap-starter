@@ -1,40 +1,61 @@
 ---
-description: Enforce Rails 8 WBEZ Bootstrap styling
+description: WBEZ Rails Bootstrap house style
 globs: [
   "app/views/**/*",
   "app/helpers/**/*",
   "app/controllers/**/*",
   "app/assets/**/*",
   "config/**/*",
-  "docs/design-system/**/*"
+  "docs/design-system/**/*",
+  "AGENTS.md"
 ]
 alwaysApply: true
 ---
 
-This project uses Rails 8, Hotwire/Turbo, Bootstrap, and WBEZ-inspired editorial patterns.
+This repo is a Rails 8 Bootstrap starter for WBEZ-style prototyping.
 
-Requirements:
-- Always use Rails-native patterns.
-- Always preserve Turbo and Hotwire compatibility.
-- Prefer ERB partials, helpers, and Stimulus over custom JS frameworks.
-- Prefer Bootstrap components wherever possible.
-- Follow WBEZ design rules from `docs/design-system/bootstrap-wbez.md`.
-- Reuse shared UI partials in `app/views/shared/ui` before creating new markup patterns.
+Follow these rules when generating or editing code:
 
-Do:
-- Use Bootstrap for navbar, offcanvas, buttons, cards, alerts, badges, forms, tabs, pagination, tables, and grid layout.
-- Use Source Sans Pro for UI.
-- Use Charter for editorial headlines and pull quotes.
-- Use neutral surfaces and WBEZ red for primary actions.
-- Keep layouts restrained, content-first, and high-contrast.
-- Use `.prose-wbez` for article bodies.
-- Use Turbo Frames for in-page result switching and pagination.
+## Core constraints
+- Use Rails-native patterns: ERB partials, helpers, Turbo, Stimulus.
+- Prefer Bootstrap layout and components over custom utility systems.
+- Do not introduce Tailwind, daisyUI, React, Vue, or custom frontend architecture unless explicitly requested.
+- Keep controllers thin and prefer display composition in partials/helpers.
+- Do not modify the application's root route when working on demo pages.
 
-Do not:
-- Introduce Tailwind, daisyUI, or React-style component patterns unless explicitly requested.
-- Hardcode lots of inline styles in ERB.
-- Invent new design tokens in views.
-- Replace standard Rails form/link behavior with unnecessary JavaScript.
-- Use playful gradients, glassmorphism, or over-decorated components.
+## Canonical references
+- `/demo` → component playground
+- `/demo/home` → homepage-style reference
+- `/demo/article` → article-page reference
+- `/demo/cookbook` → editorial patterns reference
+- `/demo/icons` → icon inventory
+- `/demo/logos` → logo inventory
 
-- Use `/demo/logos` to inspect available downloaded brand assets before inventing logo treatments.
+## Required conventions
+- Reuse shared partials in `app/views/shared/ui` before writing new markup.
+- If a new pattern is likely reusable, extract it as a partial.
+- Use `.prose-wbez` for long-form editorial body content.
+- Use serif treatment for editorial headlines and pull quotes.
+- Use sans-serif treatment for UI, navigation, forms, metadata, and labels.
+
+## Icons and logos
+- Ferris icons are local SVGs in `app/assets/images/icons`.
+- Always use `ferris_icon` or `inline_svg` for Ferris icons.
+- Never use `image_tag` for Ferris icons.
+- Use local logo assets from `app/assets/images/logos`.
+- Do not hotlink CDN assets in views when a local asset exists.
+
+## Good output characteristics
+- Content-first
+- restrained spacing
+- readable hierarchy
+- simple Bootstrap grid/layout
+- WBEZ-like editorial tone
+- reusable partial-based implementation
+
+## Avoid
+- one-off inline styles unless truly necessary
+- novelty UI treatments
+- arbitrary colors or spacing scales
+- deeply nested custom HTML when an existing partial already matches
+- JavaScript-heavy behavior when Turbo can handle it

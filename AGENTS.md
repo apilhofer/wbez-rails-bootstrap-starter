@@ -1,62 +1,84 @@
 # AGENTS.md
 
-This is a Rails 8 application using Hotwire/Turbo, Stimulus, and Bootstrap.
+This is a Rails 8 application template for WBEZ-style prototyping. It uses:
+- Rails 8
+- Hotwire/Turbo
+- Stimulus
+- Bootstrap
+- ERB partials
+- Local WBEZ/Ferris brand assets (logos + icons)
 
-## Core UI policy
-- Always prefer Rails-native patterns.
-- Use ERB partials, helpers, and Stimulus before custom JavaScript frameworks.
-- Preserve Turbo/Hotwire behavior by default.
-- Do not add React, Vue, or client-side component frameworks unless explicitly requested.
+The purpose of this project is to help build new Rails interfaces that feel consistent with WBEZ editorial and product patterns while remaining fast to prototype.
 
-## Design system policy
-- Always implement UI using WBEZ-inspired editorial patterns.
-- Prefer Bootstrap components and layout utilities before custom CSS.
-- Apply WBEZ branding through shared partials and theme variables.
-- Do not invent ad hoc colors, spacing systems, or type stacks unless explicitly asked.
+## Architecture rules
+- Prefer Rails-native patterns first: ERB partials, helpers, Turbo, and Stimulus.
+- Do not introduce React, Vue, Tailwind, daisyUI, or client-side component frameworks unless explicitly requested.
+- Reuse shared UI partials in `app/views/shared/ui` before creating one-off markup.
+- If a new UI pattern is likely to be reused, extract a partial instead of copying markup.
+- Keep controllers thin; prefer helpers and partial composition for display logic.
+- Do not modify the application root route when adding demo pages or internal reference pages.
 
-## Typography
-- Use Source Sans Pro for UI, forms, nav, metadata, labels, and utility text.
-- Use Charter for editorial headlines, pull quotes, and article subheads.
-- Keep dense app UI sans-serif.
+## Design system rules
+- Use Bootstrap for layout, spacing, forms, nav, tables, buttons, cards, alerts, badges, pagination, and responsive structure.
+- Layer WBEZ styling on top of Bootstrap rather than replacing Bootstrap with a custom utility system.
+- Use `docs/design-system/bootstrap-wbez.md` and `docs/design-system/cursor-native-guide.md` as the primary style references.
+- Keep pages restrained, content-first, readable, and high-contrast.
+- Prefer editorial hierarchy over generic “app chrome.”
 
-## Bootstrap policy
-- Prefer Bootstrap for navbar, offcanvas, cards, alerts, badges, forms, nav-tabs, pagination, grid, and buttons.
-- Reuse shared partials in `app/views/shared/ui`.
-- When a new pattern is needed, extract a reusable partial.
-
-## Editorial content
-- Use `.prose-wbez` for long-form content.
-- Use serif headings for editorial content.
-- Prefer pull quotes, captions, section breaks, and article structure for storytelling.
-- Avoid dropping generic cards/buttons into article bodies unless intentional.
-
-## Hotwire/Turbo rules
-- Do not replace links/forms with custom JavaScript when Rails + Turbo handles the behavior.
-- Keep forms, links, flash messages, and navigation compatible with Turbo.
-- Use Turbo Frames for scoped updates.
-- Use Stimulus only for light progressive enhancement.
+## Typography rules
+- Use Source Sans Pro / sans-serif for UI, labels, forms, nav, metadata, and utility text.
+- Use Charter / serif styling for editorial headlines, subheads, long-form story titles, and pull quotes.
+- Use `.prose-wbez` for article bodies and long-form content.
 
 ## Shared UI inventory
-Prefer these shared partials before writing inline Bootstrap markup:
+Prefer these before writing new markup:
+- `shared/ui/site_header`
+- `shared/ui/site_footer`
+- `shared/ui/section_header`
+- `shared/ui/story_card`
+- `shared/ui/hero_story`
+- `shared/ui/article_header`
+- `shared/ui/article_shell`
+- `shared/ui/figure`
+- `shared/ui/pull_quote`
+- `shared/ui/responsive_embed`
+- `shared/ui/alert`
+- `shared/ui/badge`
+- `shared/ui/button`
+- `shared/ui/card`
+- `shared/ui/field`
+- `shared/ui/tabs`
+- `shared/ui/pagination`
 
-- shared/ui/site_header
-- shared/ui/site_footer
-- shared/ui/section_header
-- shared/ui/story_card
-- shared/ui/hero_story
-- shared/ui/alert
-- shared/ui/badge
-- shared/ui/button
-- shared/ui/card
-- shared/ui/field
-- shared/ui/tabs
-- shared/ui/pagination
-- shared/ui/pull_quote
-- shared/ui/figure
-- shared/ui/responsive_embed
-- shared/ui/article_shell
-- shared/ui/article_header
+## Icon and logo rules
+- Ferris icons are local SVG files in `app/assets/images/icons`.
+- Always render Ferris icons with `ferris_icon` or `inline_svg`.
+- Do not use `image_tag` for Ferris icons, because external image rendering will not inherit `currentColor`.
+- Local logos live in `app/assets/images/logos`.
+- Use `/demo/icons` and `/demo/logos` as the reference pages for available assets.
 
-## Brand assets
-- Download and use local logo assets from the installer.
-- Use the logos demo page at `/demo/logos` to inspect available brand files.
+## Editorial patterns
+- Use `/demo/article` as the canonical article example.
+- Use `/demo/home` as the canonical homepage-style example.
+- Use `/demo/cookbook` as the canonical editorial-pattern reference.
+- Prefer kicker → headline → dek → metadata → body hierarchy for stories.
+- Prefer real editorial modules such as pull quotes, figures, embeds, and related content blocks over generic cards dropped into article bodies.
+
+## Hotwire/Turbo rules
+- Keep forms and links Turbo-compatible by default.
+- Prefer Turbo Frames for scoped updates.
+- Use Stimulus only for light progressive enhancement.
+- Do not replace standard Rails behavior with unnecessary JavaScript.
+
+## Demo route rules
+- Demo pages are development-only reference pages.
+- Allowed demo routes include `/demo`, `/demo/home`, `/demo/article`, `/demo/logos`, `/demo/icons`, and `/demo/cookbook`.
+- Demo routes must never override the app root route.
+
+## When extending the system
+When asked to build a new page:
+1. Reuse shared partials first.
+2. Follow Bootstrap layout conventions.
+3. Apply WBEZ editorial hierarchy and typography.
+4. Use local logos/icons/helpers.
+5. Keep the result easy to refactor into reusable UI.

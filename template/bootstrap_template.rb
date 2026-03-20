@@ -126,6 +126,7 @@ unless routes.include?(route_marker)
       get "/demo/article", to: "demo#article"
       get "/demo/logos", to: "demo#logos"
       get "/demo/icons", to: "demo#icons"
+      get "/demo/cookbook", to: "demo#cookbook"
     end
   RUBY
 

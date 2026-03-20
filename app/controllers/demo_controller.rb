@@ -53,6 +53,9 @@ class DemoController < ApplicationController
   def article
   end
 
+  def cookbook
+  end
+
   def icons
     @wbez_icons = [
       ["cursor", "icons/wbez/cursor.svg"],

@@ -1,0 +1,112 @@
+<div class="bg-white">
+  <%= render "shared/ui/site_header" %>
+
+  <main class="content-shell px-3 py-4">
+    <header class="mb-5">
+      <div class="wbez-kicker mb-2">Editorial patterns</div>
+      <h1 class="editorial-heading display-5">Cookbook</h1>
+      <p class="lead">Reference implementations for long-form story patterns, embedded media, pull quotes, lists, and structured editorial content.</p>
+    </header>
+
+    <%= render "shared/ui/section_header", title: "Article lead" %>
+    <div class="reading-shell px-0 mb-5">
+      <div class="wbez-kicker mb-2">Curious City</div>
+      <h2 class="article-title display-6 mb-3">How Chicago’s neighborhoods learned to tell their stories block by block</h2>
+      <p class="article-dek mb-3">A canonical long-form intro with kicker, serif headline, dek and readable article rhythm.</p>
+      <div class="article-meta">By WBEZ Staff · March 2026</div>
+    </div>
+
+    <%= render "shared/ui/section_header", title: "Body copy + drop cap" %>
+    <div class="reading-shell px-0 prose-wbez mb-5">
+      <p><span class="float-start fw-bold me-2" style="font-family: var(--wbez-serif); font-size: 4rem; line-height: .8;">L</span>orem ipsum dolor sit amet, consectetur adipiscing elit. Sed non sem at est blandit tristique. Integer feugiat, justo vitae maximus faucibus, dolor lacus vulputate arcu, sit amet vestibulum justo dolor ac erat.</p>
+      <p>Praesent porta, lectus in volutpat tincidunt, eros urna mattis nibh, quis bibendum dolor est ut arcu. Curabitur sodales erat vitae elit tempor, a fermentum neque consequat.</p>
+    </div>
+
+    <%= render "shared/ui/section_header", title: "Pull quote" %>
+    <div class="reading-shell px-0 mb-5">
+      <%= render "shared/ui/pull_quote",
+        quote: "The strongest prototypes in this system should feel like editorial products, not anonymous admin screens.",
+        attribution: "Design system guidance" %>
+    </div>
+
+    <%= render "shared/ui/section_header", title: "Figure + caption" %>
+    <div class="reading-shell px-0 mb-5">
+      <%= render "shared/ui/figure", caption: "Use figures for photography, charts, illustrations, or placeholders while prototyping." %>
+    </div>
+
+    <%= render "shared/ui/section_header", title: "Blockquote + list patterns" %>
+    <div class="reading-shell px-0 prose-wbez mb-5">
+      <blockquote>
+        This pattern is useful for sourced language, highlighted framing, or historical excerpts.
+      </blockquote>
+
+      <h3>What this page demonstrates</h3>
+      <ul>
+        <li>Readable article spacing</li>
+        <li>Editorial typography hierarchy</li>
+        <li>Pull quotes and figures as reusable modules</li>
+        <li>Simple list and blockquote treatments</li>
+      </ul>
+
+      <h3>Ordered steps</h3>
+      <ol>
+        <li>Start with shared partials.</li>
+        <li>Use Bootstrap for structure.</li>
+        <li>Apply WBEZ editorial rhythm.</li>
+      </ol>
+    </div>
+
+    <%= render "shared/ui/section_header", title: "Responsive embed" %>
+    <div class="reading-shell px-0 mb-5">
+      <%= render "shared/ui/responsive_embed" %>
+      <div class="article-meta mt-2">Use this wrapper for video, audio, maps, or other responsive embeds.</div>
+    </div>
+
+    <%= render "shared/ui/section_header", title: "Simple editorial table" %>
+    <div class="reading-shell px-0 mb-5">
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Pattern</th>
+              <th>Use case</th>
+              <th>Preferred implementation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Icons</td>
+              <td>UI actions, metadata, small cues</td>
+              <td><code>ferris_icon</code></td>
+            </tr>
+            <tr>
+              <td>Story modules</td>
+              <td>Homepage and section pages</td>
+              <td>Shared partials + Bootstrap grid</td>
+            </tr>
+            <tr>
+              <td>Long-form body</td>
+              <td>Articles, explainers, features</td>
+              <td><code>.prose-wbez</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <%= render "shared/ui/section_header", title: "Related story cards" %>
+    <div class="row g-4 mb-5">
+      <div class="col-md-4">
+        <%= render "shared/ui/story_card", kicker: "Politics", title: "What a clean handoff to the AI should preserve in a newsroom repo", meta: "5 min read" %>
+      </div>
+      <div class="col-md-4">
+        <%= render "shared/ui/story_card", kicker: "Product", title: "Why shared partials matter more than perfect first-pass markup", meta: "Design systems" %>
+      </div>
+      <div class="col-md-4">
+        <%= render "shared/ui/story_card", kicker: "Audio", title: "A prototype can still feel like a published product when the patterns are right", meta: "Listen" %>
+      </div>
+    </div>
+  </main>
+
+  <%= render "shared/ui/site_footer" %>
+</div>
