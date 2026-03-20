@@ -5,6 +5,7 @@ globs: [
   "app/helpers/**/*",
   "app/controllers/**/*",
   "app/assets/**/*",
+  "lib/**/*",
   "config/**/*",
   "docs/design-system/**/*",
   "AGENTS.md"
@@ -21,7 +22,7 @@ Follow these rules when generating or editing code:
 - Prefer Bootstrap layout and components over custom utility systems.
 - Do not introduce Tailwind, daisyUI, React, Vue, or custom frontend architecture unless explicitly requested.
 - Keep controllers thin and prefer display composition in partials/helpers.
-- Do not modify the application's root route when working on demo pages.
+- Do not modify the application's root route to point at demo pages (v2 template never does this; v1->v2 upgrade scripts remove any `root "demo#home"` if present).
 
 ## Canonical references
 - `/demo` → component playground

@@ -1,13 +1,22 @@
-# WBEZ Bootstrap Starter
+# WBEZ Bootstrap Starter (Versioned Rails Template)
 
-Fresh install:
+## GitHub-native install (recommended)
 
+1. Create your app:
 ```bash
 rails new my_app -d postgresql
 cd my_app
-mkdir -p tmp
-cp -R /path/to/wbez_bootstrap_starter_logo_fix tmp/wbez_bootstrap_starter
-bin/rails app:template LOCATION=tmp/wbez_bootstrap_starter/template/bootstrap_template.rb
+```
+
+2. Install the template (use `v2.0.0` or `main`):
+```bash
+bin/rails app:template LOCATION=https://raw.githubusercontent.com/USERNAME/REPO/v2.0.0/template/bootstrap_template.rb
+# or latest:
+# bin/rails app:template LOCATION=https://raw.githubusercontent.com/USERNAME/REPO/main/template/bootstrap_template.rb
+```
+
+3. Boot:
+```bash
 bin/rails db:create
 bin/rails db:migrate
 ./bin/dev
@@ -23,24 +32,65 @@ This installer:
 - downloads the Ferris logo set into `app/assets/images/logos`
 - extracts Ferris icon SVGs from the Ferris docs HTML into `app/assets/images/icons`
 
-Demo pages:
-- `/`
+## Versions and tags
+
+The template writes `config/wbez_bootstrap_starter.yml` during install with the installed version and (when remote-installed) the GitHub raw base URL.
+
+To install a specific version, reference that tag in the URL:
+`.../vX.Y.Z/template/bootstrap_template.rb`
+
+## Upgrade path (v1 -> v2)
+
+The v2 template **never** rewires `/` to the demo homepage. If you previously installed the older template and it inserted `root "demo#home"`, the upgrade removes that root override.
+
+Option A (uses the installed marker file):
+```bash
+bin/rails wbez:upgrade[v1,v2]
+```
+
+Option B (run directly via raw URL):
+```bash
+bin/rails app:template LOCATION=https://raw.githubusercontent.com/USERNAME/REPO/v2.0.0/template/upgrades/v1_to_v2.rb
+```
+
+## Generator scaffold
+
+Generate a WBEZ-style article page:
+```bash
+bin/rails generate wbez:page Article
+```
+
+This generates:
+- `app/controllers/articles_controller.rb`
+- `app/views/articles/show.html.erb`
+
+The generated view composes existing shared partials and wraps long-form body content in `.prose-wbez`.
+
+## Template structure (inside this repo)
+
+- `template/bootstrap_template.rb`: thin entrypoint; orchestrates installs
+- `template/install/*`: modular install steps (bootstrap, assets, demos, cursor/docs, routes)
+- `template/upgrades/*`: upgrade scripts (currently `v1_to_v2.rb`)
+- `lib/wbez_bootstrap_starter/version.rb`: template version constant
+- `lib/generators/wbez/page/*`: `wbez:page` generator templates
+- `lib/tasks/wbez_bootstrap_starter.rake`: `wbez:upgrade[from,to]` task for generated apps
+
+## Demo routes (development only)
+
+Demo routes are inserted only inside a `if Rails.env.development?` block:
 - `/demo`
 - `/demo/home`
 - `/demo/article`
 - `/demo/logos`
 - `/demo/icons`
+- `/demo/cookbook`
 
+In v2, the template does **not** change your app’s root route.
 
-## Ferris icons
+## Ferris icons and logos
 
-Ferris icons are installed as local SVG files and rendered with an inline SVG helper so they can inherit CSS color, including white icons on a black header.
-
-
-Note: demo routes are development-only and do not replace your app root route.
-
-
-Demo routes are development-only and do not modify your app root route.
+- Ferris icons are **local SVGs** under `app/assets/images/icons` and must be rendered with `ferris_icon` (or `inline_svg`), not `image_tag`.
+- Logos are downloaded into `app/assets/images/logos` during template install.
 
 ## Cursor-native additions
 
@@ -49,13 +99,3 @@ This package includes:
 - a Cursor rule file in `.cursor/rules/wbez-bootstrap.mdc`
 - a `docs/design-system/cursor-native-guide.md` handoff/reference guide
 - a `/demo/cookbook` page for editorial patterns
-
-### Demo routes (development only)
-- `/demo`
-- `/demo/home`
-- `/demo/article`
-- `/demo/logos`
-- `/demo/icons`
-- `/demo/cookbook`
-
-These demo routes do not modify the application root route.
