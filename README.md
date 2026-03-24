@@ -54,16 +54,21 @@ bin/rails app:template LOCATION=https://raw.githubusercontent.com/USERNAME/REPO/
 
 ## Generator scaffold
 
-Generate a WBEZ-style article page:
+Generate a named WBEZ-style page:
 ```bash
-bin/rails generate wbez:page Article
+bin/rails generate wbez:page investigative_article --type=article
+bin/rails generate wbez:page breaking_news_article --type=article
+bin/rails generate wbez:page local_roundup_home --type=home
 ```
 
 This generates:
-- `app/controllers/articles_controller.rb`
-- `app/views/articles/show.html.erb`
+- `app/controllers/<name_plural>_controller.rb`
+- `app/views/<name_plural>/show.html.erb`
+- a route at `/<name>` that points to `<name_plural>#show`
 
-The generated view composes existing shared partials and wraps long-form body content in `.prose-wbez`.
+`--type` supports:
+- `article` (default): long-form article layout using `.prose-wbez`
+- `home` (or `homepage`): homepage-style layout using hero and story-card modules
 
 ## Template structure (inside this repo)
 
