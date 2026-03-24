@@ -27,6 +27,7 @@ module WbezBootstrapStarter
           app/views/shared/ui/_article_shell.html.erb
           app/views/shared/ui/_figure.html.erb
           app/views/shared/ui/_hero_story.html.erb
+          app/views/shared/ui/_listen_pill.html.erb
           app/views/shared/ui/_pull_quote.html.erb
           app/views/shared/ui/_pagination.html.erb
           app/views/shared/ui/_responsive_embed.html.erb

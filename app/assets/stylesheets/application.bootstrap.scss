@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap");
+
 @import "bootstrap/scss/bootstrap";
 
 :root {
@@ -8,7 +10,7 @@
   --wbez-border: #dcddde;
   --wbez-subtle: #f3f3f3;
   --wbez-serif: "Charter", "Palatino Linotype", "Book Antiqua", Palatino, serif;
-  --wbez-sans: "Source Sans Pro", Arial, sans-serif;
+  --wbez-sans: "Source Sans 3", "Source Sans Pro", Arial, sans-serif;
   --wbez-brand: "Arial Narrow", "Helvetica Neue Condensed", var(--wbez-sans);
 }
 
@@ -118,7 +120,7 @@ a:hover {
 .site-strapline {
   background: #fff;
   border-top: 0;
-  border-bottom: 1px solid #d9d9d9;
+  border-bottom: 0;
   padding-top: 25px;
   padding-bottom: 50px;
 }
@@ -127,7 +129,7 @@ a:hover {
   font-family: var(--wbez-brand);
   color: #6b6b6b;
   font-weight: 700;
-  font-size: clamp(1.1rem, 1.4vw, 1.6rem);
+  font-size: 18px;
   line-height: 1;
 }
 
@@ -194,6 +196,70 @@ a:hover {
   border-bottom: 2px solid var(--wbez-border);
 }
 
+/* Homepage scaffold (wbez.org–aligned generator output) */
+main.wbez-home .card {
+  border-color: var(--wbez-border);
+}
+
+.wbez-section-heading {
+  border-bottom: 3px solid var(--wbez-black);
+  padding-bottom: 0.35rem;
+  margin-bottom: 1.25rem;
+}
+
+.wbez-donate-inline {
+  background: var(--wbez-subtle);
+  border: 1px solid var(--wbez-border);
+}
+
+.wbez-donate-inline .editorial-heading {
+  color: var(--wbez-black);
+}
+
+/* Red pill Listen control — fixed footprint (all instances) */
+.wbez-listen-pill {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  width: 86px;
+  height: 30px;
+  padding: 0 6px;
+  background: var(--wbez-red);
+  color: #fff !important;
+  border-radius: 9999px;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1;
+  text-decoration: none !important;
+  border: 0;
+  flex-shrink: 0;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.wbez-listen-pill:hover,
+.wbez-listen-pill:focus {
+  background: var(--wbez-red-dark);
+  color: #fff !important;
+}
+
+.wbez-listen-pill__icon {
+  display: block;
+  flex-shrink: 0;
+}
+
+.wbez-listen-pill__label {
+  white-space: nowrap;
+}
+
+.wbez-byline {
+  font-size: 0.9rem;
+  color: var(--wbez-muted);
+}
+
 .footer-dark {
   background: #111;
   color: #fff;
@@ -232,8 +298,25 @@ a:hover {
 }
 
 .site-strapline-rule {
-  height: 3px;
+  height: 1.5px;
   background: #d1d1d1;
+  min-width: 0;
+}
+
+/* Homepage hero: gray rule only across the right rail column (matches strapline rule weight) */
+.wbez-home-rail {
+  border-top: 1.5px solid #d1d1d1;
+}
+
+/* Stacked story dividers in the rail two-column grid */
+.wbez-home-rail-grid article.card.border-bottom {
+  border-color: #d1d1d1 !important;
+}
+
+@media (max-width: 991.98px) {
+  .wbez-home-lead-rail .wbez-home-rail {
+    margin-top: 1rem;
+  }
 }
 
 .site-masthead .btn-link {

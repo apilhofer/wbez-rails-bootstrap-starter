@@ -1,0 +1,7 @@
+<%# Pill-shaped red Listen button (play icon + LISTEN text). %>
+<% href = local_assigns.fetch(:href, "#") %>
+<% extra = [local_assigns[:class]].compact.join(" ") %>
+<%= link_to href, class: ["wbez-listen-pill", extra].reject(&:blank?).join(" ") do %>
+  <%= ferris_icon "play", classes: "wbez-listen-pill__icon flex-shrink-0", size: 10 %>
+  <span class="wbez-listen-pill__label">Listen</span>
+<% end %>
