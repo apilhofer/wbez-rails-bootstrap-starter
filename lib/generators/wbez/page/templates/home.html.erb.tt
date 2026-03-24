@@ -1,36 +1,36 @@
 <div class="bg-white">
-  <%= render "shared/ui/site_header" %>
+  <%%= render "shared/ui/site_header" %>
 
   <main class="content-shell px-3 py-4">
     <section class="my-4">
-      <%= render "shared/ui/hero_story", kicker: @lead_story[:kicker], title: @lead_story[:title], dek: @lead_story[:dek] %>
+      <%%= render "shared/ui/hero_story", kicker: @lead_story[:kicker], title: @lead_story[:title], dek: @lead_story[:dek] %>
     </section>
 
     <section class="my-5">
-      <%= render "shared/ui/section_header", title: "More top stories", link_text: "See all", href: "#" %>
+      <%%= render "shared/ui/section_header", title: "More top stories", link_text: "See all", href: "#" %>
       <div class="row g-4">
-        <% @secondary_stories.each do |story| %>
+        <%% @secondary_stories.each do |story| %>
           <div class="col-md-4">
-            <%= render "shared/ui/story_card", kicker: story[:kicker], title: story[:title], dek: "A Bootstrap demo card composed in a WBEZ-like homepage stack." %>
+            <%%= render "shared/ui/story_card", kicker: story[:kicker], title: story[:title], dek: "A Bootstrap demo card composed in a WBEZ-like homepage stack." %>
           </div>
-        <% end %>
+        <%% end %>
       </div>
     </section>
 
     <section class="my-5">
-      <%= render "shared/ui/section_header", title: "Featured Audio" %>
+      <%%= render "shared/ui/section_header", title: "Featured Audio" %>
       <div class="row g-4">
         <div class="col-lg-8">
-          <%= render "shared/ui/card", title: "Morning Edition", editorial: true, body: "A simple audio-feature module suitable for rapid prototyping." %>
+          <%%= render "shared/ui/card", title: "Morning Edition", editorial: true, body: "A simple audio-feature module suitable for rapid prototyping." %>
         </div>
         <div class="col-lg-4">
-          <%= render "shared/ui/card", title: "Support WBEZ", body: "Bootstrap makes prototype donation panels and side modules fast to compose." do %>
-            <div class="mt-3"><%= render "shared/ui/button", label: "Donate now", href: "#", variant: :primary %></div>
-          <% end %>
+          <%%= render "shared/ui/card", title: "Support WBEZ", body: "Bootstrap makes prototype donation panels and side modules fast to compose." do %>
+            <div class="mt-3"><%%= render "shared/ui/button", label: "Donate now", href: "#", variant: :primary %></div>
+          <%% end %>
         </div>
       </div>
     </section>
   </main>
 
-  <%= render "shared/ui/site_footer" %>
+  <%%= render "shared/ui/site_footer" %>
 </div>
