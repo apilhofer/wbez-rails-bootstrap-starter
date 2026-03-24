@@ -2,18 +2,18 @@
   <%%= render "shared/ui/site_header" %>
 
   <main class="content-shell px-3 py-4 wbez-home">
-    <!-- Lead + rail -->
-    <section class="mb-5 pb-lg-3">
+    <!-- Homepage hero (current layout): Lead story + 2 col rail -->
+    <section class="mb-5 pb-lg-3 wbez-home-hero wbez-home-hero--lead-2col-rail">
       <%% featured_rail = @lead_rail_stories.first %>
       <%% secondary_rail = @lead_rail_stories.drop(1) %>
       <%% left_rail_stories = [secondary_rail[0], secondary_rail[2]].compact %>
       <%% right_rail_stories = [secondary_rail[1], secondary_rail[3]].compact %>
-      <div class="row g-4 wbez-home-lead-rail">
+      <div class="row g-4 wbez-home-lead-rail wbez-home-hero__top--lead-2col-rail">
         <div class="col-12 col-lg-6">
           <article class="card border-0 rounded-0">
             <div class="ratio ratio-16x9 bg-light"></div>
             <div class="card-body px-0 pt-3">
-              <div class="story-kicker mb-2 text-danger"><%%= @lead_story[:kicker] %></div>
+              <div class="story-kicker mb-2"><%%= @lead_story[:kicker] %></div>
               <h1 class="story-title h3 mb-2"><%%= @lead_story[:title] %></h1>
               <p class="article-dek mb-3"><%%= @lead_story[:dek] %></p>
               <div class="mt-1">

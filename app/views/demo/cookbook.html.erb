@@ -106,6 +106,70 @@
         <%= render "shared/ui/story_card", kicker: "Audio", title: "A prototype can still feel like a published product when the patterns are right", meta: "Listen" %>
       </div>
     </div>
+
+    <%= render "shared/ui/section_header", title: "Homepage hero: Lead story + 2 col rail" %>
+    <!-- Homepage hero layout option: Lead story + 2 col rail (current default) -->
+    <section class="mb-5 pb-lg-3 wbez-home-hero wbez-home-hero--lead-2col-rail">
+      <div class="row g-4 wbez-home-lead-rail wbez-home-hero__top--lead-2col-rail">
+        <div class="col-12 col-lg-6">
+          <article class="card border-0 rounded-0">
+            <div class="ratio ratio-16x9 bg-light"></div>
+            <div class="card-body px-0 pt-3">
+              <div class="story-kicker mb-2">Latest</div>
+              <h1 class="story-title h3 mb-2">City Hall, schools and the spring election dominate the week in Chicago</h1>
+              <p class="article-dek mb-3">A homepage hero scaffold that keeps the lead editorial hierarchy on the left and uses a two-column rail stack on the right.</p>
+              <div class="mt-1">
+                <%= render "shared/ui/listen_pill" %>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="col-12 col-lg-6 wbez-home-rail pt-lg-3">
+          <article class="card rounded-0 border-0 border-bottom py-3 w-100 mb-0">
+            <div class="row g-2 g-md-3 align-items-start">
+              <div class="col-6">
+                <div class="ratio ratio-4x3 bg-light border"></div>
+              </div>
+              <div class="col-6">
+                <div class="py-1">
+                  <div class="story-kicker mb-1">Architecture</div>
+                  <h2 class="story-title h6 mb-2">What’s That Building? South portico of the Griffin Museum of Science and Industry</h2>
+                  <p class="small text-muted mb-2 d-none d-md-block">The structure’s south entrance will be put to use for the first time in more than a century.</p>
+                  <%= render "shared/ui/listen_pill", class: "mb-0" %>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <div class="row g-3 pt-1 wbez-home-rail-grid">
+            <div class="col-6">
+              <div class="vstack">
+                <article class="card rounded-0 border-0 py-3 w-100 border-bottom">
+                  <div class="story-kicker mb-1">Theater &amp; Stages</div>
+                  <h3 class="story-title h6 mb-0 fw-normal">Kokandy, Invictus theater companies tie for most Non-Equity Jeff Awards in lively ceremony</h3>
+                </article>
+                <article class="card rounded-0 border-0 py-3 w-100">
+                  <div class="story-kicker mb-1">Environment</div>
+                  <h3 class="story-title h6 mb-0 fw-normal">Can replacing Illinois’ toxic lead pipes lead to a workforce boom?</h3>
+                </article>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="vstack">
+                <article class="card rounded-0 border-0 py-3 w-100 border-bottom">
+                  <div class="story-kicker mb-1">City Hall</div>
+                  <h3 class="story-title h6 mb-0 fw-normal">Former DCAS(E) deputy files whistleblower lawsuit against city for wrongful termination</h3>
+                </article>
+                <article class="card rounded-0 border-0 py-3 w-100">
+                  <div class="story-kicker mb-1">Museums &amp; Zoos</div>
+                  <h3 class="story-title h6 mb-0 fw-normal">Axolotls! Where to see the TikTok famous amphibians in Chicago</h3>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <%= render "shared/ui/site_footer" %>
