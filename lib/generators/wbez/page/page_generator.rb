@@ -16,7 +16,7 @@ module Wbez
     end
 
     def create_view
-      template "#{view_template}.html.erb.tt", File.join("app/views", plural_name, "show.html.erb")
+      template "#{view_template_file}.html.erb.tt", File.join("app/views", plural_name, "show.html.erb")
     end
 
     def add_route
@@ -38,6 +38,10 @@ module Wbez
       return page_type if %w[article home].include?(page_type)
 
       raise Thor::Error, %(Unknown --type "#{options["type"]}". Use "article" or "home".)
+    end
+
+    def view_template_file
+      view_template == "article" ? "show" : view_template
     end
 
     def route_path
