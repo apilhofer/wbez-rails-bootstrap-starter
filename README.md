@@ -8,11 +8,10 @@ rails new my_app -d postgresql
 cd my_app
 ```
 
-2. Install the template (use `v2.0.0` or `main`):
+2. Install the template:
 ```bash
-bin/rails app:template LOCATION=https://raw.githubusercontent.com/USERNAME/REPO/v2.0.0/template/bootstrap_template.rb
-# or latest:
-# bin/rails app:template LOCATION=https://raw.githubusercontent.com/USERNAME/REPO/main/template/bootstrap_template.rb
+bin/rails app:template LOCATION=https://raw.githubusercontent.com/apilhofer/wbez-rails-bootstrap-starter/main/template/bootstrap_template.rb
+
 ```
 
 3. Boot:

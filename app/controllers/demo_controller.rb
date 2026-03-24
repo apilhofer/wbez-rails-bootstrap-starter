@@ -1,7 +1,14 @@
 class DemoController < ApplicationController
   def index
+    home_href =
+      if Rails.application.routes.named_routes.key?(:root)
+        Rails.application.routes.url_helpers.root_path
+      else
+        "/"
+      end
+
     @breadcrumbs = [
-      { label: "Home", href: root_path },
+      { label: "Home", href: home_href },
       { label: "Demo" }
     ]
 
