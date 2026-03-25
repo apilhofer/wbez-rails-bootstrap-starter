@@ -1,0 +1,6 @@
+<%# Featured Audio module (WBEZ-inspired).
+    This is implemented by the shared "list_carousel" pattern. %>
+<% items = local_assigns.fetch(:items, []) %>
+
+<%= render "shared/ui/list_carousel", title: "FEATURED AUDIO", items: items %>
+

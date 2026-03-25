@@ -1,0 +1,57 @@
+<%# Curious City promo — pattern name: "curious city promo". Hearken-style dark rail form (question, fields, checkboxes, submit). %>
+<section class="wbez-cc-promo" aria-label="Curious City submission">
+  <div class="wbez-cc-promo__brand mb-3">
+    <span class="wbez-cc-promo__qmark" aria-hidden="true">?</span>
+    <span class="wbez-cc-promo__wbez">WBEZ</span><span class="wbez-cc-promo__chicago">CHICAGO</span>
+  </div>
+
+  <h3 class="wbez-cc-promo__title text-uppercase mb-3">Curious City</h3>
+
+  <%= form_with url: "#", scope: :curious_city_promo, local: true, html: { class: "wbez-cc-promo__form", data: { turbo: false }, onsubmit: "return false" } do |f| %>
+    <div class="mb-2">
+      <%= f.text_area :question,
+        rows: 6,
+        maxlength: 280,
+        class: "form-control form-control-sm rounded-0 border-0",
+        placeholder: "What do you wonder about Chicago, the region or its people that you want WBEZ to investigate? We'll be in touch if we look into your question.",
+        id: "wbez-cc-promo-question",
+        oninput: "document.getElementById('wbez-cc-promo-count').textContent = this.value.length" %>
+      <div class="mt-1">
+        <span id="wbez-cc-promo-count" class="wbez-cc-promo__counter" aria-live="polite">0</span><span class="wbez-cc-promo__counter">/280</span>
+      </div>
+    </div>
+
+    <%= f.text_field :name, class: "form-control form-control-sm rounded-0 border-0 mb-2", placeholder: "Name", autocomplete: "name" %>
+    <%= f.email_field :email, class: "form-control form-control-sm rounded-0 border-0 mb-2", placeholder: "Email address", autocomplete: "email" %>
+    <%= f.text_field :zip, class: "form-control form-control-sm rounded-0 border-0 mb-3", placeholder: "Zip Code", autocomplete: "postal-code" %>
+
+    <div class="wbez-cc-promo__checks vstack gap-2 mb-3">
+      <div class="form-check">
+        <%= f.check_box :keep_informed, class: "form-check-input border-secondary" %>
+        <%= f.label :keep_informed, "Yes! Keep me informed about WBEZ", class: "form-check-label text-white small" %>
+      </div>
+      <div class="form-check">
+        <%= f.check_box :anonymous, class: "form-check-input border-secondary" %>
+        <%= f.label :anonymous, "I wish to remain anonymous.", class: "form-check-label text-white small" %>
+      </div>
+      <div class="form-check">
+        <%= f.check_box :over_16, class: "form-check-input border-secondary" %>
+        <%= f.label :over_16, "I am over 16 years old", class: "form-check-label text-white small" %>
+      </div>
+      <div class="form-check">
+        <%= f.check_box :accept_terms, class: "form-check-input border-secondary", id: "curious_city_promo_accept_terms" %>
+        <label class="form-check-label text-white small" for="curious_city_promo_accept_terms">
+          I accept the <%= link_to "Terms of Service", "#", class: "wbez-cc-promo__inline-link" %>
+        </label>
+      </div>
+    </div>
+
+    <%= f.button "Submit", type: :button, class: "btn btn-danger w-100 rounded-0 text-uppercase fw-bold py-2" %>
+  <% end %>
+
+  <p class="wbez-cc-promo__footer small text-center text-white mt-3 mb-0">
+    Powered by Hearken |
+    <%= link_to "Terms of Service", "#", class: "wbez-cc-promo__footer-link" %> |
+    <%= link_to "Privacy Policy", "#", class: "wbez-cc-promo__footer-link" %>
+  </p>
+</section>

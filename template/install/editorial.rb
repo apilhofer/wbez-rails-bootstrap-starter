@@ -32,6 +32,13 @@ module WbezBootstrapStarter
           app/views/shared/ui/_pagination.html.erb
           app/views/shared/ui/_responsive_embed.html.erb
           app/views/shared/ui/_section_header.html.erb
+          app/views/shared/ui/_bsp_list_loadmore_featured_audio.html.erb
+          app/views/shared/ui/_list_carousel.html.erb
+          app/views/shared/ui/_embed_module.html.erb
+          app/views/shared/ui/_curious_city_promo.html.erb
+          app/views/shared/ui/_one_column_event_list.html.erb
+          app/views/shared/ui/_one_column_top_list.html.erb
+          app/views/shared/ui/_full_width_promo_spot.html.erb
           app/views/shared/ui/_site_footer.html.erb
           app/views/shared/ui/_site_header.html.erb
           app/views/shared/ui/_story_card.html.erb

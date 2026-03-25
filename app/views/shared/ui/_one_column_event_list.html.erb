@@ -1,0 +1,35 @@
+<%# 
+  One column event list — right-rail module (e.g. “Upcoming WBEZ Events”): thick rule, uppercase title,
+  rows separated by thin rules; each row is 16×9 thumbnail, serif headline, sans date.
+  Page hook: [data-wbez-pattern="one-column-event-list"] — see /demo/cookbook.
+  locals: title (String), items (Array of { title:, date:, href: optional }), heading_id (optional)
+%>
+<% title = local_assigns.fetch(:title, "Upcoming WBEZ Events") %>
+<% items = local_assigns.fetch(:items, []) %>
+<% heading_id = local_assigns.fetch(:heading_id, "wbez-one-column-event-list-heading") %>
+<section
+  class="wbez-one-column-event-list wbez-rail-module"
+  role="region"
+  aria-labelledby="<%= heading_id %>"
+  data-wbez-pattern="one-column-event-list">
+  <h2 id="<%= heading_id %>" class="wbez-one-column-event-list__title"><%= title %></h2>
+  <div class="wbez-one-column-event-list__list">
+    <% items.each do |item| %>
+      <% href = item[:href].presence || "#" %>
+      <article class="wbez-one-column-event-list__item py-3">
+        <a href="<%= href %>" class="text-decoration-none link-dark d-block">
+          <div class="row g-2 g-sm-3 align-items-start">
+            <div class="col-5 col-sm-4">
+              <div class="ratio ratio-16x9 bg-light wbez-one-column-event-list__thumb" aria-hidden="true"></div>
+            </div>
+            <div class="col">
+              <h3 class="story-title wbez-one-column-event-list__headline mb-1"><%= item[:title] %></h3>
+              <p class="wbez-one-column-event-list__date mb-0"><%= item[:date] %></p>
+            </div>
+          </div>
+        </a>
+      </article>
+    <% end %>
+  </div>
+</section>
+

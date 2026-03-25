@@ -17,13 +17,6 @@ class <%= controller_class_name %> < ApplicationController
       { kicker: "Museums & Zoos", title: "Mollit anim id est laborum sed ut perspiciatis unde omnis iste natus" }
     ]
 
-    @top_stories = [
-      { section: "Top Story", title: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit", dek: "Sed posuere interdum sem quisque ligula eros ullamcorper." },
-      { section: "Top Story", title: "Aenean commodo ligula eget dolor aenean massa", dek: "Cum sociis natoque penatibus et magnis dis parturient montes." },
-      { section: "Top Story", title: "Donec quam felis ultricies nec pellentesque eu pretium", dek: "Nulla consequat massa quis enim donec pede justo fringilla." },
-      { section: "Top Story", title: "In enim justo rhoncus ut imperdiet a venenatis vitae", dek: "Etiam ultricies nisi vel augue curabitur ullamcorper ultricies." }
-    ]
-
     @education_stories = [
       { section: "Education", title: "Lorem ipsum dolor sit amet consectetuer adipiscing elit" },
       { section: "Education", title: "Aenean massa cum sociis natoque penatibus et magnis" },
@@ -80,7 +73,9 @@ class <%= controller_class_name %> < ApplicationController
 
     @rise_and_chi_stories = [
       { section: "Rise & Chi", title: "Neque porro quisquam est qui dolorem ipsum quia dolor", dek: "Sit amet consectetur adipisci velit sed quia non numquam." },
-      { section: "Rise & Chi", title: "Quis autem vel eum iure reprehenderit qui in ea voluptate", dek: "Velit esse quam nihil molestiae consequatur vel illum." }
+      { section: "Rise & Chi", title: "Quis autem vel eum iure reprehenderit qui in ea voluptate", dek: "Velit esse quam nihil molestiae consequatur vel illum." },
+      { section: "Rise & Chi", title: "Duis autem vel eum iriure dolor in hendrerit in vulputate", dek: "Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit." },
+      { section: "Rise & Chi", title: "Nam liber tempor cum soluta nobis eleifend option congue", dek: "Itaque earum rerum hic tenetur a sapiente delectus." }
     ]
 
     @news_feed_items = [
@@ -91,42 +86,50 @@ class <%= controller_class_name %> < ApplicationController
       { kicker: "Springfield", title: "Nam libero tempore cum soluta nobis est eligendi optio", dek: "Similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga." },
       { kicker: "City Hall", title: "Temporibus autem quibusdam et aut officiis debitis aut rerum", dek: "Et harum quidem rerum facilis est et expedita distinctio nam libero tempore cum soluta nobis." },
       { kicker: "Education", title: "Itaque earum rerum hic tenetur a sapiente delectus ut aut", dek: "Reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat." },
-      { kicker: "Music", title: "On the record: lorem ipsum placeholder headline for feed", dek: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni." }
+      { kicker: "Music", title: "On the record: lorem ipsum placeholder headline for feed", dek: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni." },
+      { kicker: "Courts", title: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem", dek: "Accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis." },
+      { kicker: "Health", title: "Nemo enim ipsam voluptatem quia voluptas aspernatur aut odit", dek: "Ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi." },
+      { kicker: "Housing", title: "Aliquam lorem ante dapibus in viverra quis feugiat a tellus", dek: "Phasellus viverra nulla ut metus varius laoreet quisque rutrum aenean imperdiet." },
+      { kicker: "Arts", title: "Etiam ultricies nisi vel augue curabitur ullamcorper ultricies nisi", dek: "Nam eget dui etiam rhoncus maecenas tempus tellus eget condimentum rhoncus." },
+      { kicker: "Environment", title: "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices", dek: "Posuere cubilia curae fusce id purus ut varius tincidunt libero non metus." },
+      { kicker: "Business", title: "Integer tincidunt cras dapibus vivamus elementum semper nisi aenean", dek: "Vulputate eleifend tellus aenean leo ligula porttitor eu consequat vitae eleifend ac." },
+      { kicker: "Science", title: "Curabitur ullamcorper ultricies nisi nam eget dui etiam rhoncus", dek: "Maecenas tempus tellus eget condimentum rhoncus sem quam semper libero sit amet." }
     ]
     @more_news_items = @news_feed_items.map { |item| item[:title] }
 
-    @latest_sidebar_items = [
-      "Lorem ipsum dolor sit amet consectetur adipiscing elit",
-      "Ut enim ad minim veniam quis nostrud exercitation ullamco",
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse",
-      "Excepteur sint occaecat cupidatat non proident sunt in culpa"
-    ]
-
-    @most_popular_stories = [
-      { title: "Lorem ipsum headline one for popular module" },
-      { title: "Consectetur adipiscing elit sed do eiusmod tempor" },
-      { title: "Incididunt ut labore et dolore magna aliqua enim ad minim" }
-    ]
-
-    @cta_blue = {
+    @full_width_promo_spot = {
+      graphic_line1: "You count on WBEZ",
+      graphic_line2: "And WBEZ counts on you",
       title: "WBEZ is member-funded",
-      body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. New members are needed now to continue this important work. Every donation matters.",
-      button: "Donate now"
+      body: "WBEZ is here for you today thanks to a strong legacy of listener support. New members are needed now to continue and strengthen this important work. The more listeners who choose to join, the greater the impact of this indispensable service. Every donation matters. Every person counts.",
+      button: "Donate now",
+      href: "#"
     }
 
-    @curious_city_items = [
-      "Lorem ipsum: curabitur blandit tempus porttitor?",
-      "Vestibulum id ligula porta felis euismod semper?"
+    @curious_city_feature = {
+      title: "Lorem ipsum: curabitur blandit tempus porttitor dolor sit amet?"
+    }
+
+    @whats_that_building_feature = {
+      title: "What’s That Building? South portico of the Griffin Museum of Science and Industry"
+    }
+
+    @one_column_event_list_items = [
+      { title: "Wait Wait… Don’t Tell Me!", date: "Ongoing throughout the year" },
+      { title: "WBEZ Presents: An Evening with Ani DiFranco", date: "March 27" },
+      { title: "SOLD OUT — WBEZ Presents: An Evening with Cory Booker", date: "March 29" },
+      { title: "WBEZ Presents: An Evening with Patrick Radden Keefe and Gillian Flynn", date: "April 16" },
+      { title: "WBEZ Presents: Tent Talks at Evanston Folk Festival", date: "Sept 12–13" }
     ]
 
-    @events_items = [
-      "Wait Wait… Don’t Tell Me! — Ongoing throughout the year",
-      "WBEZ Presents: An Evening with Ani DiFranco — March 27"
-    ]
-
-    @missed_it_items = [
-      "In case you missed it: donec sed odio dui",
-      "From the archive: integer posuere erat a ante venenatis"
+    @one_column_top_list_items = [
+      { title: "Obama Presidential Center: what neighbors and the city are asking this month" },
+      { title: "The confusing world of super PACs in Illinois, explained in plain language" },
+      { title: "Lollapalooza 2026: what we know about tickets, lineup timing, and Grant Park" },
+      { title: "Chicago Public Schools enrollment: five charts that show where things stand" },
+      { title: "CTA bus reliability: riders report longer waits on these key corridors" },
+      { title: "City Council preview: housing, budget, and a contested vote on development" },
+      { title: "Weekend weather: when the warm spell breaks and what to expect" }
     ]
 <% else -%>
     @kicker = "<%= plural_name.humanize %>"

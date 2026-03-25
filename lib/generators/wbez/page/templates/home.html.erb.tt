@@ -23,10 +23,10 @@
           </article>
         </div>
         <div class="col-12 col-lg-6 wbez-home-rail pt-lg-3">
-          <article class="card rounded-0 border-0 border-bottom py-3 w-100 mb-0">
+          <article class="card rounded-0 border-0 py-3 w-100 mb-0 wbez-home-rail-featured-top">
             <div class="row g-2 g-md-3 align-items-start">
               <div class="col-6">
-                <div class="ratio ratio-4x3 bg-light border"></div>
+                <div class="ratio ratio-4x3 bg-light"></div>
               </div>
               <div class="col-6">
                 <div class="py-1">
@@ -66,93 +66,32 @@
       </div>
     </section>
 
-    <!-- Top Stories -->
+    <!-- Featured section zone: Featured Audio + Embed module + Politics breakout -->
+    <!-- Featured Audio (bsp-list-loadmore) -->
     <section class="mb-5">
-      <div class="d-flex align-items-end justify-content-between wbez-section-heading">
-        <h2 class="editorial-heading h4 m-0">Top Stories</h2>
-        <a href="#" class="fw-semibold text-decoration-none small">View All</a>
-      </div>
-      <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-4">
-        <%% @top_stories.each do |story| %>
-          <div class="col">
-            <article class="card h-100 rounded-0 wbez-card">
-              <div class="ratio ratio-4x3 bg-light border-bottom"></div>
-              <div class="card-body">
-                <div class="story-kicker mb-2"><%%= story[:section] %></div>
-                <h3 class="story-title h6"><%%= story[:title] %></h3>
-                <p class="text-muted small mb-0"><%%= story[:dek] %></p>
-              </div>
-            </article>
-          </div>
-        <%% end %>
-      </div>
+      <%%= render "shared/ui/bsp_list_loadmore_featured_audio", items: @featured_audio_items %>
     </section>
 
-    <!-- Education strip -->
-    <section class="mb-5">
-      <div class="d-flex align-items-end justify-content-between wbez-section-heading">
-        <h2 class="editorial-heading h4 m-0">Education</h2>
-        <a href="#" class="fw-semibold text-decoration-none small">More</a>
-      </div>
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
-        <%% @education_stories.each do |story| %>
-          <div class="col">
-            <article class="card h-100 rounded-0 wbez-card">
-              <div class="ratio ratio-1x1 bg-light border-bottom"></div>
-              <div class="card-body">
-                <div class="story-kicker mb-2 text-danger"><%%= story[:section] %></div>
-                <h3 class="story-title h6 mb-0"><%%= story[:title] %></h3>
-              </div>
-            </article>
-          </div>
-        <%% end %>
-      </div>
-    </section>
-
-    <!-- Featured Audio: multi-item grid (wbez.org pattern) -->
-    <section class="mb-5">
-      <div class="wbez-section-heading">
-        <h2 class="editorial-heading h4 m-0">Featured Audio</h2>
-      </div>
-      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-        <%% @featured_audio_items.each do |item| %>
-          <div class="col">
-            <article class="card h-100 rounded-0 wbez-card">
-              <div class="ratio ratio-4x3 bg-light border-bottom"></div>
-              <div class="card-body d-flex flex-column">
-                <div class="story-kicker mb-2"><%%= item[:kicker] %></div>
-                <h3 class="story-title h6 flex-grow-1"><%%= item[:title] %></h3>
-                <%%= render "shared/ui/listen_pill", class: "mt-auto" %>
-              </div>
-            </article>
-          </div>
-        <%% end %>
-      </div>
-    </section>
-
-    <!-- Donation inline (matches wbez.org “Accurate Information…” strip) -->
-    <section class="mb-5">
-      <div class="wbez-donate-inline rounded-1 px-3 py-5 px-md-5">
-        <h2 class="editorial-heading h4 text-center mb-3"><%%= @donation_inline[:title] %></h2>
-        <div class="text-center">
-          <a href="#" class="btn btn-danger px-4"><%%= @donation_inline[:button] %></a>
-        </div>
-      </div>
+    <!-- Embed module -->
+    <section class="mb-5 wbez-right-clip">
+      <%%= render "shared/ui/embed_module",
+        title: @donation_inline[:title],
+        button_text: @donation_inline[:button],
+        href: "#" %>
     </section>
 
     <!-- Politics / featured breakout -->
     <section class="mb-5">
-      <div class="d-flex align-items-end justify-content-between wbez-section-heading">
-        <h2 class="editorial-heading h4 m-0"><%%= @featured_breakout[:section] %></h2>
-        <a href="#" class="fw-semibold text-decoration-none small">View All</a>
+      <div class="d-flex align-items-start justify-content-between wbez-featured-audio">
+        <h2 class="wbez-featured-audio__title"><%%= @featured_breakout[:section] %></h2>
       </div>
       <div class="row g-4">
         <div class="col-lg-7">
-          <article class="card rounded-0 h-100 wbez-card">
+          <article class="card rounded-0 border-0 h-100">
             <div class="ratio ratio-16x9 bg-light border-bottom"></div>
-            <div class="card-body">
-              <div class="story-kicker mb-2 text-danger"><%%= @featured_breakout[:section] %></div>
-              <h3 class="story-title h4 mb-2"><%%= @featured_breakout[:title] %></h3>
+            <div class="card-body px-0 pt-3 pb-3">
+              <div class="story-kicker mb-2"><%%= @featured_breakout[:section] %></div>
+              <h3 class="story-title wbez-featured-breakout__lead-title mb-2"><%%= @featured_breakout[:title] %></h3>
               <p class="article-dek mb-0"><%%= @featured_breakout[:dek] %></p>
             </div>
           </article>
@@ -161,9 +100,10 @@
           <div class="row row-cols-1 row-cols-2 g-3 h-100">
             <%% @featured_breakout_grid.each do |item| %>
               <div class="col">
-                <article class="card h-100 rounded-0 wbez-card">
+                <article class="card h-100 rounded-0 border-0">
                   <div class="ratio ratio-4x3 bg-light border-bottom"></div>
                   <div class="card-body p-2">
+                    <div class="story-kicker mb-1"><%%= @featured_breakout[:section] %></div>
                     <h4 class="story-title small mb-0"><%%= item[:title] %></h4>
                   </div>
                 </article>
@@ -174,204 +114,103 @@
       </div>
     </section>
 
+    <!-- End Featured section zone -->
+    <!-- Rise & Chi (List Carousel) -->
+    <section class="mb-5">
+      <%%= render "shared/ui/list_carousel",
+        title: "Rise & Chi",
+        items: @rise_and_chi_stories.map { |story| { title: story[:title] } } %>
+    </section>
     <!-- Main + sidebar -->
     <section class="mb-5">
       <div class="row g-4 g-xl-5">
-        <div class="col-lg-8">
-          <div class="vstack gap-5">
-            <!-- Arts & Culture from WBEZ -->
-            <section>
-              <div class="d-flex align-items-end justify-content-between wbez-section-heading">
-                <h2 class="editorial-heading h4 m-0">Arts &amp; Culture from WBEZ</h2>
-                <a href="#" class="fw-semibold text-decoration-none small">More</a>
-              </div>
-              <article class="card rounded-0 wbez-card mb-4">
-                <div class="ratio ratio-16x9 bg-light border-bottom"></div>
-                <div class="card-body">
-                  <div class="story-kicker mb-2"><%%= @featured_arts_lead[:section] %></div>
-                  <h3 class="story-title h4 mb-2"><%%= @featured_arts_lead[:title] %></h3>
-                  <p class="text-muted mb-0"><%%= @featured_arts_lead[:dek] %></p>
-                </div>
-              </article>
-              <div class="row row-cols-1 row-cols-md-3 g-4">
-                <%% @arts_culture_stories.each do |story| %>
-                  <div class="col">
-                    <article class="card h-100 rounded-0 wbez-card">
-                      <div class="ratio ratio-4x3 bg-light border-bottom"></div>
-                      <div class="card-body">
-                        <div class="story-kicker mb-2"><%%= story[:section] %></div>
-                        <h3 class="story-title h6"><%%= story[:title] %></h3>
-                        <p class="text-muted small mb-0"><%%= story[:dek] %></p>
+        <div class="col-lg-8 wbez-lower-main">
+          <!-- Main column: More News river -->
+          <section class="wbez-more-news-river">
+            <h2 class="wbez-list-carousel__title">More News</h2>
+            <div class="wbez-more-news-river__list">
+              <%% @news_feed_items.first(15).each do |item| %>
+                <article class="wbez-more-news-river__item py-3">
+                  <a href="#" class="text-decoration-none link-dark d-block">
+                    <div class="row g-3 g-md-4 align-items-start">
+                      <div class="col-12 col-sm-5 col-md-5">
+                        <div class="bg-light wbez-more-news-river__image" aria-hidden="true"></div>
                       </div>
-                    </article>
-                  </div>
-                <%% end %>
-              </div>
-            </section>
-
-            <!-- Rise & Chi -->
-            <section>
-              <div class="d-flex align-items-end justify-content-between wbez-section-heading">
-                <h2 class="editorial-heading h4 m-0">Rise &amp; Chi</h2>
-                <a href="#" class="fw-semibold text-decoration-none small">More</a>
-              </div>
-              <div class="row row-cols-1 row-cols-md-2 g-4">
-                <%% @rise_and_chi_stories.each do |story| %>
-                  <div class="col">
-                    <article class="card h-100 rounded-0 wbez-card">
-                      <div class="ratio ratio-4x3 bg-light border-bottom"></div>
-                      <div class="card-body">
-                        <div class="story-kicker mb-2"><%%= story[:section] %></div>
-                        <h3 class="story-title h6"><%%= story[:title] %></h3>
-                        <p class="text-muted small mb-2"><%%= story[:dek] %></p>
-                        <%%= render "shared/ui/listen_pill", class: "mt-2" %>
-                      </div>
-                    </article>
-                  </div>
-                <%% end %>
-              </div>
-            </section>
-
-            <!-- More News -->
-            <section>
-              <div class="d-flex align-items-end justify-content-between wbez-section-heading">
-                <h2 class="editorial-heading h4 m-0">More News</h2>
-                <a href="#" class="fw-semibold text-decoration-none small">Latest Feed</a>
-              </div>
-              <div class="list-group list-group-flush border-top border-bottom">
-                <%% @news_feed_items.each do |item| %>
-                  <a href="#" class="list-group-item list-group-item-action px-0 py-3">
-                    <div class="row g-3 align-items-start">
-                      <div class="col-auto d-none d-sm-block" style="width: 120px;">
-                        <div class="ratio ratio-4x3 bg-light border"></div>
-                      </div>
-                      <div class="col">
+                      <div class="col-12 col-sm-7 col-md-7">
                         <div class="story-kicker mb-1"><%%= item[:kicker] %></div>
-                        <h3 class="story-title h6 mb-0 fw-normal"><%%= item[:title] %></h3>
+                        <h3 class="story-title wbez-more-news-river__headline mb-2"><%%= item[:title] %></h3>
                         <%% if item[:dek].present? %>
-                          <p class="small text-muted mb-0 mt-2"><%%= item[:dek] %></p>
+                          <p class="text-muted wbez-more-news-river__dek mb-0"><%%= item[:dek] %></p>
                         <%% end %>
                       </div>
                     </div>
                   </a>
-                <%% end %>
-              </div>
-            </section>
-          </div>
+                </article>
+              <%% end %>
+            </div>
+          </section>
         </div>
 
-        <aside class="col-lg-4">
+        <aside class="col-lg-4 wbez-lower-rail">
           <div class="vstack gap-4">
-            <section class="card rounded-0 wbez-card">
-              <div class="card-header bg-white border-0 wbez-section-heading mb-0">
-                <h2 class="editorial-heading h6 mb-0">Latest</h2>
-              </div>
-              <ul class="list-group list-group-flush">
-                <%% @latest_sidebar_items.each do |line| %>
-                  <li class="list-group-item small border-0 border-bottom"><a href="#" class="link-dark text-decoration-none"><%%= line %></a></li>
-                <%% end %>
-              </ul>
-            </section>
-
-            <section class="card rounded-0 wbez-card">
-              <div class="card-header bg-white border-0 wbez-section-heading mb-0">
-                <h2 class="editorial-heading h6 mb-0">Curious City</h2>
-              </div>
-              <ul class="list-group list-group-flush">
-                <%% @curious_city_items.each do |item| %>
-                  <li class="list-group-item border-0 border-bottom"><%%= item %></li>
-                <%% end %>
-              </ul>
-            </section>
-
-            <section class="card rounded-0 wbez-card">
-              <div class="card-header bg-white border-0 wbez-section-heading mb-0">
-                <h2 class="editorial-heading h6 mb-0">Upcoming WBEZ Events</h2>
-              </div>
-              <ul class="list-group list-group-flush">
-                <%% @events_items.each do |item| %>
-                  <li class="list-group-item small border-0 border-bottom"><%%= item %></li>
-                <%% end %>
-              </ul>
-            </section>
-
-            <section class="card rounded-0 wbez-card">
-              <div class="card-header bg-white border-0 wbez-section-heading mb-0">
-                <h2 class="editorial-heading h6 mb-0">Most Popular</h2>
-              </div>
-              <ul class="list-group list-group-flush">
-                <%% @most_popular_stories.each do |pop| %>
-                  <li class="list-group-item px-0 py-2 border-0 border-bottom">
-                    <div class="d-flex gap-2 align-items-start">
-                      <div class="flex-shrink-0">
-                        <div class="ratio ratio-1x1 bg-light border" style="width: 56px;"></div>
-                      </div>
-                      <div class="flex-grow-1 min-w-0">
-                        <a href="#" class="story-title small text-decoration-none d-block link-dark"><%%= pop[:title] %></a>
-                      </div>
-                    </div>
-                  </li>
-                <%% end %>
-              </ul>
-            </section>
-
-            <section class="card rounded-0 border-dark bg-dark text-white">
-              <div class="card-body">
-                <h2 class="h6 text-uppercase small fw-bold opacity-75">Newsletter</h2>
-                <p class="small opacity-75">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <div class="mb-2">
-                  <input type="email" class="form-control form-control-sm mb-2" placeholder="Email address">
-                  <input type="text" class="form-control form-control-sm bg-dark text-white border-secondary" placeholder="ZIP code">
+            <!-- One column right rail promo (Curious City example): thick rule + title; image, headline, listen -->
+            <section class="wbez-list-carousel wbez-rail-module wbez-rail-one-col-promo" aria-labelledby="wbez-rail-curious-city-heading">
+              <h2 id="wbez-rail-curious-city-heading" class="wbez-list-carousel__title">Curious City</h2>
+              <div class="wbez-rail-one-col-promo__feature">
+                <div class="ratio ratio-16x9 bg-light wbez-list-carousel__image" aria-hidden="true"></div>
+                <h3 class="wbez-list-carousel__headline mt-3 mb-0">
+                  <a href="#" class="link-dark text-decoration-none"><%%= @curious_city_feature[:title] %></a>
+                </h3>
+                <div class="mt-3">
+                  <%%= render "shared/ui/listen_pill" %>
                 </div>
-                <button class="btn btn-danger btn-sm w-100 text-uppercase">Submit</button>
               </div>
             </section>
 
-            <section class="card rounded-0 wbez-card">
-              <div class="card-header bg-white border-0 wbez-section-heading mb-0">
-                <h2 class="editorial-heading h6 mb-0">In Case You Missed It</h2>
+            <!-- Curious City promo (question form; below one column right rail promo) -->
+            <%%= render "shared/ui/curious_city_promo" %>
+
+            <!-- One column right rail promo (What's that building?) -->
+            <section class="wbez-list-carousel wbez-rail-module wbez-rail-one-col-promo" aria-labelledby="wbez-rail-wtb-heading">
+              <h2 id="wbez-rail-wtb-heading" class="wbez-list-carousel__title">What's that building?</h2>
+              <div class="wbez-rail-one-col-promo__feature">
+                <div class="ratio ratio-16x9 bg-light wbez-list-carousel__image" aria-hidden="true"></div>
+                <h3 class="wbez-list-carousel__headline mt-3 mb-0">
+                  <a href="#" class="link-dark text-decoration-none"><%%= @whats_that_building_feature[:title] %></a>
+                </h3>
+                <div class="mt-3">
+                  <%%= render "shared/ui/listen_pill" %>
+                </div>
               </div>
-              <ul class="list-group list-group-flush">
-                <%% @missed_it_items.each do |item| %>
-                  <li class="list-group-item border-0 border-bottom"><%%= item %></li>
-                <%% end %>
-              </ul>
             </section>
+
+            <!--
+              One-column event list — “Upcoming WBEZ Events” (pattern: data-wbez-pattern="one-column-event-list").
+              Lower right rail, below What’s that building?; partial: shared/ui/one_column_event_list.
+            -->
+            <%%= render "shared/ui/one_column_event_list",
+              title: "Upcoming WBEZ Events",
+              heading_id: "wbez-one-column-event-list-heading-home",
+              items: @one_column_event_list_items %>
+
+            <!--
+              One column top list — e.g. “In case you missed it” (DOM: data-wbez-pattern="one-column-top-list").
+              Below one-column event list; partial: shared/ui/one_column_top_list.
+            -->
+            <%%= render "shared/ui/one_column_top_list",
+              title: "In case you missed it",
+              heading_id: "wbez-one-column-top-list-heading-home",
+              items: @one_column_top_list_items %>
           </div>
         </aside>
       </div>
     </section>
 
-    <!-- Member funding CTA (wbez.org footer-adjacent pattern) -->
-    <section class="mb-5">
-      <div class="rounded-1 p-4 p-md-5 d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-4 bg-dark text-white">
-        <div class="pe-md-4">
-          <h2 class="editorial-heading h5 mb-2 text-white"><%%= @cta_blue[:title] %></h2>
-          <p class="small mb-0 opacity-75"><%%= @cta_blue[:body] %></p>
-        </div>
-        <a href="#" class="btn btn-danger flex-shrink-0 px-4 text-uppercase fw-bold"><%%= @cta_blue[:button] %></a>
-      </div>
-    </section>
-
-    <section class="mb-2">
-      <div class="d-flex align-items-end justify-content-between wbez-section-heading">
-        <h2 class="editorial-heading h4 m-0">Latest Updates</h2>
-      </div>
-      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-        <%% @top_stories.first(4).each do |story| %>
-          <div class="col">
-            <article class="card h-100 rounded-0 wbez-card">
-              <div class="ratio ratio-4x3 bg-light border-bottom"></div>
-              <div class="card-body">
-                <h3 class="story-title h6"><%%= story[:title] %></h3>
-                <span class="badge text-bg-danger rounded-pill">New</span>
-              </div>
-            </article>
-          </div>
-        <%% end %>
-      </div>
-    </section>
   </main>
+
+  <%%= render "shared/ui/full_width_promo_spot",
+    promo: @full_width_promo_spot,
+    heading_id: "wbez-full-width-promo-spot-heading-home" %>
 
   <%%= render "shared/ui/site_footer" %>
 </div>

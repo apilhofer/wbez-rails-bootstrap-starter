@@ -107,6 +107,135 @@
       </div>
     </div>
 
+    <%= render "shared/ui/section_header", title: "List carousel" %>
+    <div class="mb-5">
+      <%= render "shared/ui/list_carousel",
+        title: "FEATURED AUDIO",
+        items: [
+          { title: "This Chicago Symphony Orchestra flutist took her baby on tour and kept a diary about it" },
+          { title: "Former Aspira students try to adapt after troubled charter operator closes schools midyear" },
+          { title: "Inside the debate behind Chicago’s food delivery robots" },
+          { title: "In ‘White Rooster,’ playwright Matthew Yee summons the ghosts of his Chinese ancestors" }
+        ] %>
+    </div>
+
+    <%= render "shared/ui/section_header", title: "One column right rail promo" %>
+    <p class="text-muted small mb-3">
+      <strong>Pattern name:</strong> one column right rail promo — the stack at the top of the Curious City slot in the lower right rail: thick horizontal rule, module title (same treatment as Featured Audio / list carousel), 16×9 image placeholder, linked headline, and listen pill. Below it you can place the separate <strong>curious city promo</strong> (question form) module.
+    </p>
+    <div class="row justify-content-lg-end mb-5">
+      <div class="col-12 col-lg-4">
+        <section class="wbez-list-carousel wbez-rail-module wbez-rail-one-col-promo" aria-labelledby="cookbook-one-col-rail-promo-heading">
+          <h2 id="cookbook-one-col-rail-promo-heading" class="wbez-list-carousel__title">Curious City</h2>
+          <div class="wbez-rail-one-col-promo__feature">
+            <div class="ratio ratio-16x9 bg-light wbez-list-carousel__image" aria-hidden="true"></div>
+            <h3 class="wbez-list-carousel__headline mt-3 mb-0">
+              <a href="#" class="link-dark text-decoration-none">Lorem ipsum: curabitur blandit tempus porttitor dolor sit amet?</a>
+            </h3>
+            <div class="mt-3">
+              <%= render "shared/ui/listen_pill" %>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <%= render "shared/ui/section_header", title: "One-column event list (right rail)" %>
+    <p class="text-muted small mb-3">
+      <strong>Pattern name:</strong> <strong>one-column event list</strong> — the “Upcoming WBEZ Events”–style module under “What’s that building?” in the lower right rail. Thick rule, teal uppercase list title, rows separated by thin rules (same rhythm as the More News river). Each row: 16×9 thumbnail left, serif headline, sans-serif date. The root <code>&lt;section&gt;</code> is a named region: <code>role=&quot;region&quot;</code>, <code>aria-labelledby</code> on the visible <code>h2</code>, and <code>data-wbez-pattern=&quot;one-column-event-list&quot;</code> so the pattern is easy to find in the DOM. Partial: <code>shared/ui/one_column_event_list</code>. Sample data: <code>@one_column_event_list_items</code> (array of <code>{ title:, date:, href: }</code>).
+    </p>
+    <div class="row justify-content-lg-end mb-5">
+      <div class="col-12 col-lg-4">
+        <%= render "shared/ui/one_column_event_list",
+          title: "Upcoming WBEZ Events",
+          heading_id: "cookbook-one-column-event-list-heading",
+          items: [
+            { title: "Wait Wait… Don’t Tell Me!", date: "Ongoing throughout the year" },
+            { title: "WBEZ Presents: An Evening with Ani DiFranco", date: "March 27" },
+            { title: "SOLD OUT — WBEZ Presents: An Evening with Cory Booker", date: "March 29" },
+            { title: "WBEZ Presents: An Evening with Patrick Radden Keefe and Gillian Flynn", date: "April 16" },
+            { title: "WBEZ Presents: Tent Talks at Evanston Folk Festival", date: "Sept 12–13" }
+          ] %>
+      </div>
+    </div>
+
+    <%= render "shared/ui/section_header", title: "One column top list (right rail)" %>
+    <p class="text-muted small mb-3">
+      <strong>Pattern name:</strong> <strong>one column top list</strong> — e.g. “In case you missed it,” below the event list in the lower right rail. Thick rule, grey uppercase title, 16×9 lead image, then an <code>ol</code> of seven (or more) rows with large light-grey serif numerals and bold sans-serif headlines, thin rules between rows. DOM hook: <code>data-wbez-pattern=&quot;one-column-top-list&quot;</code>. Partial: <code>shared/ui/one_column_top_list</code>. Sample: <code>@one_column_top_list_items</code> (<code>{ title:, href: }</code>). Pass <code>show_lead_image: false</code> to omit the lead image.
+    </p>
+    <div class="row justify-content-lg-end mb-5">
+      <div class="col-12 col-lg-4">
+        <%= render "shared/ui/one_column_top_list",
+          title: "In case you missed it",
+          heading_id: "cookbook-one-column-top-list-heading",
+          items: [
+            { title: "Obama Presidential Center: what neighbors and the city are asking this month" },
+            { title: "The confusing world of super PACs in Illinois, explained in plain language" },
+            { title: "Lollapalooza 2026: what we know about tickets, lineup timing, and Grant Park" },
+            { title: "Chicago Public Schools enrollment: five charts that show where things stand" },
+            { title: "CTA bus reliability: riders report longer waits on these key corridors" },
+            { title: "City Council preview: housing, budget, and a contested vote on development" },
+            { title: "Weekend weather: when the warm spell breaks and what to expect" }
+          ] %>
+      </div>
+    </div>
+
+    <%= render "shared/ui/section_header", title: "Curious City promo" %>
+    <p class="text-muted small mb-3">
+      <strong>Pattern name:</strong> curious city promo — the dark Hearken-style submission panel (WBEZ Chicago wordmark, question textarea with 0/280 counter, name/email/zip, checkboxes, red Submit, Hearken footer). Partial: <code>shared/ui/curious_city_promo</code>. Typically sits under the <strong>one column right rail promo</strong> in the same rail column.
+    </p>
+    <div class="row justify-content-lg-end mb-5">
+      <div class="col-12 col-lg-4">
+        <%= render "shared/ui/curious_city_promo" %>
+      </div>
+    </div>
+
+    <%= render "shared/ui/section_header", title: "Embed module" %>
+    <div class="mb-5">
+      <%= render "shared/ui/embed_module",
+        title: "Accurate Information. Reliable Reporting. Diverse Perspectives.",
+        button_text: "Donate",
+        href: "#" %>
+    </div>
+
+    <%= render "shared/ui/section_header", title: "Featured section zone" %>
+    <section class="mb-5">
+      <div class="d-flex align-items-start justify-content-between wbez-featured-audio">
+        <h2 class="wbez-featured-audio__title">Politics</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-7">
+          <article class="card rounded-0 border-0 h-100">
+            <div class="ratio ratio-16x9 bg-light border-bottom"></div>
+            <div class="card-body px-0 pt-3 pb-3">
+              <div class="story-kicker mb-2">Politics</div>
+              <h3 class="story-title wbez-featured-breakout__lead-title mb-2">
+                A big headline sits here with the same sizing as the live module
+              </h3>
+              <p class="article-dek mb-0">
+                A short dek to match the editorial hierarchy used across the module.
+              </p>
+            </div>
+          </article>
+        </div>
+        <div class="col-lg-5">
+          <div class="row row-cols-1 row-cols-2 g-3 h-100">
+            <% [ "Public policy", "Elections", "Courts", "City Hall" ].each do |kicker| %>
+              <div class="col">
+                <article class="card h-100 rounded-0 border-0">
+                  <div class="ratio ratio-4x3 bg-light border-bottom"></div>
+                  <div class="card-body p-2">
+                    <div class="story-kicker mb-1"><%= kicker %></div>
+                    <h4 class="story-title small mb-0">Featured story title goes here</h4>
+                  </div>
+                </article>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <%= render "shared/ui/section_header", title: "Homepage hero: Lead story + 2 col rail" %>
     <!-- Homepage hero layout option: Lead story + 2 col rail (current default) -->
     <section class="mb-5 pb-lg-3 wbez-home-hero wbez-home-hero--lead-2col-rail">
@@ -125,10 +254,10 @@
           </article>
         </div>
         <div class="col-12 col-lg-6 wbez-home-rail pt-lg-3">
-          <article class="card rounded-0 border-0 border-bottom py-3 w-100 mb-0">
+          <article class="card rounded-0 border-0 py-3 w-100 mb-0 wbez-home-rail-featured-top">
             <div class="row g-2 g-md-3 align-items-start">
               <div class="col-6">
-                <div class="ratio ratio-4x3 bg-light border"></div>
+                <div class="ratio ratio-4x3 bg-light"></div>
               </div>
               <div class="col-6">
                 <div class="py-1">
@@ -170,7 +299,24 @@
         </div>
       </div>
     </section>
+
+    <%= render "shared/ui/section_header", title: "Full-width promo spot (bottom of page)" %>
+    <p class="text-muted small mb-3">
+      <strong>Pattern name:</strong> <strong>full-width promo spot</strong> — final module before the site footer on the homepage: two columns (map-style graphic with headline + four red stars, then serif title, body, red donate button). Placed <strong>outside</strong> <code>&lt;main&gt;</code> so it can span the full content shell. DOM: <code>data-wbez-pattern=&quot;full-width-promo-spot&quot;</code>. Partial: <code>shared/ui/full_width_promo_spot</code>. Data: <code>@full_width_promo_spot</code> (<code>:graphic_line1</code>, <code>:graphic_line2</code>, <code>:title</code>, <code>:body</code>, <code>:button</code>, <code>:href</code>).
+    </p>
+    <p class="small text-muted mb-4">The live example renders below this main column (same placement as the final block on a generated home page).</p>
   </main>
+
+  <%= render "shared/ui/full_width_promo_spot",
+    heading_id: "cookbook-full-width-promo-spot-heading",
+    promo: {
+      graphic_line1: "You count on WBEZ",
+      graphic_line2: "And WBEZ counts on you",
+      title: "WBEZ is member-funded",
+      body: "WBEZ is here for you today thanks to a strong legacy of listener support. New members are needed now to continue and strengthen this important work. The more listeners who choose to join, the greater the impact of this indispensable service. Every donation matters. Every person counts.",
+      button: "Donate now",
+      href: "#"
+    } %>
 
   <%= render "shared/ui/site_footer" %>
 </div>

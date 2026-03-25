@@ -12,6 +12,8 @@
   --wbez-serif: "Charter", "Palatino Linotype", "Book Antiqua", Palatino, serif;
   --wbez-sans: "Source Sans 3", "Source Sans Pro", Arial, sans-serif;
   --wbez-brand: "Arial Narrow", "Helvetica Neue Condensed", var(--wbez-sans);
+  /* Module titles (one-column event list) */
+  --wbez-teal: #006978;
 }
 
 body {
@@ -216,6 +218,79 @@ main.wbez-home .card {
   color: var(--wbez-black);
 }
 
+/* Embed module (donation banner) */
+.wbez-right-clip {
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+.wbez-embed-module {
+  background: rgb(255, 209, 62); /* matches screenshot yellow */
+  padding: 18px 16px 16px;
+  position: relative;
+  box-shadow: 18px 14px 0 0 #000;
+}
+
+.wbez-embed-module--donate {
+  // The banner uses a solid offset box-shadow (18px). In some layouts the
+  // section is clipped at the right edge, so we inset the banner by that
+  // offset to keep the shadow visible without overflowing.
+  margin-right: 18px;
+  // box-shadow's y-offset is 14px; reserve a little space so the next
+  // module doesn't visually cover the bottom of the shadow.
+  margin-bottom: 14px;
+}
+
+.wbez-embed-module::before {
+  content: none;
+}
+
+.wbez-embed-module__content {
+  position: relative;
+  z-index: 1;
+}
+
+.wbez-embed-module__headline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--wbez-black);
+  font-family: "Source Sans Pro", var(--wbez-sans);
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.wbez-embed-module__mic {
+  color: var(--wbez-black);
+  display: block;
+}
+
+.wbez-embed-module__title {
+  max-width: 42rem;
+}
+
+.wbez-embed-module__action {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.wbez-embed-module__donate-btn {
+  background: var(--wbez-red);
+  color: #fff !important;
+  text-decoration: none;
+  border-radius: 9999px;
+  padding: 7px 24px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 1;
+}
+
 /* Red pill Listen control — fixed footprint (all instances) */
 .wbez-listen-pill {
   box-sizing: border-box;
@@ -311,6 +386,477 @@ main.wbez-home .card {
 /* Stacked story dividers in the rail two-column grid */
 .wbez-home-rail-grid article.card.border-bottom {
   border-color: #d1d1d1 !important;
+}
+
+/* Homepage hero: the rule above the 2-col rail should have a center gap.
+   We redraw the bottom rule with a gradient so it always creates a true
+   "missing" segment (instead of masking with background color). */
+.wbez-home-rail-featured-top {
+  --wbez-hero-gap-width: 8px; /* matches g-2-ish gutter */
+  position: relative;
+  border-bottom: 0; /* remove bootstrap border-bottom; we draw it below */
+}
+
+.wbez-home-rail-featured-top::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    #d1d1d1 0 calc(50% - (var(--wbez-hero-gap-width) / 2)),
+    transparent calc(50% - (var(--wbez-hero-gap-width) / 2)) calc(50% + (var(--wbez-hero-gap-width) / 2)),
+    #d1d1d1 calc(50% + (var(--wbez-hero-gap-width) / 2)) 100%
+  );
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .wbez-home-rail-featured-top {
+    --wbez-hero-gap-width: 16px; /* matches g-md-3-ish gutter */
+  }
+}
+
+/* Featured Audio / List Carousel module (WBEZ-inspired) */
+.wbez-featured-audio,
+.wbez-list-carousel {
+  border-top: 5px solid #252525; /* thick rule above module title */
+  padding-top: 18px;
+}
+
+.wbez-featured-audio__title,
+.wbez-list-carousel__title {
+  font-family: var(--wbez-sans);
+  font-size: 21px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: rgb(99, 100, 102); /* #636466 */
+  line-height: 1.1;
+  margin-bottom: 18px;
+}
+
+.wbez-featured-audio__item,
+.wbez-list-carousel__item {
+  min-height: 100%;
+}
+
+.wbez-featured-audio__headline,
+.wbez-list-carousel__headline {
+  font-family: var(--wbez-serif);
+  font-size: 1rem;
+  line-height: 1.25;
+  color: var(--wbez-black);
+  margin-right: 0.25rem; /* helps avoid awkward wrapping edge cases */
+}
+
+.wbez-featured-audio__image,
+.wbez-list-carousel__image,
+.wbez-more-news-river__image {
+  border-radius: 0;
+}
+
+.wbez-featured-audio__listen,
+.wbez-list-carousel__listen {
+  margin-top: 14px;
+}
+
+/* Right rail modules using the same shell as list carousel (thick rule + title) */
+.wbez-rail-module__list .list-group-item:last-child {
+  border-bottom: 0 !important;
+}
+
+.wbez-rail-one-col-promo .wbez-list-carousel__headline a:hover {
+  color: var(--wbez-red-dark);
+}
+
+/* Curious City Hearken-style promo (right rail) */
+.wbez-cc-promo {
+  background: #000;
+  color: #fff;
+  padding: 1.25rem 1rem 1rem;
+  font-family: var(--wbez-sans);
+}
+
+.wbez-cc-promo__brand {
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+}
+
+.wbez-cc-promo__qmark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.35rem;
+  border-radius: 50%;
+  background: #fff;
+  color: #000;
+  font-size: 0.75rem;
+  font-weight: 700;
+  vertical-align: middle;
+}
+
+.wbez-cc-promo__wbez {
+  color: #fff;
+  font-weight: 700;
+}
+
+.wbez-cc-promo__chicago {
+  color: var(--wbez-red);
+  font-weight: 700;
+  margin-left: 0.15rem;
+}
+
+.wbez-cc-promo__title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  color: #fff;
+}
+
+.wbez-cc-promo__counter {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.wbez-cc-promo__form .form-control::placeholder {
+  color: #6c757d;
+}
+
+.wbez-cc-promo__form .form-control:focus {
+  box-shadow: 0 0 0 0.15rem rgba(255, 255, 255, 0.25);
+}
+
+.wbez-cc-promo__checks .form-check-input {
+  background-color: #fff;
+  border-color: #adb5bd;
+
+  &:checked {
+    background-color: var(--wbez-red);
+    border-color: var(--wbez-red);
+  }
+}
+
+.wbez-cc-promo__inline-link {
+  color: #6ea8fe;
+  text-decoration: underline;
+
+  &:hover {
+    color: #9ec5fe;
+  }
+}
+
+.wbez-cc-promo__footer-link {
+  color: #fff;
+  text-decoration: underline;
+
+  &:hover {
+    color: #fff;
+    opacity: 0.85;
+  }
+}
+
+/* More News river (75/25 lower homepage split) */
+.wbez-more-news-river {
+  position: relative;
+  padding-top: 18px;
+}
+
+.wbez-more-news-river::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: #252525;
+}
+
+.wbez-more-news-river__item {
+  position: relative;
+}
+
+.wbez-more-news-river__item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 1px;
+  background: #d1d1d1;
+}
+
+.wbez-more-news-river__headline {
+  font-family: var(--wbez-serif);
+  font-size: clamp(1.3rem, 1.2rem + .45vw, 1.75rem);
+  line-height: 1.2;
+  color: var(--wbez-black);
+}
+
+.wbez-more-news-river__dek {
+  font-size: .98rem;
+  line-height: 1.35;
+}
+
+/* ~396×216 target (+20% vs 330×180); scales down in narrow columns (same bg-light as list carousel) */
+.wbez-more-news-river__image {
+  display: block;
+  width: 100%;
+  max-width: 396px;
+  aspect-ratio: 396 / 216;
+  height: auto;
+  flex-shrink: 0;
+}
+
+/* One-column event list (right rail; mirrors More News river: thick rule + thin item rules) */
+.wbez-one-column-event-list {
+  position: relative;
+  padding-top: 18px;
+}
+
+.wbez-one-column-event-list::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: #252525;
+}
+
+.wbez-one-column-event-list__title {
+  font-family: var(--wbez-sans);
+  font-size: 21px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--wbez-teal);
+  line-height: 1.1;
+  margin-bottom: 18px;
+}
+
+.wbez-one-column-event-list__item {
+  position: relative;
+}
+
+.wbez-one-column-event-list__item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 1px;
+  background: #d1d1d1;
+}
+
+.wbez-one-column-event-list__thumb {
+  border-radius: 0;
+}
+
+.wbez-one-column-event-list__headline {
+  font-family: var(--wbez-serif);
+  font-size: 1rem;
+  line-height: 1.25;
+  color: var(--wbez-black);
+}
+
+.wbez-one-column-event-list__date {
+  font-family: var(--wbez-sans);
+  font-size: 0.85rem;
+  line-height: 1.3;
+  color: var(--wbez-muted);
+}
+
+.wbez-one-column-event-list__item a:hover .wbez-one-column-event-list__headline {
+  color: var(--wbez-red-dark);
+}
+
+/* One column top list (right rail; “In case you missed it”: lead 16×9 + numbered headlines) */
+.wbez-one-column-top-list {
+  position: relative;
+  padding-top: 18px;
+}
+
+.wbez-one-column-top-list::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: #252525;
+}
+
+.wbez-one-column-top-list__title {
+  font-family: var(--wbez-sans);
+  font-size: 21px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--wbez-muted);
+  line-height: 1.1;
+  margin-bottom: 18px;
+}
+
+.wbez-one-column-top-list__lead {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: 1px solid #d1d1d1;
+}
+
+.wbez-one-column-top-list__lead-image {
+  border-radius: 0;
+}
+
+.wbez-one-column-top-list__list {
+  padding-left: 0;
+}
+
+.wbez-one-column-top-list__item {
+  position: relative;
+}
+
+.wbez-one-column-top-list__item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 1px;
+  background: #d1d1d1;
+}
+
+/* When a lead image exists, the first list row does not repeat that separator */
+.wbez-one-column-top-list__lead + .wbez-one-column-top-list__list > .wbez-one-column-top-list__item:first-child::before {
+  display: none;
+}
+
+.wbez-one-column-top-list__link {
+  width: 100%;
+}
+
+.wbez-one-column-top-list__rank {
+  flex: 0 0 auto;
+  min-width: 1.75rem;
+  font-family: var(--wbez-serif);
+  font-size: clamp(1.75rem, 1.4rem + 1vw, 2.35rem);
+  font-weight: 400;
+  line-height: 1;
+  color: #c4c4c4;
+  text-align: right;
+}
+
+.wbez-one-column-top-list__headline {
+  flex: 1 1 auto;
+  font-family: var(--wbez-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--wbez-black);
+}
+
+.wbez-one-column-top-list__link:hover .wbez-one-column-top-list__headline {
+  color: var(--wbez-red-dark);
+}
+
+/* Full-width promo spot (bottom of homepage: graphic + member message + donate) */
+.wbez-full-width-promo-spot {
+  background: #fff;
+  border-top: 0;
+}
+
+.wbez-full-width-promo-spot__graphic {
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.wbez-full-width-promo-spot__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.wbez-full-width-promo-spot__graphic-line1 {
+  font-family: var(--wbez-sans);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: clamp(0.68rem, 0.55rem + 0.55vw, 0.82rem);
+  color: var(--wbez-black);
+  line-height: 1.2;
+  flex: 1 1 8rem;
+}
+
+.wbez-full-width-promo-spot__stars {
+  color: var(--wbez-red);
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  line-height: 1;
+}
+
+.wbez-full-width-promo-spot__graphic-line2 {
+  font-family: var(--wbez-sans);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: clamp(0.75rem, 0.65rem + 0.45vw, 0.95rem);
+  color: var(--wbez-red);
+  line-height: 1.25;
+}
+
+.wbez-full-width-promo-spot__copy {
+  border-top: 0;
+}
+
+/* Divider lines intentionally removed to match final promo spot */
+
+.wbez-full-width-promo-spot__title {
+  font-family: var(--wbez-serif);
+  font-size: clamp(1.35rem, 1.1rem + 0.9vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--wbez-black);
+}
+
+.wbez-full-width-promo-spot__body {
+  font-family: var(--wbez-sans);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--wbez-muted);
+  max-width: 40rem;
+}
+
+.wbez-full-width-promo-spot__btn {
+  letter-spacing: 0.06em;
+}
+
+/* Politics / featured breakout: lead headline (matches live WBEZ sizing) */
+.wbez-featured-breakout__lead-title {
+  font-family: var(--wbez-serif);
+  font-size: 35px;
+  font-weight: 700;
+  line-height: 42px;
+  color: var(--wbez-black);
+}
+
+@media (min-width: 992px) {
+  .wbez-lower-main {
+    flex: 0 0 70%;
+    max-width: 70%;
+  }
+
+  .wbez-lower-rail {
+    flex: 0 0 30%;
+    max-width: 30%;
+  }
 }
 
 @media (max-width: 991.98px) {

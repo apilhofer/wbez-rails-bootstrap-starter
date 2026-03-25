@@ -1,0 +1,32 @@
+<%# List Carousel module.
+    Generic pattern for "lead image -> headline (only) -> listen button".
+
+    Locals:
+    - title: String
+    - items: Array of hashes (expects :title; :kicker is optional).
+%>
+<% title = local_assigns.fetch(:title, "") %>
+<% items = local_assigns.fetch(:items, []) %>
+
+<div class="wbez-list-carousel">
+  <div class="wbez-list-carousel__title"><%= title %></div>
+
+  <div class="row g-4 wbez-list-carousel__grid">
+    <% items.first(4).each do |item| %>
+      <div class="col-6 col-md-3">
+        <div class="wbez-list-carousel__item h-100 d-flex flex-column">
+          <div class="ratio ratio-16x9 bg-light wbez-list-carousel__image"></div>
+
+          <h3 class="wbez-list-carousel__headline mt-3">
+            <%= item[:title] %>
+          </h3>
+
+          <div class="mt-auto wbez-list-carousel__listen">
+            <%= render "shared/ui/listen_pill" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+

@@ -1,0 +1,35 @@
+<%# 
+  One column top list — right-rail module (e.g. “In case you missed it”): thick rule, uppercase title,
+  optional 16×9 lead image, then an ordered stack of numbered headlines (large serif rank + bold sans title).
+  Pattern name (human): “one column top list”. Page hook: [data-wbez-pattern="one-column-top-list"] — see /demo/cookbook.
+  locals: title (String), items (Array of { title:, href: optional }), heading_id (optional),
+          show_lead_image (Boolean, default true)
+%>
+<% title = local_assigns.fetch(:title, "In case you missed it") %>
+<% items = local_assigns.fetch(:items, []) %>
+<% heading_id = local_assigns.fetch(:heading_id, "wbez-one-column-top-list-heading") %>
+<% show_lead_image = local_assigns.fetch(:show_lead_image, true) %>
+<section
+  class="wbez-one-column-top-list wbez-rail-module<%= " wbez-one-column-top-list--no-lead" unless show_lead_image %>"
+  role="region"
+  aria-labelledby="<%= heading_id %>"
+  data-wbez-pattern="one-column-top-list">
+  <h2 id="<%= heading_id %>" class="wbez-one-column-top-list__title"><%= title %></h2>
+  <% if show_lead_image %>
+    <div class="wbez-one-column-top-list__lead">
+      <div class="ratio ratio-16x9 bg-light wbez-one-column-top-list__lead-image" aria-hidden="true"></div>
+    </div>
+  <% end %>
+  <ol class="wbez-one-column-top-list__list list-unstyled mb-0">
+    <% items.each_with_index do |item, idx| %>
+      <% href = item[:href].presence || "#" %>
+      <li class="wbez-one-column-top-list__item py-3">
+        <a href="<%= href %>" class="wbez-one-column-top-list__link text-decoration-none link-dark d-flex gap-2 gap-sm-3 align-items-start">
+          <span class="wbez-one-column-top-list__rank" aria-hidden="true"><%= idx + 1 %></span>
+          <span class="wbez-one-column-top-list__headline"><%= item[:title] %></span>
+        </a>
+      </li>
+    <% end %>
+  </ol>
+</section>
+

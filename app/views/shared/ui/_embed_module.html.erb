@@ -1,0 +1,25 @@
+<%# Embed module: donation banner (yellow, microphone + DONATE button).
+    Locals:
+    - title: String
+    - button_text: String
+    - href: String (optional, defaults to "#")
+%>
+<% title = local_assigns.fetch(:title, "Accurate Information. Reliable Reporting. Diverse Perspectives.") %>
+<% button_text = local_assigns.fetch(:button_text, "Donate") %>
+<% href = local_assigns.fetch(:href, "#") %>
+
+<div class="wbez-embed-module wbez-embed-module--donate">
+  <div class="wbez-embed-module__content">
+    <div class="wbez-embed-module__headline">
+      <%= ferris_icon "microphone", classes: "wbez-embed-module__mic", size: 27 %>
+      <div class="wbez-embed-module__title"><%= title %></div>
+    </div>
+
+    <div class="wbez-embed-module__action">
+      <%= link_to href, class: "wbez-embed-module__donate-btn" do %>
+        <%= button_text %>
+      <% end %>
+    </div>
+  </div>
+</div>
+

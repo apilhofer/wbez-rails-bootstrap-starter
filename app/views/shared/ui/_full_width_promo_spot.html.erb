@@ -1,0 +1,36 @@
+<%#
+  Full-width promo spot — bottom-of-page, two-column member message.
+  Left side uses an image asset instead of CSS-built graphics.
+  Pattern name (human): “full-width promo spot”. DOM: data-wbez-pattern="full-width-promo-spot".
+  locals: promo (Hash with optional :image_src, :title, :body, :button, :href, and optional :graphic_line1/:graphic_line2 for alt text),
+           heading_id (optional)
+%>
+<% promo = local_assigns.fetch(:promo) %>
+<% heading_id = local_assigns.fetch(:heading_id, "wbez-full-width-promo-spot-heading") %>
+<% image_src = promo[:image_src].presence || "image.webp" %>
+<% graphic_alt = promo[:graphic_alt].presence || [promo[:graphic_line1], promo[:graphic_line2]].compact.join(" ").strip %>
+<section
+  class="wbez-full-width-promo-spot"
+  role="region"
+  aria-labelledby="<%= heading_id %>"
+  data-wbez-pattern="full-width-promo-spot">
+  <div class="wbez-full-width-promo-spot__inner content-shell px-3 py-4">
+    <div class="row g-0 align-items-stretch wbez-full-width-promo-spot__row">
+      <div class="col-12 col-md-5">
+        <div class="wbez-full-width-promo-spot__graphic h-100">
+          <%= image_tag image_src,
+            alt: graphic_alt,
+            class: "wbez-full-width-promo-spot__image",
+            loading: "lazy" %>
+        </div>
+      </div>
+      <div class="col-12 col-md-7 bg-white">
+        <div class="wbez-full-width-promo-spot__copy h-100 p-4 p-lg-5 d-flex flex-column">
+          <h2 id="<%= heading_id %>" class="wbez-full-width-promo-spot__title mb-3"><%= promo[:title] %></h2>
+          <p class="wbez-full-width-promo-spot__body mb-0 flex-grow-1"><%= promo[:body] %></p>
+          <a href="<%= promo[:href] %>" class="btn btn-danger wbez-full-width-promo-spot__btn mt-4 align-self-start text-uppercase fw-bold px-4"><%= promo[:button] %></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
