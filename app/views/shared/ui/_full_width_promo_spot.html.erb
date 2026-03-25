@@ -3,17 +3,19 @@
   Left side uses an image asset instead of CSS-built graphics.
   Pattern name (human): “full-width promo spot”. DOM: data-wbez-pattern="full-width-promo-spot".
   locals: promo (Hash with optional :image_src, :title, :body, :button, :href, and optional :graphic_line1/:graphic_line2 for alt text),
-           heading_id (optional)
+           heading_id (optional), homepage_slot (optional; sets data-homepage-slot on the root section)
 %>
 <% promo = local_assigns.fetch(:promo) %>
 <% heading_id = local_assigns.fetch(:heading_id, "wbez-full-width-promo-spot-heading") %>
+<% homepage_slot = local_assigns[:homepage_slot] %>
 <% image_src = promo[:image_src].presence || "image.webp" %>
 <% graphic_alt = promo[:graphic_alt].presence || [promo[:graphic_line1], promo[:graphic_line2]].compact.join(" ").strip %>
 <section
   class="wbez-full-width-promo-spot"
   role="region"
   aria-labelledby="<%= heading_id %>"
-  data-wbez-pattern="full-width-promo-spot">
+  data-wbez-pattern="full-width-promo-spot"<% if homepage_slot.present? %>
+  data-homepage-slot="<%= homepage_slot %>"<% end %>>
   <div class="wbez-full-width-promo-spot__inner content-shell px-3 py-4">
     <div class="row g-0 align-items-stretch wbez-full-width-promo-spot__row">
       <div class="col-12 col-md-5">

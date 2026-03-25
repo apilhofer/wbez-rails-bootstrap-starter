@@ -8,6 +8,10 @@
       <p class="lead">Reference implementations for long-form story patterns, embedded media, pull quotes, lists, and structured editorial content.</p>
     </header>
 
+    <div class="alert alert-light border mb-5 small" role="note">
+      <strong>Homepage swap strategy:</strong> Pages created with <code>rails g wbez:page … --type=home</code> wrap major regions in stable <code>data-homepage-slot</code> attributes (for example <code>rise-and-chi</code>, <code>right-rail.one-column-top-list</code>, <code>bottom-full-width-promo</code>). Target a slot in the DOM, then replace the partial or inline markup for that region. See <code>docs/homepage-slots.md</code>. Reusable modules also expose <code>data-wbez-pattern="…"</code> on their roots (below).
+    </div>
+
     <%= render "shared/ui/section_header", title: "Article lead" %>
     <div class="reading-shell px-0 mb-5">
       <div class="wbez-kicker mb-2">Curious City</div>
@@ -142,13 +146,14 @@
 
     <%= render "shared/ui/section_header", title: "One-column event list (right rail)" %>
     <p class="text-muted small mb-3">
-      <strong>Pattern name:</strong> <strong>one-column event list</strong> — the “Upcoming WBEZ Events”–style module under “What’s that building?” in the lower right rail. Thick rule, teal uppercase list title, rows separated by thin rules (same rhythm as the More News river). Each row: 16×9 thumbnail left, serif headline, sans-serif date. The root <code>&lt;section&gt;</code> is a named region: <code>role=&quot;region&quot;</code>, <code>aria-labelledby</code> on the visible <code>h2</code>, and <code>data-wbez-pattern=&quot;one-column-event-list&quot;</code> so the pattern is easy to find in the DOM. Partial: <code>shared/ui/one_column_event_list</code>. Sample data: <code>@one_column_event_list_items</code> (array of <code>{ title:, date:, href: }</code>).
+      <strong>Pattern name:</strong> <strong>one-column event list</strong> — the “Upcoming WBEZ Events”–style module under “What’s that building?” in the lower right rail. Thick rule, teal uppercase list title, rows separated by thin rules (same rhythm as the More News river). Each row: 16×9 thumbnail left, serif headline, sans-serif date. The root <code>&lt;section&gt;</code> is a named region: <code>role=&quot;region&quot;</code>, <code>aria-labelledby</code> on the visible <code>h2</code>, and <code>data-wbez-pattern=&quot;one-column-event-list&quot;</code>. On generated homepages it also uses <code>data-homepage-slot=&quot;right-rail.one-column-event-list&quot;</code> (pass <code>homepage_slot:</code> when rendering). Partial: <code>shared/ui/one_column_event_list</code>. Sample data: <code>@one_column_event_list_items</code> (array of <code>{ title:, date:, href: }</code>).
     </p>
     <div class="row justify-content-lg-end mb-5">
       <div class="col-12 col-lg-4">
         <%= render "shared/ui/one_column_event_list",
           title: "Upcoming WBEZ Events",
           heading_id: "cookbook-one-column-event-list-heading",
+          homepage_slot: "right-rail.one-column-event-list",
           items: [
             { title: "Wait Wait… Don’t Tell Me!", date: "Ongoing throughout the year" },
             { title: "WBEZ Presents: An Evening with Ani DiFranco", date: "March 27" },
@@ -161,13 +166,14 @@
 
     <%= render "shared/ui/section_header", title: "One column top list (right rail)" %>
     <p class="text-muted small mb-3">
-      <strong>Pattern name:</strong> <strong>one column top list</strong> — e.g. “In case you missed it,” below the event list in the lower right rail. Thick rule, grey uppercase title, 16×9 lead image, then an <code>ol</code> of seven (or more) rows with large light-grey serif numerals and bold sans-serif headlines, thin rules between rows. DOM hook: <code>data-wbez-pattern=&quot;one-column-top-list&quot;</code>. Partial: <code>shared/ui/one_column_top_list</code>. Sample: <code>@one_column_top_list_items</code> (<code>{ title:, href: }</code>). Pass <code>show_lead_image: false</code> to omit the lead image.
+      <strong>Pattern name:</strong> <strong>one column top list</strong> — e.g. “In case you missed it,” below the event list in the lower right rail. Thick rule, grey uppercase title, 16×9 lead image, then an <code>ol</code> of seven (or more) rows with large light-grey serif numerals and bold sans-serif headlines, thin rules between rows. DOM hook: <code>data-wbez-pattern=&quot;one-column-top-list&quot;</code>. On generated homepages this module is also tagged with <code>data-homepage-slot=&quot;right-rail.one-column-top-list&quot;</code> (pass <code>homepage_slot:</code> when rendering). Partial: <code>shared/ui/one_column_top_list</code>. Sample: <code>@one_column_top_list_items</code> (<code>{ title:, href: }</code>). Pass <code>show_lead_image: false</code> to omit the lead image.
     </p>
     <div class="row justify-content-lg-end mb-5">
       <div class="col-12 col-lg-4">
         <%= render "shared/ui/one_column_top_list",
           title: "In case you missed it",
           heading_id: "cookbook-one-column-top-list-heading",
+          homepage_slot: "right-rail.one-column-top-list",
           items: [
             { title: "Obama Presidential Center: what neighbors and the city are asking this month" },
             { title: "The confusing world of super PACs in Illinois, explained in plain language" },
@@ -302,13 +308,14 @@
 
     <%= render "shared/ui/section_header", title: "Full-width promo spot (bottom of page)" %>
     <p class="text-muted small mb-3">
-      <strong>Pattern name:</strong> <strong>full-width promo spot</strong> — final module before the site footer on the homepage: two columns (map-style graphic with headline + four red stars, then serif title, body, red donate button). Placed <strong>outside</strong> <code>&lt;main&gt;</code> so it can span the full content shell. DOM: <code>data-wbez-pattern=&quot;full-width-promo-spot&quot;</code>. Partial: <code>shared/ui/full_width_promo_spot</code>. Data: <code>@full_width_promo_spot</code> (<code>:graphic_line1</code>, <code>:graphic_line2</code>, <code>:title</code>, <code>:body</code>, <code>:button</code>, <code>:href</code>).
+      <strong>Pattern name:</strong> <strong>full-width promo spot</strong> — final module before the site footer on the homepage: two columns (image/graphic column, then serif title, body, red donate button). Placed <strong>outside</strong> <code>&lt;main&gt;</code> so it can span the full content shell. DOM: <code>data-wbez-pattern=&quot;full-width-promo-spot&quot;</code>. On generated homepages the root section also has <code>data-homepage-slot=&quot;bottom-full-width-promo&quot;</code> (pass <code>homepage_slot:</code> when rendering). Partial: <code>shared/ui/full_width_promo_spot</code>. Data: <code>@full_width_promo_spot</code> (<code>:graphic_line1</code>, <code>:graphic_line2</code>, <code>:title</code>, <code>:body</code>, <code>:button</code>, <code>:href</code>).
     </p>
     <p class="small text-muted mb-4">The live example renders below this main column (same placement as the final block on a generated home page).</p>
   </main>
 
   <%= render "shared/ui/full_width_promo_spot",
     heading_id: "cookbook-full-width-promo-spot-heading",
+    homepage_slot: "bottom-full-width-promo",
     promo: {
       graphic_line1: "You count on WBEZ",
       graphic_line2: "And WBEZ counts on you",

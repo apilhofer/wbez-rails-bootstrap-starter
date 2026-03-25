@@ -2,16 +2,19 @@
   One column event list — right-rail module (e.g. “Upcoming WBEZ Events”): thick rule, uppercase title,
   rows separated by thin rules; each row is 16×9 thumbnail, serif headline, sans date.
   Page hook: [data-wbez-pattern="one-column-event-list"] — see /demo/cookbook.
-  locals: title (String), items (Array of { title:, date:, href: optional }), heading_id (optional)
+  locals: title (String), items (Array of { title:, date:, href: optional }), heading_id (optional),
+          homepage_slot (optional; sets data-homepage-slot on the root section)
 %>
 <% title = local_assigns.fetch(:title, "Upcoming WBEZ Events") %>
 <% items = local_assigns.fetch(:items, []) %>
 <% heading_id = local_assigns.fetch(:heading_id, "wbez-one-column-event-list-heading") %>
+<% homepage_slot = local_assigns[:homepage_slot] %>
 <section
   class="wbez-one-column-event-list wbez-rail-module"
   role="region"
   aria-labelledby="<%= heading_id %>"
-  data-wbez-pattern="one-column-event-list">
+  data-wbez-pattern="one-column-event-list"<% if homepage_slot.present? %>
+  data-homepage-slot="<%= homepage_slot %>"<% end %>>
   <h2 id="<%= heading_id %>" class="wbez-one-column-event-list__title"><%= title %></h2>
   <div class="wbez-one-column-event-list__list">
     <% items.each do |item| %>

@@ -1,5 +1,7 @@
-<%# Curious City promo — pattern name: "curious city promo". Hearken-style dark rail form (question, fields, checkboxes, submit). %>
-<section class="wbez-cc-promo" aria-label="Curious City submission">
+<%# Curious City promo — pattern name: "curious city promo". Hearken-style dark rail form (question, fields, checkboxes, submit).
+    Optional local: homepage_slot (sets data-homepage-slot on the root section). %>
+<% homepage_slot = local_assigns[:homepage_slot] %>
+<section class="wbez-cc-promo" aria-label="Curious City submission"<% if homepage_slot.present? %> data-homepage-slot="<%= homepage_slot %>"<% end %>>
   <div class="wbez-cc-promo__brand mb-3">
     <span class="wbez-cc-promo__qmark" aria-hidden="true">?</span>
     <span class="wbez-cc-promo__wbez">WBEZ</span><span class="wbez-cc-promo__chicago">CHICAGO</span>

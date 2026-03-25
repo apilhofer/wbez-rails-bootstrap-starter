@@ -12,6 +12,8 @@ module WbezBootstrapStarter
         @base.empty_dir "app/views/shared/ui"
         @base.copy_files(shared_ui_files)
         @base.copy_text_file "app/assets/stylesheets/application.bootstrap.scss"
+        # Used by `shared/ui/full_width_promo_spot` default `image_src`.
+        @base.copy_text_file "app/assets/images/image.webp"
       end
 
       private

@@ -3,17 +3,19 @@
   optional 16×9 lead image, then an ordered stack of numbered headlines (large serif rank + bold sans title).
   Pattern name (human): “one column top list”. Page hook: [data-wbez-pattern="one-column-top-list"] — see /demo/cookbook.
   locals: title (String), items (Array of { title:, href: optional }), heading_id (optional),
-          show_lead_image (Boolean, default true)
+          show_lead_image (Boolean, default true), homepage_slot (optional; sets data-homepage-slot on the root section)
 %>
 <% title = local_assigns.fetch(:title, "In case you missed it") %>
 <% items = local_assigns.fetch(:items, []) %>
 <% heading_id = local_assigns.fetch(:heading_id, "wbez-one-column-top-list-heading") %>
 <% show_lead_image = local_assigns.fetch(:show_lead_image, true) %>
+<% homepage_slot = local_assigns[:homepage_slot] %>
 <section
   class="wbez-one-column-top-list wbez-rail-module<%= " wbez-one-column-top-list--no-lead" unless show_lead_image %>"
   role="region"
   aria-labelledby="<%= heading_id %>"
-  data-wbez-pattern="one-column-top-list">
+  data-wbez-pattern="one-column-top-list"<% if homepage_slot.present? %>
+  data-homepage-slot="<%= homepage_slot %>"<% end %>>
   <h2 id="<%= heading_id %>" class="wbez-one-column-top-list__title"><%= title %></h2>
   <% if show_lead_image %>
     <div class="wbez-one-column-top-list__lead">
