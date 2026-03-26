@@ -56,9 +56,9 @@ bin/rails app:template LOCATION=https://raw.githubusercontent.com/USERNAME/REPO/
 
 Generate a named WBEZ-style page:
 ```bash
-bin/rails generate wbez:page investigative_article --type=article
-bin/rails generate wbez:page breaking_news_article --type=article
-bin/rails generate wbez:page local_roundup_home --type=home
+bin/rails generate wbez:page investigative_article --type=article --brand=wbez
+bin/rails generate wbez:page breaking_news_article --type=article --brand=wbez
+bin/rails generate wbez:page local_roundup_home --type=home --brand=wbez
 ```
 
 This generates:
@@ -69,6 +69,10 @@ This generates:
 `--type` supports:
 - `article` (default): long-form article layout using `.prose-wbez`
 - `home` (or `homepage`): homepage-style layout using hero and story-card modules
+
+`--brand` is required:
+- currently supported: `wbez`
+- future brands (e.g. Sun-Times and other CPM properties) can be added with parallel brand templates
 
 ## Template structure (inside this repo)
 
