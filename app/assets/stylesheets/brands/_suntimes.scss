@@ -1,0 +1,205 @@
+// Chicago Sun-Times prototype scope — `suntimes:page` and Sun-Times demos.
+
+.suntimes-prototype {
+  --cst-accent: #c00;
+  --cst-black: #111;
+  --cst-muted: #555;
+  --cst-sans: "Source Sans 3", "Source Sans Pro", Arial, sans-serif;
+  --cst-serif: Georgia, "Times New Roman", serif;
+
+  color: var(--cst-black);
+  font-family: var(--cst-sans);
+
+  a:not(.btn):not(.nav-link):not(.text-white):not(.text-white-50):not(.link-dark):not(.cst-site-promo-bar__link):not(.cst-site-masthead__donate-why):not(.suntimes-home__headline-link) {
+    color: var(--cst-accent);
+  }
+
+  .footer-suntimes a.text-white-50,
+  .suntimes-footer--visily a.text-white-50 {
+    color: rgba(255, 255, 255, 0.55) !important;
+
+    &:hover {
+      color: #fff !important;
+    }
+  }
+
+  .cst-site-promo-bar__link {
+    color: #fff;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  a.link-dark {
+    color: var(--cst-black);
+  }
+
+  .story-title {
+    font-family: var(--cst-serif);
+  }
+
+  .editorial-heading {
+    font-family: var(--cst-serif);
+  }
+
+  .wbez-card {
+    border-color: #ddd;
+  }
+
+  .prose-suntimes {
+    font-size: 1.1rem;
+    line-height: 1.75;
+    font-family: var(--cst-sans);
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--cst-serif);
+    }
+  }
+}
+
+// Sun-Times header chrome (scoped so WBEZ pages are unaffected)
+.site-header-suntimes {
+  --cst-sans: "Source Sans 3", "Source Sans Pro", Arial, sans-serif;
+
+  .cst-site-topbar {
+    background: #000;
+    color: #fff;
+  }
+
+  .cst-site-topbar__cpm {
+    max-height: 35px;
+    width: auto;
+  }
+
+  .cst-site-topbar__cst {
+    max-height: 22px;
+    width: auto;
+  }
+
+  .cst-site-topbar__wbez {
+    max-height: 18px;
+    width: auto;
+  }
+
+  .cst-site-promo-bar {
+    background: #006978;
+    color: #fff;
+    font-family: var(--cst-sans);
+    font-size: 0.9rem;
+    line-height: 1.35;
+  }
+
+  .cst-site-promo-bar__link {
+    color: #fff;
+    text-decoration: underline;
+
+    &:hover {
+      color: #fff;
+      opacity: 0.92;
+    }
+  }
+
+  .cst-site-utility-bar {
+    background: #fff;
+    font-family: var(--cst-sans);
+  }
+
+  .cst-site-utility-bar__strapline {
+    font-style: italic;
+    color: #6b6b6b;
+    font-size: 0.9rem;
+    line-height: 1.35;
+  }
+
+  .cst-site-utility-bar__strapline time {
+    font-style: italic;
+    white-space: nowrap;
+  }
+
+  .cst-dropdown--utility .cst-dropdown__toggle::after {
+    margin-left: 0.2rem;
+    vertical-align: 0.15em;
+  }
+
+  .cst-site-masthead {
+    background: #fff;
+    font-family: var(--cst-sans);
+  }
+
+  .cst-site-masthead__play {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .cst-site-masthead__wbez-logo {
+    max-height: 16px;
+    width: auto;
+  }
+
+  .cst-site-masthead__logo {
+    max-height: 52px;
+    width: auto;
+  }
+
+  .cst-site-masthead__donate {
+    --bs-btn-bg: #d32f2f;
+    --bs-btn-border-color: #d32f2f;
+    --bs-btn-hover-bg: #b71c1c;
+    --bs-btn-hover-border-color: #b71c1c;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+  }
+
+  .cst-site-masthead__donate-why {
+    color: #6b6b6b;
+
+    &:hover {
+      color: #444;
+    }
+  }
+
+  .cst-site-primary-nav {
+    background: #fff;
+    font-family: var(--cst-sans);
+  }
+
+  .cst-site-primary-nav .cst-dropdown__toggle--nav {
+    font-size: 0.9rem;
+    letter-spacing: 0.01em;
+  }
+
+  .cst-site-primary-nav .cst-dropdown__toggle--nav::after {
+    margin-left: 0.15rem;
+    vertical-align: 0.12em;
+  }
+
+  .cst-site-primary-nav .cst-dropdown__toggle--nav:hover,
+  .cst-site-primary-nav .cst-dropdown__toggle--nav:focus {
+    color: #000 !important;
+  }
+
+  .cst-site-primary-nav .cst-dropdown__toggle--nav.show {
+    color: #000 !important;
+  }
+}
+
+.offcanvas-suntimes {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.offcanvas-suntimes .nav-link {
+  color: #fff;
+}
+
+.offcanvas-suntimes .nav-link:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.footer-suntimes {
+  background: #1a1a1a;
+  color: #fff;
+}

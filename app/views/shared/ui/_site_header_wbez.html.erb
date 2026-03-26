@@ -1,0 +1,67 @@
+<div class="site-topbar py-2">
+  <div class="content-shell px-3 d-flex align-items-center gap-3 overflow-auto text-nowrap">
+    <%= image_tag "logos/cpm-global-header.svg",
+        alt: "Chicago Public Media",
+        class: "img-fluid flex-shrink-0",
+        style: "height: 35px;" %>
+
+    <span class="site-topbar-separator flex-shrink-0"></span>
+
+    <%= image_tag "logos/cst-global-header.svg",
+        alt: "Chicago Sun-Times",
+        class: "img-fluid flex-shrink-0",
+        style: "height: 14px;" %>
+
+    <%= image_tag "logos/wbez-chicago-logo-oneline--dark-theme.svg",
+        alt: "WBEZ Chicago",
+        class: "img-fluid flex-shrink-0",
+        style: "height: 14px;" %>
+  </div>
+</div>
+
+<header class="site-masthead py-3">
+  <div class="content-shell px-3 d-flex align-items-center justify-content-between gap-3">
+    <div class="d-flex align-items-center gap-4">
+      <%= render "shared/ui/brand_lockup", style: "max-height: 27px;" %>
+
+      <button
+        class="btn btn-link text-white text-decoration-none d-flex align-items-center gap-2 p-0 order-2"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#siteNavWbez"
+        aria-controls="siteNavWbez">
+        <span class="fs-2 lh-1">☰</span>
+        <span class="fw-bold text-uppercase small">Menu</span>
+      </button>
+    </div>
+
+    <div class="d-flex align-items-center gap-2">
+      <a href="#" class="<%= ui_btn_class(:listen) %>">▶ Listen Live</a>
+      <a href="#" class="<%= ui_btn_class(:primary) %>">❤ Donate</a>
+      <a href="#" class="btn btn-link text-white text-decoration-none p-0" aria-label="Search">
+          <%= ferris_icon "search", classes: "text-white", size: 20 %>
+        </a>
+    </div>
+  </div>
+</header>
+
+<div class="site-strapline">
+  <div class="content-shell px-3 d-flex align-items-center gap-3">
+    <div class="site-strapline-text">Your NPR news source</div>
+    <div class="site-strapline-rule flex-grow-1" aria-hidden="true"></div>
+  </div>
+</div>
+
+<div class="offcanvas offcanvas-start offcanvas-wbez" tabindex="-1" id="siteNavWbez" aria-labelledby="siteNavWbezLabel">
+  <div class="offcanvas-header border-bottom border-secondary">
+    <h5 class="offcanvas-title" id="siteNavWbezLabel"><%= render "shared/ui/brand_lockup", style: "max-height: 30px;" %></h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <nav class="nav flex-column">
+      <% ["Latest News","In the Loop","Say More","Curious City","Prisoncast!","Vocalo","Arts & Culture","Criminal Justice","Education","Immigration","Politics","Race, Class & Communities"].each do |item| %>
+        <a class="nav-link text-white px-3 py-2 rounded" href="#"><%= item %></a>
+      <% end %>
+    </nav>
+  </div>
+</div>

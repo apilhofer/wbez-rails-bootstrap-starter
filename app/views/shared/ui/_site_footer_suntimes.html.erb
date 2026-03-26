@@ -1,0 +1,92 @@
+<footer class="footer-suntimes suntimes-footer--visily pt-5 pb-4 mt-5">
+  <div class="content-shell px-3">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-5 g-4 g-lg-5 mb-5">
+      <div>
+        <h4 class="text-white fw-bold mb-3 pb-2 border-bottom border-white border-opacity-25">Get the Paper</h4>
+        <ul class="list-unstyled small text-white-50 mb-0">
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Today&apos;s Paper</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Get Home Delivery</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Back Issues &amp; Photo Reprints</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Newspaper Archives</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Photo Archives</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Career Opportunities</a></li>
+          <li><a href="#" class="text-white-50 text-decoration-none">Become a Retail Vendor</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white fw-bold mb-3 pb-2 border-bottom border-white border-opacity-25">Get in Touch</h4>
+        <ul class="list-unstyled small text-white-50 mb-0">
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Advertise With Us</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Media Kit</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">About the Sun-Times</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Our Team</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Contact Us</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Careers &amp; Internships</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Letters &amp; Op-Eds</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Events</a></li>
+          <li><a href="#" class="text-white-50 text-decoration-none">Press Room</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white fw-bold mb-3 pb-2 border-bottom border-white border-opacity-25">Support Our Work</h4>
+        <ul class="list-unstyled small text-white-50 mb-0">
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Become a Member</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Donate Your Car</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Gift Matching</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Public Media, a Public Good</a></li>
+          <li><a href="#" class="text-white-50 text-decoration-none">Our Impact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white fw-bold mb-3 pb-2 border-bottom border-white border-opacity-25">Mobile Apps</h4>
+        <ul class="list-unstyled small text-white-50 mb-0">
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Learn More</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">iOS Download</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Android Download</a></li>
+          <li><a href="#" class="text-white-50 text-decoration-none">Frequently Asked Questions</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white fw-bold mb-3 pb-2 border-bottom border-white border-opacity-25">Manage My Account</h4>
+        <ul class="list-unstyled small text-white-50 mb-0">
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Free Newsletters</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Digital Members</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Home Delivery Subscribers</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">TV Weekly Customers</a></li>
+          <li><a href="#" class="text-white-50 text-decoration-none">Activate Digital Access</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-lg-between gap-4 py-4 border-top border-white border-opacity-10">
+      <div class="flex-grow-1">
+        <h3 class="h4 text-white fw-bold mb-2">You Make The News</h3>
+        <p class="text-white-50 small mb-0">
+          The Chicago Sun-Times is free to all, thanks to readers like you. Donate today to help us keep you informed and help power access across our city and region.
+        </p>
+      </div>
+      <div class="flex-shrink-0">
+        <%= link_to "Donate", "#", class: "btn btn-lg text-white fw-bold px-5 rounded-0", style: "background: #d3242c;" %>
+      </div>
+    </div>
+
+    <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-md-between gap-3 pt-4 border-top border-white border-opacity-10 small text-white-50">
+      <div class="d-flex align-items-center gap-2">
+        <%= image_tag "suntimes-visily/IMG_6.svg", alt: "Chicago Sun-Times", class: "opacity-50", style: "height: 0.75rem; filter: brightness(0) invert(1);" %>
+        <span>© <%= Time.current.year %> Chicago Sun-Times Media, Inc.</span>
+      </div>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <%= link_to "Terms of Use", "#", class: "text-white-50 text-decoration-none" %>
+        <%= link_to "Privacy Notice", "#", class: "text-white-50 text-decoration-none" %>
+        <%= link_to "Cookie Policy", "#", class: "text-white-50 text-decoration-none" %>
+        <%= link_to "Terms of Sale", "#", class: "text-white-50 text-decoration-none" %>
+        <%= link_to "CPM IP Policy", "#", class: "text-white-50 text-decoration-none" %>
+      </div>
+      <div class="d-flex gap-3 justify-content-center justify-content-md-end">
+        <%= link_to "#", class: "text-white-50", aria: { label: "Facebook" } do %><%= ferris_icon "facebook", classes: "text-white-50", size: 22 %><% end %>
+        <%= link_to "#", class: "text-white-50", aria: { label: "X" } do %><%= ferris_icon "twitter", classes: "text-white-50", size: 22 %><% end %>
+        <%= link_to "#", class: "text-white-50", aria: { label: "YouTube" } do %><%= ferris_icon "youtube", classes: "text-white-50", size: 22 %><% end %>
+      </div>
+    </div>
+  </div>
+</footer>

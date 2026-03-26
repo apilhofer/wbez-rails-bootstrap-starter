@@ -88,8 +88,12 @@ module WbezBootstrapStarter
           lib/tasks/wbez_bootstrap_starter.rake
           lib/generators/wbez/page/page_generator.rb
           lib/generators/wbez/page/templates/controller.rb.tt
-          lib/generators/wbez/page/templates/wbez/show.html.erb.tt
-          lib/generators/wbez/page/templates/wbez/home.html.erb.tt
+          lib/generators/wbez/page/templates/show.html.erb.tt
+          lib/generators/wbez/page/templates/home.html.erb.tt
+          lib/generators/suntimes/page/page_generator.rb
+          lib/generators/suntimes/page/templates/controller.rb.tt
+          lib/generators/suntimes/page/templates/show.html.erb.tt
+          lib/generators/suntimes/page/templates/home.html.erb.tt
         ]
       end
     end

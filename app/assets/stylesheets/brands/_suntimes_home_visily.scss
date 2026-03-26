@@ -1,0 +1,182 @@
+// Sun-Times homepage layout ported from Visily export (Bootstrap + scoped tokens).
+// Use with wrapper: .suntimes-prototype .suntimes-home--visily
+
+.suntimes-prototype .suntimes-home--visily {
+  --shv-red: #d3242c;
+  --shv-red-dark: #b71c1c;
+  --shv-text: #2a2a2a;
+  --shv-muted: #656565;
+  --shv-rule: #e9e9e9;
+  --shv-rule-dark: #ddd;
+  --shv-band: #f7f7f7;
+  --shv-newsletter: #f3f3f3;
+  --shv-serif: Charter, "Palatino Linotype", "Book Antiqua", Palatino, Georgia, "Times New Roman", serif;
+  --shv-sans: "Source Sans 3", "Source Sans Pro", Arial, sans-serif;
+
+  font-family: var(--shv-sans);
+  color: #1a1a1a;
+
+  .suntimes-home__category {
+    font-family: var(--shv-sans);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    color: var(--shv-red);
+    display: block;
+  }
+
+  .suntimes-home__headline-xl {
+    font-family: var(--shv-serif);
+    font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: #000;
+  }
+
+  .suntimes-home__headline-lg {
+    font-family: var(--shv-serif);
+    font-size: clamp(1.15rem, 1rem + 0.5vw, 1.45rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: #000;
+  }
+
+  .suntimes-home__headline-md {
+    font-family: var(--shv-serif);
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #000;
+  }
+
+  .suntimes-home__rail-title {
+    font-family: var(--shv-serif);
+    font-size: 1.65rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: #000;
+  }
+
+  .suntimes-home__section-title {
+    font-family: var(--shv-sans);
+    font-size: 0.875rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #000;
+    margin: 0;
+  }
+
+  .suntimes-home__meta {
+    font-size: 0.875rem;
+    color: var(--shv-text);
+  }
+
+  .suntimes-home__divider {
+    border-bottom: 1px solid var(--shv-rule);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .suntimes-home__section-accent {
+    border-top: 6px solid #1a1a1a;
+    padding-top: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .suntimes-home__commentary-band {
+    background: var(--shv-band);
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+    padding: 3rem 0.75rem;
+
+    @media (min-width: 992px) {
+      margin-left: calc(-1 * (100vw - 100%) / 2);
+      margin-right: calc(-1 * (100vw - 100%) / 2);
+      padding-left: max(0.75rem, calc((100vw - 72rem) / 2 + 0.75rem));
+      padding-right: max(0.75rem, calc((100vw - 72rem) / 2 + 0.75rem));
+    }
+  }
+
+  .suntimes-home__newsletter {
+    background: var(--shv-newsletter);
+  }
+
+  .suntimes-home__img-cover {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+
+  .suntimes-home__ratio-3-2 {
+    aspect-ratio: 3 / 2;
+  }
+
+  .suntimes-home__ratio-16-11 {
+    aspect-ratio: 16 / 11;
+  }
+
+  .suntimes-home__ratio-16-9 {
+    aspect-ratio: 16 / 9;
+  }
+
+  .suntimes-home__thumb {
+    width: 8rem;
+    height: 6rem;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .suntimes-home__listen-pill {
+    background: var(--shv-red);
+    color: #fff;
+    border: 0;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.25rem 1rem;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .suntimes-home__btn-more {
+    background: var(--shv-red);
+    color: #fff;
+    border: 0;
+    width: 100%;
+    font-weight: 700;
+    padding: 0.5rem;
+    border-radius: 3px;
+
+    &:hover {
+      background: var(--shv-red-dark);
+      color: #fff;
+    }
+  }
+
+  .suntimes-home__columnist-photo {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  a.suntimes-home__headline-link {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .suntimes-home__rail-border {
+    @media (min-width: 992px) {
+      border-left: 1px solid var(--shv-rule-dark);
+    }
+  }
+}

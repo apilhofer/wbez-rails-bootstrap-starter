@@ -54,25 +54,31 @@ bin/rails app:template LOCATION=https://raw.githubusercontent.com/USERNAME/REPO/
 
 ## Generator scaffold
 
-Generate a named WBEZ-style page:
+**WBEZ** — generate a named page with WBEZ chrome (header, footer, `.wbez-prototype` wrapper):
 ```bash
-bin/rails generate wbez:page investigative_article --type=article --brand=wbez
-bin/rails generate wbez:page breaking_news_article --type=article --brand=wbez
-bin/rails generate wbez:page local_roundup_home --type=home --brand=wbez
+bin/rails generate wbez:page investigative_article --type=article
+bin/rails generate wbez:page breaking_news_article --type=article
+bin/rails generate wbez:page local_roundup_home --type=home
 ```
 
-This generates:
+**Chicago Sun-Times** — generate a page with Sun-Times chrome (header, footer, `.suntimes-prototype` wrapper):
+```bash
+bin/rails generate suntimes:page city_desk_roundup --type=home
+bin/rails generate suntimes:page metro_investigation --type=article
+```
+
+Each generator creates:
 - `app/controllers/<name_plural>_controller.rb`
 - `app/views/<name_plural>/show.html.erb`
 - a route at `/<name>` that points to `<name_plural>#show`
 
 `--type` supports:
-- `article` (default): long-form article layout using `.prose-wbez`
-- `home` (or `homepage`): homepage-style layout using hero and story-card modules
+- `article` (default): long-form article layout (WBEZ uses `.prose-wbez`; Sun-Times uses `.prose-suntimes` and `article_shell_suntimes`)
+- `home` (or `homepage`): WBEZ uses hero and story-card modules; Sun-Times uses a Visily-derived multi-column homepage (`suntimes-home--visily`) with placeholder images from `image.webp` until you wire real assets
 
-`--brand` is required:
-- currently supported: `wbez`
-- future brands (e.g. Sun-Times and other CPM properties) can be added with parallel brand templates
+### Brand separation
+
+WBEZ and Sun-Times mockups use **different partials** (`site_header_wbez` vs `site_header_suntimes`, matching footers and article shells) and **scoped CSS** under `.wbez-prototype` and `.suntimes-prototype` so tokens and overrides do not leak between brands. The legacy partial `shared/ui/site_header` still renders the WBEZ header for backward compatibility.
 
 ## Template structure (inside this repo)
 
@@ -81,6 +87,7 @@ This generates:
 - `template/upgrades/*`: upgrade scripts (currently `v1_to_v2.rb`)
 - `lib/wbez_bootstrap_starter/version.rb`: template version constant
 - `lib/generators/wbez/page/*`: `wbez:page` generator templates
+- `lib/generators/suntimes/page/*`: `suntimes:page` generator templates
 - `lib/tasks/wbez_bootstrap_starter.rake`: `wbez:upgrade[from,to]` task for generated apps
 
 ## Demo routes (development only)

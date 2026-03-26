@@ -1,0 +1,16 @@
+<%# locals: label (String), items (Array<[title, href]>) %>
+<div class="dropdown cst-dropdown cst-dropdown--primary-nav">
+  <button
+    class="btn btn-link dropdown-toggle cst-dropdown__toggle cst-dropdown__toggle--nav text-dark text-decoration-none py-1 px-2 small fw-semibold shadow-none"
+    type="button"
+    data-bs-toggle="dropdown"
+    data-bs-auto-close="true"
+    aria-expanded="false">
+    <%= label %>
+  </button>
+  <ul class="dropdown-menu">
+    <% items.each do |title, href| %>
+      <li><%= link_to title, href, class: "dropdown-item small" %></li>
+    <% end %>
+  </ul>
+</div>

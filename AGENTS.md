@@ -28,17 +28,21 @@ The purpose of this project is to help build new Rails interfaces that feel cons
 ## Typography rules
 - Use Source Sans Pro / sans-serif for UI, labels, forms, nav, metadata, and utility text.
 - Use Charter / serif styling for editorial headlines, subheads, long-form story titles, and pull quotes.
-- Use `.prose-wbez` for article bodies and long-form content.
+- Use `.prose-wbez` for article bodies and long-form content on WBEZ pages; use `.prose-suntimes` inside `.suntimes-prototype` for Sun-Times article bodies.
+- Wrap brand-specific pages in `.wbez-prototype` or `.suntimes-prototype` so SCSS under `app/assets/stylesheets/brands/` applies predictably.
 
 ## Shared UI inventory
 Prefer these before writing new markup:
-- `shared/ui/site_header`
-- `shared/ui/site_footer`
+- `shared/ui/site_header_wbez` (WBEZ masthead; `shared/ui/site_header` is a thin alias)
+- `shared/ui/site_header_suntimes` (Chicago Sun-Times masthead; do not use WBEZ header on CST pages)
+- `shared/ui/site_footer` (WBEZ)
+- `shared/ui/site_footer_suntimes` (Sun-Times)
 - `shared/ui/section_header`
 - `shared/ui/story_card`
 - `shared/ui/hero_story`
 - `shared/ui/article_header`
-- `shared/ui/article_shell`
+- `shared/ui/article_shell` (WBEZ article layout)
+- `shared/ui/article_shell_suntimes` (Sun-Times article layout)
 - `shared/ui/figure`
 - `shared/ui/pull_quote`
 - `shared/ui/responsive_embed`

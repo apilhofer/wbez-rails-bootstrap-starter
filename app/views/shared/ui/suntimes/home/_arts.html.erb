@@ -1,0 +1,41 @@
+<%# Arts and Culture section %>
+<section class="mb-5" data-homepage-slot="suntimes-arts">
+  <div class="suntimes-home__section-accent">
+    <h2 class="suntimes-home__section-title">Arts and Culture</h2>
+  </div>
+  <div class="row g-4 g-lg-5">
+    <div class="col-12 col-lg-8">
+      <div class="row g-4 g-lg-5">
+        <div class="col-12 col-md-6">
+          <%= image_tag @placeholder_image, alt: "", class: "suntimes-home__img-cover suntimes-home__ratio-3-2 mb-3 rounded-0" %>
+          <span class="suntimes-home__category"><%= @arts[:lead][:section] %></span>
+          <h3 class="suntimes-home__headline-xl mt-2 mb-2">
+            <%= link_to @arts[:lead][:title], @story_href, class: "suntimes-home__headline-link" %>
+          </h3>
+          <p class="suntimes-home__meta mb-0 small"><%= @arts[:lead][:meta] %></p>
+        </div>
+        <div class="col-12 col-md-6">
+          <% @arts[:stack].each do |item| %>
+            <article class="<%= item[:divider] == false ? "mb-0" : "suntimes-home__divider" %>">
+              <span class="suntimes-home__category"><%= item[:section] %></span>
+              <h4 class="suntimes-home__headline-md mt-1 mb-1">
+                <%= link_to item[:title], @story_href, class: "suntimes-home__headline-link" %>
+              </h4>
+              <p class="suntimes-home__meta mb-0 small"><%= item[:meta] %></p>
+            </article>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4">
+      <article class="suntimes-home__divider">
+        <span class="suntimes-home__category"><%= @arts[:rail][:section] %></span>
+        <h3 class="suntimes-home__headline-xl mt-2 mb-2">
+          <%= link_to @arts[:rail][:title], @story_href, class: "suntimes-home__headline-link" %>
+        </h3>
+        <p class="suntimes-home__meta mb-2" style="font-size: 1rem; line-height: 1.5;"><%= @arts[:rail][:dek] %></p>
+        <p class="suntimes-home__meta mb-0 small"><%= @arts[:rail][:meta] %></p>
+      </article>
+    </div>
+  </div>
+</section>

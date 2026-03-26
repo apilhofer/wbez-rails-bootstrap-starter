@@ -1,0 +1,80 @@
+<%# Visily-style hero: left stack | center lead + sub | latest rail %>
+<section class="mb-5 suntimes-home__hero" data-homepage-slot="suntimes-hero">
+  <div class="row g-4 g-lg-5">
+    <div class="col-12 col-lg-2">
+      <% @hero_left.each do |story| %>
+        <article class="<%= story[:divider] == false ? "mb-0" : "suntimes-home__divider" %>">
+          <%= image_tag @placeholder_image, alt: "", class: "suntimes-home__img-cover suntimes-home__ratio-3-2 mb-3 rounded-0" %>
+          <span class="suntimes-home__category"><%= story[:section] %></span>
+          <h3 class="suntimes-home__headline-md mt-1 mb-2">
+            <%= link_to story[:title], @story_href, class: "suntimes-home__headline-link" %>
+          </h3>
+          <p class="suntimes-home__meta mb-1"><%= raw story[:byline_html] %></p>
+          <div class="d-flex align-items-center gap-1 suntimes-home__meta">
+            <%= image_tag "suntimes-visily/IMG_10.svg", alt: "", width: 12, height: 12, class: "flex-shrink-0 opacity-75" %>
+            <span><%= story[:read] %></span>
+          </div>
+        </article>
+      <% end %>
+    </div>
+
+    <div class="col-12 col-lg-7">
+      <article>
+        <%= image_tag @placeholder_image, alt: "", class: "suntimes-home__img-cover suntimes-home__ratio-16-11 mb-4 rounded-0" %>
+        <span class="suntimes-home__category"><%= @hero_center_lead[:section] %></span>
+        <h2 class="suntimes-home__headline-xl mt-2 mb-3">
+          <%= link_to @hero_center_lead[:title], @story_href, class: "suntimes-home__headline-link" %>
+        </h2>
+        <p class="suntimes-home__meta mb-3" style="font-size: 1rem; line-height: 1.6;"><%= @hero_center_lead[:dek] %></p>
+        <p class="suntimes-home__meta mb-1"><%= raw @hero_center_lead[:byline_html] %></p>
+        <div class="d-flex align-items-center gap-1 suntimes-home__meta">
+          <%= image_tag "suntimes-visily/IMG_10.svg", alt: "", width: 12, height: 12 %>
+          <span><%= @hero_center_lead[:read] %></span>
+        </div>
+      </article>
+
+      <div class="row g-4 mt-4 pt-4 border-top" style="border-color: #ddd !important;">
+        <% @hero_center_sub.each do |story| %>
+          <div class="col-12 col-md-6">
+            <article class="d-flex gap-3">
+              <%= image_tag @placeholder_image, alt: "", class: "suntimes-home__thumb rounded-0" %>
+              <div>
+                <span class="suntimes-home__category"><%= story[:section] %></span>
+                <h4 class="suntimes-home__headline-md mt-1 mb-1">
+                  <%= link_to story[:title], @story_href, class: "suntimes-home__headline-link" %>
+                </h4>
+                <p class="suntimes-home__meta mb-0 small">
+                  <%= raw story[:byline_html] %> • <%= story[:read] %>
+                </p>
+              </div>
+            </article>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-12 col-lg-3 ps-lg-4 suntimes-home__rail-border">
+      <h2 class="suntimes-home__rail-title mb-4">The Latest</h2>
+      <div class="vstack gap-4">
+        <% @latest_rail_items.each do |item| %>
+          <article class="suntimes-home__divider">
+            <span class="suntimes-home__category"><%= item[:section] %></span>
+            <h4 class="suntimes-home__headline-md mt-1 mb-1">
+              <%= link_to item[:title], @story_href, class: "suntimes-home__headline-link" %>
+            </h4>
+            <p class="suntimes-home__meta mb-0 small"><%= item[:meta] %></p>
+          </article>
+        <% end %>
+        <%= link_to "More stories", @story_href, class: "btn suntimes-home__btn-more text-decoration-none" %>
+
+        <div class="mt-4 pt-4 border-top d-flex gap-3" style="border-color: #ddd !important;">
+          <div class="flex-grow-1">
+            <h4 class="suntimes-home__headline-md mb-1"><%= @latest_crossword[:title] %></h4>
+            <p class="suntimes-home__meta mb-0 small"><%= @latest_crossword[:dek] %></p>
+          </div>
+          <%= image_tag @placeholder_image, alt: "", class: "flex-shrink-0 rounded-0", style: "width: 4rem; height: 4rem; object-fit: cover;" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

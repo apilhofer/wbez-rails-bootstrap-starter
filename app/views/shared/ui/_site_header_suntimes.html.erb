@@ -1,0 +1,205 @@
+<%# Chicago Sun-Times header — multi-row chrome aligned with chicago.suntimes.com (prototype). %>
+<div class="site-header-suntimes">
+  <%# Row 1: global brand bar %>
+  <div class="cst-site-topbar py-2">
+    <div class="content-shell px-3 d-flex align-items-center gap-3 overflow-auto text-nowrap">
+      <%= image_tag "logos/cpm-global-header.svg",
+          alt: "Chicago Public Media",
+          class: "img-fluid flex-shrink-0 cst-site-topbar__cpm",
+          height: 35 %>
+
+      <span class="site-topbar-separator flex-shrink-0" aria-hidden="true"></span>
+
+      <%= image_tag "logos/cst-global-header.svg",
+          alt: "Chicago Sun-Times",
+          class: "img-fluid flex-shrink-0 cst-site-topbar__cst",
+          height: 22 %>
+
+      <%= image_tag "logos/wbez-chicago-logo-oneline--dark-theme.svg",
+          alt: "WBEZ Chicago",
+          class: "img-fluid flex-shrink-0 cst-site-topbar__wbez",
+          height: 18 %>
+    </div>
+  </div>
+
+  <%# Row 2: member / donor CTA strip %>
+  <div class="cst-site-promo-bar py-2 px-3">
+    <div class="content-shell text-center">
+      <%= link_to "#", class: "cst-site-promo-bar__link" do %>
+        Every story we tell is powered by you. We need 1,500 new donors this March to ensure Chicago always has a voice it can trust.
+      <% end %>
+    </div>
+  </div>
+
+  <%# Row 3: utility dropdowns + strapline + account %>
+  <div class="cst-site-utility-bar border-bottom">
+    <div class="content-shell px-3 py-2">
+      <div class="row align-items-center g-2 g-lg-3">
+        <div class="col-12 col-lg-4 order-2 order-lg-1">
+          <div class="d-flex flex-wrap align-items-center gap-1 gap-md-2 cst-site-utility-bar__left">
+            <%= render "shared/ui/cst_utility_dropdown",
+                label: "Today's Paper",
+                items: [
+                  ["Read the E-Paper", "#"],
+                  ["Subscribe to the E-Paper", "#"],
+                  ["Activate E-Paper Access", "#"]
+                ] %>
+            <%= render "shared/ui/cst_utility_dropdown",
+                label: "Home Delivery",
+                items: [
+                  ["Manage My Account", "#"],
+                  ["Subscribe", "#"],
+                  ["Subscriber Hub", "#"],
+                  ["Cancel Subscription", "#"]
+                ] %>
+            <%= render "shared/ui/cst_utility_dropdown",
+                label: "Classifieds",
+                items: [
+                  ["Death Notices", "#"],
+                  ["Place a Death Notice", "#"],
+                  ["Classified Ads", "#"],
+                  ["Job Openings", "#"]
+                ] %>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4 order-1 order-lg-2 text-center">
+          <p class="cst-site-utility-bar__strapline mb-0">
+            The Hardest-Working Paper in America |
+            <time datetime="<%= Time.zone.today.iso8601 %>"><%= Time.zone.today.strftime("%A, %B ") %><%= Time.zone.today.day %><%= Time.zone.today.strftime(", %Y") %></time>
+          </p>
+        </div>
+        <div class="col-12 col-lg-4 order-3 text-lg-end">
+          <%= render "shared/ui/cst_utility_dropdown",
+              label: "My Account",
+              align: :end,
+              tone: :dark,
+              items: [
+                ["Manage Account", "#"],
+                ["Log out", "#"],
+                ["Log In", "#"]
+              ] %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%# Row 4: Listen Live + masthead logo + donate %>
+  <div class="cst-site-masthead py-3 border-bottom">
+    <div class="content-shell px-3">
+      <div class="row align-items-center g-3">
+        <div class="col-12 col-lg-4 order-2 order-lg-1">
+          <div class="d-flex align-items-center gap-4 justify-content-lg-start justify-content-center">
+            <button
+              type="button"
+              class="btn btn-link text-dark p-0 d-lg-none cst-site-masthead__menu"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#siteNavSuntimes"
+              aria-controls="siteNavSuntimes"
+              aria-label="Open menu">
+              <span class="fs-3 lh-1" aria-hidden="true">☰</span>
+            </button>
+
+            <%= link_to "#", class: "cst-site-masthead__listen link-dark d-inline-flex align-items-center gap-2 text-decoration-none" do %>
+              <span class="cst-site-masthead__play d-inline-flex align-items-center justify-content-center rounded-circle border border-dark flex-shrink-0" aria-hidden="true">
+                <%= ferris_icon "play", classes: "text-dark", size: 14 %>
+              </span>
+              <span class="d-flex flex-column lh-sm text-start">
+                <span class="fw-bold small">Listen Live</span>
+                <%= image_tag "logos/wbez-chicago-logo-oneline.svg",
+                    alt: "WBEZ Chicago",
+                    class: "img-fluid cst-site-masthead__wbez-logo",
+                    height: 16 %>
+              </span>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-4 order-1 order-lg-2 text-center">
+          <%= link_to "#", class: "d-inline-block" do %>
+            <%= image_tag "logos/cst-global-header.svg",
+                alt: "Chicago Sun-Times",
+                class: "img-fluid cst-site-masthead__logo",
+                height: 48 %>
+          <% end %>
+        </div>
+
+        <div class="col-12 col-lg-4 order-3 text-lg-end text-center">
+          <div class="d-inline-flex flex-column align-items-lg-end align-items-center gap-1">
+            <%= link_to "Donate", "#", class: "btn btn-danger rounded-0 text-uppercase fw-bold px-4 py-2 cst-site-masthead__donate" %>
+            <a href="#" class="cst-site-masthead__donate-why small text-decoration-underline d-inline-flex align-items-center gap-1">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" class="flex-shrink-0 opacity-75"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg>
+              Why are we asking for donations?
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%# Row 5: primary nav (desktop) %>
+  <nav class="cst-site-primary-nav d-none d-lg-block border-bottom" aria-label="Primary">
+    <div class="content-shell px-3 py-2">
+      <div class="d-flex align-items-center justify-content-between gap-2">
+        <div class="d-flex align-items-center justify-content-center flex-grow-1 flex-wrap gap-1 gap-xl-2">
+          <%= render "shared/ui/cst_nav_dropdown", label: "News", items: [
+            ["Chicago", "#"], ["Crime", "#"], ["Education", "#"], ["Illinois", "#"], ["Health", "#"]
+          ] %>
+          <%= render "shared/ui/cst_nav_dropdown", label: "Sports", items: [
+            ["Bears", "#"], ["Cubs", "#"], ["White Sox", "#"], ["Bulls", "#"], ["Blackhawks", "#"]
+          ] %>
+          <%= render "shared/ui/cst_nav_dropdown", label: "Politics", items: [
+            ["City Hall", "#"], ["Springfield", "#"], ["Washington", "#"]
+          ] %>
+          <%= render "shared/ui/cst_nav_dropdown", label: "Commentary", items: [
+            ["Columnists", "#"], ["Letters to the Editor", "#"], ["Other Views", "#"]
+          ] %>
+          <%= render "shared/ui/cst_nav_dropdown", label: "Arts & Culture", items: [
+            ["Music", "#"], ["Food and Drink", "#"], ["Movies and TV", "#"], ["Art", "#"]
+          ] %>
+          <%= render "shared/ui/cst_nav_dropdown", label: "Obituaries", items: [
+            ["View Death Notices", "#"], ["Place a Death Notice", "#"]
+          ] %>
+          <%= render "shared/ui/cst_nav_dropdown", label: "Games", items: [
+            ["Chicago Mini Crossword", "#"], ["Sudoku", "#"], ["Word Search", "#"]
+          ] %>
+          <%= render "shared/ui/cst_nav_dropdown", label: "More", items: [
+            ["Get the App", "#"], ["Newsletter Subscriptions", "#"], ["About the Sun-Times", "#"], ["Contact Us", "#"]
+          ] %>
+        </div>
+        <%= link_to "#", class: "btn btn-link text-dark text-decoration-none d-inline-flex align-items-center gap-1 px-2 flex-shrink-0" do %>
+          <%= ferris_icon "search", classes: "text-dark", size: 18 %>
+          <span class="small fw-semibold">Search</span>
+        <% end %>
+      </div>
+    </div>
+  </nav>
+
+  <%# Mobile / narrow: full section nav %>
+  <div class="offcanvas offcanvas-start offcanvas-suntimes" tabindex="-1" id="siteNavSuntimes" aria-labelledby="siteNavSuntimesLabel">
+    <div class="offcanvas-header border-bottom border-secondary">
+      <h5 class="offcanvas-title text-white" id="siteNavSuntimesLabel">
+        <%= image_tag "logos/cst-global-header.svg",
+            alt: "Chicago Sun-Times",
+            class: "img-fluid",
+            style: "max-height: 28px;" %>
+      </h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <nav class="nav flex-column">
+        <% [
+          "News",
+          "Sports",
+          "Politics",
+          "Commentary",
+          "Arts & Culture",
+          "Obituaries",
+          "Games",
+          "More"
+        ].each do |item| %>
+          <a class="nav-link text-white px-3 py-2 rounded" href="#"><%= item %></a>
+        <% end %>
+      </nav>
+    </div>
+  </div>
+</div>

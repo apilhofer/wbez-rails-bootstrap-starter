@@ -1,7 +1,7 @@
 require "rails/generators"
 require "rails/generators/named_base"
 
-module Wbez
+module Suntimes
   class PageGenerator < Rails::Generators::NamedBase
     source_root File.expand_path("templates", __dir__)
     class_option :type,
@@ -9,8 +9,7 @@ module Wbez
       default: "article",
       desc: "Page template type: article or home"
 
-    # rails g wbez:page investigative_article --type=article
-    # rails g wbez:page daily_brief_home --type=home
+    # rails g suntimes:page local_roundup_home --type=home
     def create_controller
       template "controller.rb.tt", File.join("app/controllers", "#{plural_name.underscore}_controller.rb")
     end

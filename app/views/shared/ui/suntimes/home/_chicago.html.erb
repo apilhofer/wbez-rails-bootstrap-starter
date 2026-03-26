@@ -1,0 +1,51 @@
+<%# Chicago section %>
+<section class="mb-5" data-homepage-slot="suntimes-chicago">
+  <div class="suntimes-home__section-accent">
+    <h2 class="suntimes-home__section-title">Chicago</h2>
+  </div>
+  <div class="row g-4 g-lg-5">
+    <div class="col-12 col-lg-8">
+      <div class="row g-4 g-lg-5">
+        <div class="col-12 col-md-6">
+          <%= image_tag @placeholder_image, alt: "", class: "suntimes-home__img-cover suntimes-home__ratio-3-2 mb-3 rounded-0" %>
+          <span class="suntimes-home__category"><%= @chicago[:lead][:section] %></span>
+          <h3 class="suntimes-home__headline-xl mt-2 mb-2">
+            <%= link_to @chicago[:lead][:title], @story_href, class: "suntimes-home__headline-link" %>
+          </h3>
+          <p class="suntimes-home__meta mb-0 small"><%= @chicago[:lead][:meta] %></p>
+        </div>
+        <div class="col-12 col-md-6">
+          <% @chicago[:stack].each do |item| %>
+            <article class="<%= item[:divider] == false ? "mb-0" : "suntimes-home__divider" %>">
+              <span class="suntimes-home__category"><%= item[:section] %></span>
+              <h4 class="suntimes-home__headline-md mt-1 mb-1">
+                <%= link_to item[:title], @story_href, class: "suntimes-home__headline-link" %>
+              </h4>
+              <% if item[:listen] %>
+                <div class="d-flex align-items-center flex-wrap gap-3 mt-3">
+                  <span class="suntimes-home__listen-pill">
+                    <%= image_tag "suntimes-visily/IMG_22.svg", alt: "", width: 12, height: 12 %>
+                    Listen
+                  </span>
+                  <p class="suntimes-home__meta mb-0 small"><%= item[:meta] %></p>
+                </div>
+              <% else %>
+                <p class="suntimes-home__meta mb-0 small"><%= item[:meta] %></p>
+              <% end %>
+            </article>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4">
+      <article class="suntimes-home__divider">
+        <span class="suntimes-home__category"><%= @chicago[:rail][:section] %></span>
+        <h3 class="suntimes-home__headline-xl mt-2 mb-2">
+          <%= link_to @chicago[:rail][:title], @story_href, class: "suntimes-home__headline-link" %>
+        </h3>
+        <p class="suntimes-home__meta mb-2" style="font-size: 1rem;"><%= @chicago[:rail][:dek] %></p>
+        <p class="suntimes-home__meta mb-0 small"><%= @chicago[:rail][:meta] %></p>
+      </article>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,24 @@
+<%# Morning Edition newsletter %>
+<section class="suntimes-home__newsletter mb-5 p-4 p-lg-5" data-homepage-slot="suntimes-newsletter">
+  <div class="row align-items-center g-4 g-lg-5">
+    <div class="col-12 col-lg-8">
+      <h2 class="suntimes-home__headline-xl mb-3" style="font-size: 2rem;"><%= @newsletter[:title] %></h2>
+      <p class="suntimes-home__meta mb-4 fw-medium" style="font-size: 1rem;"><%= @newsletter[:dek] %></p>
+      <form action="#" method="get" class="row g-3 flex-column flex-sm-row align-items-stretch align-items-sm-end">
+        <div class="col">
+          <label class="visually-hidden" for="suntimes-newsletter-email">Email</label>
+          <input type="email" id="suntimes-newsletter-email" name="email" placeholder="name@example.com" class="form-control form-control-lg rounded border-secondary" autocomplete="email">
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn btn-lg text-white fw-bold text-uppercase px-5 rounded" style="background: #bd2e37; letter-spacing: 0.06em;">Sign Up</button>
+        </div>
+      </form>
+      <p class="small text-muted mt-3 mb-0">
+        By signing up, you agree to our <%= link_to "Privacy Notice", "#", class: "link-dark" %> and European users agree to the data transfer policy.
+      </p>
+    </div>
+    <div class="col-12 col-lg-4 text-center">
+      <%= image_tag @placeholder_image, alt: "", class: "img-fluid mx-auto rounded-0", style: "max-width: 212px;" %>
+    </div>
+  </div>
+</section>
