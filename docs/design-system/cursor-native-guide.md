@@ -24,8 +24,17 @@ The model should not invent a new design language. It should extend the one alre
 - `app/views/demo/home.html.erb`
 - `app/views/demo/article.html.erb`
 - `app/views/demo/cookbook.html.erb`
+- `app/views/demo/cookbook_suntimes.html.erb`
+- `app/views/demo/style_guide_wbez.html.erb`
+- `app/views/demo/style_guide_suntimes.html.erb`
 - `app/views/demo/icons.html.erb`
 - `app/views/demo/logos.html.erb`
+
+## Dual-brand rules
+
+- WBEZ and Sun-Times are separate systems. Keep each under its own wrapper (`.wbez-prototype` vs `.suntimes-prototype`).
+- Sun-Times headline typography uses Proxima Nova (Typekit kit `qzq4qkv`) with fallback stacks in `brands/_suntimes_tokens.scss`.
+- New tokens/components should be added to both the relevant style-guide page and cookbook page before considered complete.
 
 ## Do this / not that
 

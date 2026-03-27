@@ -37,3 +37,7 @@ Serif editorial font:
 - Use serif intentionally
 - Keep forms and dense app UI sans-serif
 - Prefer subtle borders over heavy shadows
+
+## Dual-brand note
+- This file defines WBEZ styling only.
+- Sun-Times tokens and typography governance live in `app/assets/stylesheets/brands/_suntimes_tokens.scss` and the `/demo/style-guide-suntimes` reference page.

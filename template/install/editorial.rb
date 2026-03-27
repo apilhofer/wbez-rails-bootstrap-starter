@@ -13,10 +13,12 @@ module WbezBootstrapStarter
         @base.copy_files(shared_ui_files)
         @base.copy_text_file "app/assets/stylesheets/application.bootstrap.scss"
         @base.copy_text_file "app/assets/stylesheets/brands/_wbez.scss"
+        @base.copy_text_file "app/assets/stylesheets/brands/_suntimes_tokens.scss"
         @base.copy_text_file "app/assets/stylesheets/brands/_suntimes.scss"
         @base.copy_text_file "app/assets/stylesheets/brands/_suntimes_home_visily.scss"
-        # Used by `shared/ui/full_width_promo_spot` default `image_src` and Sun-Times Visily homepage placeholders.
+        # Default graphic for `full_width_promo_spot` when not using `graphic_placeholder:` (grey div partial).
         @base.copy_text_file "app/assets/images/image.webp"
+        @base.copy_text_file "app/assets/images/ctimes-logo.svg"
         @base.copy_files(suntimes_visily_images)
       end
 
@@ -57,6 +59,7 @@ module WbezBootstrapStarter
           app/views/shared/ui/_tabs.html.erb
           app/views/shared/ui/_field.html.erb
           app/views/shared/ui/suntimes/home/_home_main.html.erb
+          app/views/shared/ui/suntimes/_placeholder_rect.html.erb
           app/views/shared/ui/suntimes/home/_hero.html.erb
           app/views/shared/ui/suntimes/home/_commentary.html.erb
           app/views/shared/ui/suntimes/home/_chicago.html.erb
@@ -65,6 +68,12 @@ module WbezBootstrapStarter
           app/views/shared/ui/suntimes/home/_newsletter.html.erb
           app/views/shared/ui/suntimes/home/_arts.html.erb
           app/views/shared/ui/suntimes/home/_sports.html.erb
+          app/views/shared/ui/wbez/style_guide/_tokens.html.erb
+          app/views/shared/ui/wbez/style_guide/_typography.html.erb
+          app/views/shared/ui/wbez/style_guide/_components.html.erb
+          app/views/shared/ui/suntimes/style_guide/_tokens.html.erb
+          app/views/shared/ui/suntimes/style_guide/_typography.html.erb
+          app/views/shared/ui/suntimes/style_guide/_components.html.erb
         ]
       end
 

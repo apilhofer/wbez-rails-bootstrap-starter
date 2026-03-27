@@ -29,10 +29,13 @@ module WbezBootstrapStarter
           app/views/demo/_results_frame.html.erb
           app/views/demo/article.html.erb
           app/views/demo/cookbook.html.erb
+          app/views/demo/cookbook_suntimes.html.erb
           app/views/demo/home.html.erb
           app/views/demo/icons.html.erb
           app/views/demo/index.html.erb
           app/views/demo/logos.html.erb
+          app/views/demo/style_guide_wbez.html.erb
+          app/views/demo/style_guide_suntimes.html.erb
         ]
       end
     end

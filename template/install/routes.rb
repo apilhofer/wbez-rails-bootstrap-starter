@@ -25,6 +25,9 @@ module WbezBootstrapStarter
               get "/demo/logos", to: "demo#logos"
               get "/demo/icons", to: "demo#icons"
               get "/demo/cookbook", to: "demo#cookbook"
+              get "/demo/cookbook-suntimes", to: "demo#cookbook_suntimes"
+              get "/demo/style-guide-wbez", to: "demo#style_guide_wbez"
+              get "/demo/style-guide-suntimes", to: "demo#style_guide_suntimes"
             end
           RUBY
 

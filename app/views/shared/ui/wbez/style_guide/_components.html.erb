@@ -1,0 +1,14 @@
+<section class="mb-5">
+  <%= render "shared/ui/section_header", title: "WBEZ components" %>
+  <div class="row g-4">
+    <div class="col-lg-4"><%= render "shared/ui/story_card", kicker: "News", title: "Story card component", dek: "Reusable card module for editorial promos.", meta: "Today" %></div>
+    <div class="col-lg-4"><%= render "shared/ui/alert", kind: :success, title: "Alert", message: "Bootstrap + WBEZ treatment." %></div>
+    <div class="col-lg-4">
+      <div class="d-flex flex-wrap gap-2 mb-3">
+        <%= render "shared/ui/button", label: "Primary", variant: :primary %>
+        <%= render "shared/ui/button", label: "Listen", variant: :listen %>
+      </div>
+      <%= render "shared/ui/pull_quote", quote: "Pattern modules should be composable and extractable.", attribution: "WBEZ style guide" %>
+    </div>
+  </div>
+</section>

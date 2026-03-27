@@ -1,0 +1,54 @@
+:root {
+  --cst-font-headline: "proxima-nova", "Proxima Nova", "Helvetica Neue", Arial, sans-serif;
+  --cst-font-featured: "Fira Sans", "fira-sans", "Helvetica Neue", Arial, sans-serif;
+  --cst-font-sans: Arial, "Helvetica Neue", sans-serif;
+  --cst-font-serif: Merriweather, Georgia, "Times New Roman", Times, serif;
+
+  --cst-brand-primary: #d3242c;
+  --cst-brand-primary-dark: #a91d23;
+  --cst-brand-primary-inverse: #fff;
+
+  --cst-text-headline: #2a2a2a;
+  --cst-text-body: #2a2a2a;
+  --cst-text-byline: #1a1a1a;
+  --cst-text-muted: #656565;
+  --cst-text-tertiary: #6c6c6c;
+
+  --cst-bg-page: #fff;
+  --cst-bg-footer: #000;
+  --cst-footer-text: #fff;
+  --cst-border-color: #dfdfdf;
+  --cst-rule-gray: #ddd;
+
+  --cst-link-color: #1a1a1a;
+  --cst-link-hover-color: #d3242c;
+
+  --cst-space-xxs: 12px;
+  --cst-space-xs: 16px;
+  --cst-space-s: 24px;
+  --cst-space-m: 32px;
+  --cst-space-l: 40px;
+}
+
+.suntimes-prototype {
+  --font-headline: var(--cst-font-headline);
+  --font-featured: var(--cst-font-featured);
+  --font-sans: var(--cst-font-sans);
+  --font-serif: var(--cst-font-serif);
+
+  --brand-primary: var(--cst-brand-primary);
+  --brand-primary-dark: var(--cst-brand-primary-dark);
+
+  --text-headline: var(--cst-text-headline);
+  --text-body: var(--cst-text-body);
+  --text-byline: var(--cst-text-byline);
+  --text-muted: var(--cst-text-muted);
+  --text-tertiary: var(--cst-text-tertiary);
+
+  --border-color: var(--cst-border-color);
+  --link-color: var(--cst-link-color);
+  --link-hover-color: var(--cst-link-hover-color);
+
+  color: var(--text-body);
+  font-family: var(--font-sans);
+}

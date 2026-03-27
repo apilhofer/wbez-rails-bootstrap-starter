@@ -4,7 +4,7 @@ class <%= controller_class_name %> < ApplicationController
 <% if view_template == "home" -%>
     # Visily-export homepage layout (seed data). Replace with CMS/API later.
     @story_href = "#"
-    @placeholder_image = "image.webp"
+    # Story images use placeholder_rect partials; set :image_src on promos when you need a real asset.
 
     @hero_left = [
       {

@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600;700&display=swap");
+@import url("https://use.typekit.net/qzq4qkv.css");
 
 @import "bootstrap/scss/bootstrap";
 
@@ -783,6 +785,18 @@ main.wbez-home .card {
   height: auto;
 }
 
+/* Grey rect stand-in for default promo graphic (Sun-Times / demos); matches column stretch */
+.wbez-full-width-promo-spot__placeholder {
+  min-height: 12rem;
+  align-self: stretch;
+}
+
+@media (min-width: 768px) {
+  .wbez-full-width-promo-spot__placeholder {
+    min-height: 100%;
+  }
+}
+
 .wbez-full-width-promo-spot__graphic-line1 {
   font-family: var(--wbez-sans);
   font-weight: 700;
@@ -871,5 +885,6 @@ main.wbez-home .card {
 }
 
 @import "brands/wbez";
+@import "brands/suntimes_tokens";
 @import "brands/suntimes";
 @import "brands/suntimes_home_visily";

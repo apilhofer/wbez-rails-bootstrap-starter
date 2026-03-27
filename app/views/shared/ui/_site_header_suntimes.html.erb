@@ -2,7 +2,7 @@
 <div class="site-header-suntimes">
   <%# Row 1: global brand bar %>
   <div class="cst-site-topbar py-2">
-    <div class="content-shell px-3 d-flex align-items-center gap-3 overflow-auto text-nowrap">
+    <div class="cst-site-shell--wide px-3 d-flex align-items-center gap-3 overflow-auto text-nowrap">
       <%= image_tag "logos/cpm-global-header.svg",
           alt: "Chicago Public Media",
           class: "img-fluid flex-shrink-0 cst-site-topbar__cpm",
@@ -24,7 +24,7 @@
 
   <%# Row 2: member / donor CTA strip %>
   <div class="cst-site-promo-bar py-2 px-3">
-    <div class="content-shell text-center">
+    <div class="cst-site-shell--wide text-center">
       <%= link_to "#", class: "cst-site-promo-bar__link" do %>
         Every story we tell is powered by you. We need 1,500 new donors this March to ensure Chicago always has a voice it can trust.
       <% end %>
@@ -33,42 +33,39 @@
 
   <%# Row 3: utility dropdowns + strapline + account %>
   <div class="cst-site-utility-bar border-bottom">
-    <div class="content-shell px-3 py-2">
-      <div class="row align-items-center g-2 g-lg-3">
-        <div class="col-12 col-lg-4 order-2 order-lg-1">
-          <div class="d-flex flex-wrap align-items-center gap-1 gap-md-2 cst-site-utility-bar__left">
-            <%= render "shared/ui/cst_utility_dropdown",
-                label: "Today's Paper",
-                items: [
-                  ["Read the E-Paper", "#"],
-                  ["Subscribe to the E-Paper", "#"],
-                  ["Activate E-Paper Access", "#"]
-                ] %>
-            <%= render "shared/ui/cst_utility_dropdown",
-                label: "Home Delivery",
-                items: [
-                  ["Manage My Account", "#"],
-                  ["Subscribe", "#"],
-                  ["Subscriber Hub", "#"],
-                  ["Cancel Subscription", "#"]
-                ] %>
-            <%= render "shared/ui/cst_utility_dropdown",
-                label: "Classifieds",
-                items: [
-                  ["Death Notices", "#"],
-                  ["Place a Death Notice", "#"],
-                  ["Classified Ads", "#"],
-                  ["Job Openings", "#"]
-                ] %>
-          </div>
+    <div class="cst-site-shell--wide px-3 py-2">
+      <div class="cst-site-utility-bar__inner d-flex flex-column flex-lg-row align-items-lg-center justify-content-lg-between gap-2 gap-lg-3">
+        <%# C7: one row at lg+ (menus | strapline | account), no column wrap %>
+        <div class="d-flex flex-nowrap align-items-center gap-2 gap-md-3 cst-site-utility-bar__left">
+          <%= render "shared/ui/cst_utility_dropdown",
+              label: "Today's Paper",
+              items: [
+                ["Read the E-Paper", "#"],
+                ["Subscribe to the E-Paper", "#"],
+                ["Activate E-Paper Access", "#"]
+              ] %>
+          <%= render "shared/ui/cst_utility_dropdown",
+              label: "Home Delivery",
+              items: [
+                ["Manage My Account", "#"],
+                ["Subscribe", "#"],
+                ["Subscriber Hub", "#"],
+                ["Cancel Subscription", "#"]
+              ] %>
+          <%= render "shared/ui/cst_utility_dropdown",
+              label: "Classifieds",
+              items: [
+                ["Death Notices", "#"],
+                ["Place a Death Notice", "#"],
+                ["Classified Ads", "#"],
+                ["Job Openings", "#"]
+              ] %>
         </div>
-        <div class="col-12 col-lg-4 order-1 order-lg-2 text-center">
-          <p class="cst-site-utility-bar__strapline mb-0">
-            The Hardest-Working Paper in America |
-            <time datetime="<%= Time.zone.today.iso8601 %>"><%= Time.zone.today.strftime("%A, %B ") %><%= Time.zone.today.day %><%= Time.zone.today.strftime(", %Y") %></time>
-          </p>
-        </div>
-        <div class="col-12 col-lg-4 order-3 text-lg-end">
+        <p class="cst-site-utility-bar__strapline mb-0 text-center flex-lg-grow-1 px-lg-2">
+          The Hardest-Working Paper in America |
+          <time datetime="<%= Time.zone.today.iso8601 %>"><%= Time.zone.today.strftime("%A, %B ") %><%= Time.zone.today.day %><%= Time.zone.today.strftime(", %Y") %></time>
+        </p>
+        <div class="d-flex justify-content-center justify-content-lg-end flex-shrink-0">
           <%= render "shared/ui/cst_utility_dropdown",
               label: "My Account",
               align: :end,
@@ -85,7 +82,7 @@
 
   <%# Row 4: Listen Live + masthead logo + donate %>
   <div class="cst-site-masthead py-3 border-bottom">
-    <div class="content-shell px-3">
+    <div class="cst-site-shell--wide px-3">
       <div class="row align-items-center g-3">
         <div class="col-12 col-lg-4 order-2 order-lg-1">
           <div class="d-flex align-items-center gap-4 justify-content-lg-start justify-content-center">
@@ -116,7 +113,7 @@
 
         <div class="col-12 col-lg-4 order-1 order-lg-2 text-center">
           <%= link_to "#", class: "d-inline-block" do %>
-            <%= image_tag "logos/cst-global-header.svg",
+            <%= image_tag "ctimes-logo.svg",
                 alt: "Chicago Sun-Times",
                 class: "img-fluid cst-site-masthead__logo",
                 height: 48 %>
@@ -138,7 +135,7 @@
 
   <%# Row 5: primary nav (desktop) %>
   <nav class="cst-site-primary-nav d-none d-lg-block border-bottom" aria-label="Primary">
-    <div class="content-shell px-3 py-2">
+    <div class="cst-site-shell--wide px-3 py-2">
       <div class="d-flex align-items-center justify-content-between gap-2">
         <div class="d-flex align-items-center justify-content-center flex-grow-1 flex-wrap gap-1 gap-xl-2">
           <%= render "shared/ui/cst_nav_dropdown", label: "News", items: [
@@ -166,8 +163,8 @@
             ["Get the App", "#"], ["Newsletter Subscriptions", "#"], ["About the Sun-Times", "#"], ["Contact Us", "#"]
           ] %>
         </div>
-        <%= link_to "#", class: "btn btn-link text-dark text-decoration-none d-inline-flex align-items-center gap-1 px-2 flex-shrink-0" do %>
-          <%= ferris_icon "search", classes: "text-dark", size: 18 %>
+        <%= link_to "#", class: "btn btn-link text-decoration-none d-inline-flex align-items-center gap-1 px-2 flex-shrink-0 cst-site-primary-nav__search" do %>
+          <%= ferris_icon "search", classes: "cst-site-primary-nav__search-icon", size: 18 %>
           <span class="small fw-semibold">Search</span>
         <% end %>
       </div>
@@ -178,10 +175,9 @@
   <div class="offcanvas offcanvas-start offcanvas-suntimes" tabindex="-1" id="siteNavSuntimes" aria-labelledby="siteNavSuntimesLabel">
     <div class="offcanvas-header border-bottom border-secondary">
       <h5 class="offcanvas-title text-white" id="siteNavSuntimesLabel">
-        <%= image_tag "logos/cst-global-header.svg",
+        <%= image_tag "ctimes-logo.svg",
             alt: "Chicago Sun-Times",
-            class: "img-fluid",
-            style: "max-height: 28px;" %>
+            class: "img-fluid cst-offcanvas__logo" %>
       </h5>
       <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>

@@ -63,6 +63,68 @@ class DemoController < ApplicationController
   def cookbook
   end
 
+  def cookbook_suntimes
+    seed_suntimes_home_data
+  end
+
+  def style_guide_wbez
+  end
+
+  def style_guide_suntimes
+  end
+
+  private
+
+  def seed_suntimes_home_data
+    @story_href = "#"
+
+    @hero_left = [
+      { section: "Chicago School Board", title: "CPS Board selects Macquline King as permanent CEO, will vote on her contract Monday", byline_html: 'By <strong>Sarah Karp</strong>', read: "3m read" },
+      { section: "Chicago", title: "With Bears in mind, Sanders bill would offer up sports teams to city", byline_html: 'By <strong>Tina Sfondeles</strong>', read: "3m read" },
+      { section: "News", title: "Funeral for Chicago firefighter killed in Rogers Park blaze canceled", byline_html: 'By <strong>Mohammad Samra</strong>', read: "1m read", divider: false }
+    ]
+
+    @hero_center_lead = {
+      section: "Donald Trump",
+      title: "Ex-federal prosecutors in Chicago taking on Trump's 'troubling' DOJ",
+      dek: "An email from former prosecutors seeks broad support following Justice Department controversies.",
+      byline_html: 'By <strong>Jon Seidel</strong>',
+      read: "4m read"
+    }
+
+    @hero_center_sub = [
+      { section: "News", title: "On Opening Day, some Cubs fans lean into sports betting boom while others remain wary", byline_html: 'By <strong>Nader Issa</strong>', read: "3m read" },
+      { section: "Crime", title: "49th Ward office closes temporarily after violent threats following killing", byline_html: 'By <strong>Mohammad Samra</strong>', read: "3m read" }
+    ]
+
+    @latest_rail_items = [
+      { section: "Work", title: "Mayor Johnson's veto over freezing tipped minimum wage divides restaurant industry", meta: "19m ago • 4m read" },
+      { section: "Brandon Johnson", title: "Johnson devising strategy to tackle pension crisis", meta: "55m ago • 4m read" },
+      { section: "White Sox", title: "Whether White Sox can take a real step forward in 2026", meta: "31m ago • 5m read" }
+    ]
+    @latest_crossword = { title: "The Chicago Mini Crossword", dek: "Only real wieners will get this one." }
+
+    @chicago = {
+      lead: { section: "Immigration", title: "Tracking every known federal prosecution in Chicago tied to deportation blitz", meta: "5h ago • 1m read" },
+      stack: [
+        { section: "Architecture and Design", title: "Work starts on landmark Pullman church restoration", meta: "6h ago • 3m read" },
+        { section: "Morning Edition", title: "A West Suburban Medical emergency", meta: "8h ago • 7m read" },
+        { section: "Music", title: "The Academy Is... releases first new album in 18 years", meta: "11h ago • 4m read", listen: true, divider: false }
+      ],
+      rail: {
+        section: "Money",
+        title: "Mars Snacking, maker of M&M's, plans to add 600 jobs in Chicago",
+        dek: "The company said it would also invest $100 million to expand its global headquarters.",
+        meta: "1h ago • 3m read"
+      }
+    }
+
+    @newsletter = {
+      title: "Morning Edition",
+      dek: "Start your day informed. Don’t miss our award-winning local newsletter in your inbox each morning."
+    }
+  end
+
   def icons
     @wbez_icons = [
       ["cursor", "icons/wbez/cursor.svg"],

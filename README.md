@@ -80,6 +80,10 @@ Each generator creates:
 
 WBEZ and Sun-Times mockups use **different partials** (`site_header_wbez` vs `site_header_suntimes`, matching footers and article shells) and **scoped CSS** under `.wbez-prototype` and `.suntimes-prototype` so tokens and overrides do not leak between brands. The legacy partial `shared/ui/site_header` still renders the WBEZ header for backward compatibility.
 
+### Sun-Times font policy
+
+Sun-Times tokens are defined in `app/assets/stylesheets/brands/_suntimes_tokens.scss` and loaded by `application.bootstrap.scss`. Headline styling uses Proxima Nova via Adobe Typekit kit `qzq4qkv` (with Helvetica/Arial fallbacks if Typekit is unavailable).
+
 ## Template structure (inside this repo)
 
 - `template/bootstrap_template.rb`: thin entrypoint; orchestrates installs
@@ -99,6 +103,9 @@ Demo routes are inserted only inside a `if Rails.env.development?` block:
 - `/demo/logos`
 - `/demo/icons`
 - `/demo/cookbook`
+- `/demo/cookbook-suntimes`
+- `/demo/style-guide-wbez`
+- `/demo/style-guide-suntimes`
 
 In v2, the template does **not** change your app’s root route.
 
@@ -114,3 +121,4 @@ This package includes:
 - a Cursor rule file in `.cursor/rules/wbez-bootstrap.mdc`
 - a `docs/design-system/cursor-native-guide.md` handoff/reference guide
 - a `/demo/cookbook` page for editorial patterns
+- dual brand style-guide demos and cookbook demos for WBEZ + Sun-Times

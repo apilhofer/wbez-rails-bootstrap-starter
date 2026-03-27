@@ -7,7 +7,7 @@
     <% @investigations.each do |item| %>
       <div class="col-6 col-md-3">
         <article>
-          <%= image_tag @placeholder_image, alt: "", class: "suntimes-home__img-cover suntimes-home__ratio-3-2 mb-3 rounded-0" %>
+          <%= render "shared/ui/suntimes/placeholder_rect", extra_classes: "suntimes-home__ratio-3-2 mb-3 rounded-0" %>
           <span class="suntimes-home__category"><%= item[:section] %></span>
           <h4 class="suntimes-home__headline-md mt-1">
             <%= link_to item[:title], @story_href, class: "suntimes-home__headline-link" %>

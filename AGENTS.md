@@ -28,6 +28,7 @@ The purpose of this project is to help build new Rails interfaces that feel cons
 ## Typography rules
 - Use Source Sans Pro / sans-serif for UI, labels, forms, nav, metadata, and utility text.
 - Use Charter / serif styling for editorial headlines, subheads, long-form story titles, and pull quotes.
+- Sun-Times headlines use Proxima Nova via Typekit (`qzq4qkv`) with Helvetica/Arial fallbacks; keep this scoped to `.suntimes-prototype`.
 - Use `.prose-wbez` for article bodies and long-form content on WBEZ pages; use `.prose-suntimes` inside `.suntimes-prototype` for Sun-Times article bodies.
 - Wrap brand-specific pages in `.wbez-prototype` or `.suntimes-prototype` so SCSS under `app/assets/stylesheets/brands/` applies predictably.
 
@@ -76,8 +77,13 @@ Prefer these before writing new markup:
 
 ## Demo route rules
 - Demo pages are development-only reference pages.
-- Allowed demo routes include `/demo`, `/demo/home`, `/demo/article`, `/demo/logos`, `/demo/icons`, and `/demo/cookbook`.
+- Allowed demo routes include `/demo`, `/demo/home`, `/demo/article`, `/demo/logos`, `/demo/icons`, `/demo/cookbook`, `/demo/cookbook-suntimes`, `/demo/style-guide-wbez`, and `/demo/style-guide-suntimes`.
 - Demo routes must never override the app root route.
+
+## Brand governance rules
+- Keep brand tokens separate (`_wbez.scss`, `_suntimes_tokens.scss`, `_suntimes.scss`, `_suntimes_home_visily.scss`).
+- Never reuse a WBEZ-branded component on Sun-Times pages (or vice versa) unless the component is explicitly neutral.
+- When introducing new design tokens or modules, add them to the matching style-guide and cookbook demo pages.
 
 ## When extending the system
 When asked to build a new page:

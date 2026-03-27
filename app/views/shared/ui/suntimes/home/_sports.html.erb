@@ -7,7 +7,7 @@
     <div class="col-12 col-lg-8">
       <div class="row g-4 g-lg-5">
         <div class="col-12 col-md-6">
-          <%= image_tag @placeholder_image, alt: "", class: "suntimes-home__img-cover suntimes-home__ratio-3-2 mb-3 rounded-0" %>
+          <%= render "shared/ui/suntimes/placeholder_rect", extra_classes: "suntimes-home__ratio-3-2 mb-3 rounded-0" %>
           <span class="suntimes-home__category"><%= @sports[:lead][:section] %></span>
           <h3 class="suntimes-home__headline-xl mt-2 mb-2">
             <%= link_to @sports[:lead][:title], @story_href, class: "suntimes-home__headline-link" %>
@@ -33,7 +33,7 @@
         <h3 class="suntimes-home__headline-xl mt-2 mb-2">
           <%= link_to @sports[:rail][:title], @story_href, class: "suntimes-home__headline-link" %>
         </h3>
-        <p class="suntimes-home__meta mb-2" style="font-size: 1rem; line-height: 1.5;"><%= @sports[:rail][:dek] %></p>
+        <p class="suntimes-home__meta suntimes-home__meta-rail-dek mb-2"><%= @sports[:rail][:dek] %></p>
         <p class="suntimes-home__meta mb-0 small"><%= @sports[:rail][:meta] %></p>
       </article>
     </div>

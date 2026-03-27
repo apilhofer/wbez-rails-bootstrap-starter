@@ -2,13 +2,15 @@
   Full-width promo spot — bottom-of-page, two-column member message.
   Left side uses an image asset instead of CSS-built graphics.
   Pattern name (human): “full-width promo spot”. DOM: data-wbez-pattern="full-width-promo-spot".
-  locals: promo (Hash with optional :image_src, :title, :body, :button, :href, and optional :graphic_line1/:graphic_line2 for alt text),
-           heading_id (optional), homepage_slot (optional; sets data-homepage-slot on the root section)
+  locals: promo (Hash with optional :image_src, :title, :body, :button, :href, optional :graphic_line1/:graphic_line2 for alt text, optional :graphic_placeholder),
+           heading_id (optional), homepage_slot (optional; sets data-homepage-slot on the root section),
+           graphic_placeholder (optional; local or promo[:graphic_placeholder] — grey div via shared/ui/suntimes/placeholder_rect)
 %>
 <% promo = local_assigns.fetch(:promo) %>
 <% heading_id = local_assigns.fetch(:heading_id, "wbez-full-width-promo-spot-heading") %>
 <% homepage_slot = local_assigns[:homepage_slot] %>
 <% image_src = promo[:image_src].presence || "image.webp" %>
+<% use_graphic_placeholder = local_assigns.fetch(:graphic_placeholder, false) || promo[:graphic_placeholder] == true %>
 <% graphic_alt = promo[:graphic_alt].presence || [promo[:graphic_line1], promo[:graphic_line2]].compact.join(" ").strip %>
 <section
   class="wbez-full-width-promo-spot"
@@ -19,11 +21,16 @@
   <div class="wbez-full-width-promo-spot__inner content-shell px-3 py-4">
     <div class="row g-0 align-items-stretch wbez-full-width-promo-spot__row">
       <div class="col-12 col-md-5">
-        <div class="wbez-full-width-promo-spot__graphic h-100">
-          <%= image_tag image_src,
-            alt: graphic_alt,
-            class: "wbez-full-width-promo-spot__image",
-            loading: "lazy" %>
+        <div class="wbez-full-width-promo-spot__graphic h-100 d-flex align-items-stretch">
+          <% if use_graphic_placeholder %>
+            <%= render "shared/ui/suntimes/placeholder_rect",
+                extra_classes: "w-100 wbez-full-width-promo-spot__placeholder" %>
+          <% else %>
+            <%= image_tag image_src,
+              alt: graphic_alt,
+              class: "wbez-full-width-promo-spot__image",
+              loading: "lazy" %>
+          <% end %>
         </div>
       </div>
       <div class="col-12 col-md-7 bg-white">

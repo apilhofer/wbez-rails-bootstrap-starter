@@ -1,11 +1,12 @@
 // Chicago Sun-Times prototype scope — `suntimes:page` and Sun-Times demos.
 
 .suntimes-prototype {
-  --cst-accent: #c00;
-  --cst-black: #111;
-  --cst-muted: #555;
-  --cst-sans: "Source Sans 3", "Source Sans Pro", Arial, sans-serif;
-  --cst-serif: Georgia, "Times New Roman", serif;
+  --cst-accent: var(--brand-primary);
+  --cst-black: var(--text-body);
+  --cst-muted: var(--text-muted);
+  --cst-sans: var(--font-sans);
+  --cst-headline: var(--font-headline);
+  --cst-serif: var(--font-serif);
 
   color: var(--cst-black);
   font-family: var(--cst-sans);
@@ -36,11 +37,13 @@
   }
 
   .story-title {
-    font-family: var(--cst-serif);
+    font-family: var(--cst-headline);
+    color: var(--text-headline);
   }
 
   .editorial-heading {
-    font-family: var(--cst-serif);
+    font-family: var(--cst-headline);
+    color: var(--text-headline);
   }
 
   .wbez-card {
@@ -55,14 +58,31 @@
     h1,
     h2,
     h3 {
-      font-family: var(--cst-serif);
+      font-family: var(--cst-headline);
+      color: var(--text-headline);
     }
   }
 }
 
+// Wide header chrome (1392px); main Sun-Times content well stays 1110px via .suntimes-home--visily
+.cst-site-shell--wide {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1392px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* C6: 1110px story well — main only; header uses .cst-site-shell--wide (1392px); footer unchanged */
+.suntimes-prototype main.content-shell.suntimes-home--visily,
+.suntimes-prototype .content-shell.suntimes-home--visily {
+  max-width: 1110px;
+}
+
 // Sun-Times header chrome (scoped so WBEZ pages are unaffected)
 .site-header-suntimes {
-  --cst-sans: "Source Sans 3", "Source Sans Pro", Arial, sans-serif;
+  --cst-sans: var(--font-sans);
+  --cst-headline: var(--font-headline);
 
   .cst-site-topbar {
     background: #000;
@@ -107,6 +127,23 @@
     font-family: var(--cst-sans);
   }
 
+  /* C7: one row on lg+ — no column wrap */
+  .cst-site-utility-bar__inner {
+    @media (min-width: 992px) {
+      flex-wrap: nowrap;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .cst-site-utility-bar__left {
+      flex-shrink: 0;
+    }
+
+    .cst-site-utility-bar__strapline {
+      min-width: 0;
+    }
+  }
+
   .cst-site-utility-bar__strapline {
     font-style: italic;
     color: #6b6b6b;
@@ -117,6 +154,12 @@
   .cst-site-utility-bar__strapline time {
     font-style: italic;
     white-space: nowrap;
+  }
+
+  @media (min-width: 992px) {
+    .cst-site-utility-bar__strapline {
+      white-space: nowrap;
+    }
   }
 
   .cst-dropdown--utility .cst-dropdown__toggle::after {
@@ -169,6 +212,8 @@
   .cst-site-primary-nav .cst-dropdown__toggle--nav {
     font-size: 0.9rem;
     letter-spacing: 0.01em;
+    font-family: var(--cst-headline);
+    color: #2a2a2a;
   }
 
   .cst-site-primary-nav .cst-dropdown__toggle--nav::after {
@@ -183,6 +228,23 @@
 
   .cst-site-primary-nav .cst-dropdown__toggle--nav.show {
     color: #000 !important;
+  }
+
+  .cst-site-primary-nav__search {
+    color: #2a2a2a !important;
+
+    &:hover {
+      color: #000 !important;
+    }
+  }
+
+  .cst-site-primary-nav__search-icon {
+    color: currentColor;
+  }
+
+  .cst-offcanvas__logo {
+    max-height: 28px;
+    width: auto;
   }
 }
 
@@ -202,4 +264,19 @@
 .footer-suntimes {
   background: #1a1a1a;
   color: #fff;
+}
+
+.suntimes-footer__donate {
+  background: var(--brand-primary);
+  border-color: var(--brand-primary);
+
+  &:hover {
+    background: var(--brand-primary-dark);
+    border-color: var(--brand-primary-dark);
+  }
+}
+
+.suntimes-footer__wordmark {
+  height: 0.75rem;
+  filter: brightness(0) invert(1);
 }

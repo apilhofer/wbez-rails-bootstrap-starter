@@ -1,0 +1,6 @@
+<%# Grey block stand-in for story images (same footprint as image_tag + ratio classes).
+    locals: extra_classes (string, required)
+    optional: variant (:circle for columnist headshots) %>
+<div class="suntimes-home__placeholder-rect <%= local_assigns[:extra_classes] %> <%= "suntimes-home__placeholder-rect--circle" if local_assigns[:variant] == :circle %>"
+     role="img"
+     aria-hidden="true"></div>
