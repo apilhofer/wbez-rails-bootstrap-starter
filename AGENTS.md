@@ -31,19 +31,25 @@ The purpose of this project is to help build new Rails interfaces that feel cons
 - Sun-Times headlines use Proxima Nova via Typekit (`qzq4qkv`) with Helvetica/Arial fallbacks; keep this scoped to `.suntimes-prototype`.
 - Use `.prose-wbez` for article bodies and long-form content on WBEZ pages; use `.prose-suntimes` inside `.suntimes-prototype` for Sun-Times article bodies.
 - Wrap brand-specific pages in `.wbez-prototype` or `.suntimes-prototype` so SCSS under `app/assets/stylesheets/brands/` applies predictably.
+- Sun-Times multi-column homepage modules use `.suntimes-homepage` on the main content shell (see `shared/ui/suntimes/home/*`).
 
 ## Shared UI inventory
 Prefer these before writing new markup:
-- `shared/ui/site_header_wbez` (WBEZ masthead; `shared/ui/site_header` is a thin alias)
-- `shared/ui/site_header_suntimes` (Chicago Sun-Times masthead; do not use WBEZ header on CST pages)
-- `shared/ui/site_footer` (WBEZ)
-- `shared/ui/site_footer_suntimes` (Sun-Times)
+
+**Brand chrome (mirrored paths under `shared/ui/wbez` and `shared/ui/suntimes`):**
+- `shared/ui/wbez/site_header` (WBEZ masthead)
+- `shared/ui/wbez/site_footer`
+- `shared/ui/wbez/article_shell` (WBEZ article layout)
+- `shared/ui/suntimes/site_header` (Chicago Sun-Times masthead; do not use WBEZ header on CST pages)
+- `shared/ui/suntimes/site_footer`
+- `shared/ui/suntimes/article_shell` (Sun-Times article layout)
+- `shared/ui/suntimes/utility_dropdown`, `shared/ui/suntimes/nav_dropdown` (header chrome)
+
+**Neutral / shared editorial modules** (stay at `shared/ui/` root):
 - `shared/ui/section_header`
 - `shared/ui/story_card`
 - `shared/ui/hero_story`
 - `shared/ui/article_header`
-- `shared/ui/article_shell` (WBEZ article layout)
-- `shared/ui/article_shell_suntimes` (Sun-Times article layout)
 - `shared/ui/figure`
 - `shared/ui/pull_quote`
 - `shared/ui/responsive_embed`
@@ -81,9 +87,13 @@ Prefer these before writing new markup:
 - Demo routes must never override the app root route.
 
 ## Brand governance rules
-- Keep brand tokens separate (`_wbez.scss`, `_suntimes_tokens.scss`, `_suntimes.scss`, `_suntimes_home_visily.scss`).
+- Keep brand tokens separate (`_wbez.scss`, `_suntimes_tokens.scss`, `_suntimes.scss`, `_suntimes_homepage.scss`).
+- Sun-Times homepage layout scope: wrap main content in `.suntimes-homepage` (inside `.suntimes-prototype`).
 - Never reuse a WBEZ-branded component on Sun-Times pages (or vice versa) unless the component is explicitly neutral.
 - When introducing new design tokens or modules, add them to the matching style-guide and cookbook demo pages.
+
+## Models (when you add them)
+This starter ships without ActiveRecord models. For brand-specific domain logic, prefer `app/models/wbez/` and `app/models/suntimes/` (or `Wbez::` / `Suntimes::` namespaces) so structure mirrors views and stylesheets.
 
 ## When extending the system
 When asked to build a new page:

@@ -1,0 +1,38 @@
+<%# Two-column section body: 750px max, 480px lead image + secondary stack (live “Chicago”-style module). %>
+<%# locals: lead (hash with :section, :title, :dek optional, story meta keys), stack (array) %>
+<div class="suntimes-home__two-col-section__body">
+  <div class="suntimes-home__two-col-section__lead">
+    <div class="suntimes-home__two-col-section__lead-image-wrap">
+      <%= render "shared/ui/suntimes/placeholder_rect", extra_classes: "suntimes-home__two-col-section__lead-image rounded-0" %>
+    </div>
+    <span class="suntimes-home__category"><%= lead[:section] %></span>
+    <h3 class="suntimes-home__two-col-section__headline">
+      <%= link_to lead[:title], @story_href, class: "suntimes-home__headline-link" %>
+    </h3>
+    <% if lead[:dek].present? %>
+      <p class="suntimes-home__two-col-section__dek"><%= lead[:dek] %></p>
+    <% end %>
+    <%= render "shared/ui/suntimes/home/story_meta", item: lead, extra_classes: "mb-0 small mt-2" %>
+  </div>
+  <div class="suntimes-home__two-col-section__stack">
+    <% stack.each do |item| %>
+      <article class="<%= item[:divider] == false ? "mb-0" : "suntimes-home__divider" %>">
+        <span class="suntimes-home__category"><%= item[:section] %></span>
+        <h4 class="suntimes-home__headline-md mt-1 mb-1">
+          <%= link_to item[:title], @story_href, class: "suntimes-home__headline-link" %>
+        </h4>
+        <% if item[:listen] %>
+          <div class="d-flex align-items-center flex-wrap gap-3 mt-3">
+            <span class="suntimes-home__listen-pill">
+              <%= image_tag "suntimes/homepage/IMG_22.svg", alt: "", width: 12, height: 12 %>
+              Listen
+            </span>
+            <%= render "shared/ui/suntimes/home/story_meta", item: item, extra_classes: "mb-0 small" %>
+          </div>
+        <% else %>
+          <%= render "shared/ui/suntimes/home/story_meta", item: item, extra_classes: "mb-0 small" %>
+        <% end %>
+      </article>
+    <% end %>
+  </div>
+</div>

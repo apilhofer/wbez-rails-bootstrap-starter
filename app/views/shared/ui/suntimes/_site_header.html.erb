@@ -34,17 +34,16 @@
   <%# Row 3: utility dropdowns + strapline + account %>
   <div class="cst-site-utility-bar border-bottom">
     <div class="cst-site-shell--wide px-3 py-2">
-      <div class="cst-site-utility-bar__inner d-flex flex-column flex-lg-row align-items-lg-center justify-content-lg-between gap-2 gap-lg-3">
-        <%# C7: one row at lg+ (menus | strapline | account), no column wrap %>
-        <div class="d-flex flex-nowrap align-items-center gap-2 gap-md-3 cst-site-utility-bar__left">
-          <%= render "shared/ui/cst_utility_dropdown",
+      <div class="cst-site-utility-bar__inner">
+        <div class="d-flex flex-nowrap align-items-center justify-content-center justify-content-lg-start gap-2 gap-md-3 cst-site-utility-bar__left">
+          <%= render "shared/ui/suntimes/utility_dropdown",
               label: "Today's Paper",
               items: [
                 ["Read the E-Paper", "#"],
                 ["Subscribe to the E-Paper", "#"],
                 ["Activate E-Paper Access", "#"]
               ] %>
-          <%= render "shared/ui/cst_utility_dropdown",
+          <%= render "shared/ui/suntimes/utility_dropdown",
               label: "Home Delivery",
               items: [
                 ["Manage My Account", "#"],
@@ -52,7 +51,7 @@
                 ["Subscriber Hub", "#"],
                 ["Cancel Subscription", "#"]
               ] %>
-          <%= render "shared/ui/cst_utility_dropdown",
+          <%= render "shared/ui/suntimes/utility_dropdown",
               label: "Classifieds",
               items: [
                 ["Death Notices", "#"],
@@ -61,12 +60,12 @@
                 ["Job Openings", "#"]
               ] %>
         </div>
-        <p class="cst-site-utility-bar__strapline mb-0 text-center flex-lg-grow-1 px-lg-2">
+        <p class="cst-site-utility-bar__strapline mb-0 text-center px-lg-2">
           The Hardest-Working Paper in America |
           <time datetime="<%= Time.zone.today.iso8601 %>"><%= Time.zone.today.strftime("%A, %B ") %><%= Time.zone.today.day %><%= Time.zone.today.strftime(", %Y") %></time>
         </p>
-        <div class="d-flex justify-content-center justify-content-lg-end flex-shrink-0">
-          <%= render "shared/ui/cst_utility_dropdown",
+        <div class="d-flex justify-content-center justify-content-lg-end flex-shrink-0 cst-site-utility-bar__right">
+          <%= render "shared/ui/suntimes/utility_dropdown",
               label: "My Account",
               align: :end,
               tone: :dark,
@@ -80,15 +79,15 @@
     </div>
   </div>
 
-  <%# Row 4: Listen Live + masthead logo + donate %>
+  <%# Row 4: Listen Live — centered masthead logo — Donate (grid keeps logo truly centered) %>
   <div class="cst-site-masthead py-3 border-bottom">
     <div class="cst-site-shell--wide px-3">
-      <div class="row align-items-center g-3">
-        <div class="col-12 col-lg-4 order-2 order-lg-1">
-          <div class="d-flex align-items-center gap-4 justify-content-lg-start justify-content-center">
+      <div class="cst-site-masthead__grid">
+        <div class="cst-site-masthead__cell cst-site-masthead__cell--start">
+          <div class="d-flex align-items-center gap-3 gap-md-4">
             <button
               type="button"
-              class="btn btn-link text-dark p-0 d-lg-none cst-site-masthead__menu"
+              class="btn btn-link text-dark p-0 d-lg-none cst-site-masthead__menu flex-shrink-0"
               data-bs-toggle="offcanvas"
               data-bs-target="#siteNavSuntimes"
               aria-controls="siteNavSuntimes"
@@ -96,12 +95,12 @@
               <span class="fs-3 lh-1" aria-hidden="true">☰</span>
             </button>
 
-            <%= link_to "#", class: "cst-site-masthead__listen link-dark d-inline-flex align-items-center gap-2 text-decoration-none" do %>
+            <%= link_to "#", class: "cst-site-masthead__listen link-dark d-inline-flex align-items-center gap-2 text-decoration-none min-w-0" do %>
               <span class="cst-site-masthead__play d-inline-flex align-items-center justify-content-center rounded-circle border border-dark flex-shrink-0" aria-hidden="true">
                 <%= ferris_icon "play", classes: "text-dark", size: 14 %>
               </span>
               <span class="d-flex flex-column lh-sm text-start">
-                <span class="fw-bold small">Listen Live</span>
+                <span class="fw-bold small text-nowrap">Listen Live</span>
                 <%= image_tag "logos/wbez-chicago-logo-oneline.svg",
                     alt: "WBEZ Chicago",
                     class: "img-fluid cst-site-masthead__wbez-logo",
@@ -111,21 +110,22 @@
           </div>
         </div>
 
-        <div class="col-12 col-lg-4 order-1 order-lg-2 text-center">
-          <%= link_to "#", class: "d-inline-block" do %>
-            <%= image_tag "ctimes-logo.svg",
-                alt: "Chicago Sun-Times",
-                class: "img-fluid cst-site-masthead__logo",
-                height: 48 %>
+        <div class="cst-site-masthead__cell cst-site-masthead__cell--center">
+          <%# Full wordmark: inline SVG + explicit width so grid doesn’t collapse wide assets (img-fluid + auto column bug). %>
+          <%= link_to "#", class: "cst-site-masthead__logo-link", "aria-label": "Chicago Sun-Times home" do %>
+            <%= inline_svg "ctimes-logo.svg",
+                class: "cst-site-masthead__logo",
+                preserveAspectRatio: "xMidYMid meet" %>
           <% end %>
         </div>
 
-        <div class="col-12 col-lg-4 order-3 text-lg-end text-center">
-          <div class="d-inline-flex flex-column align-items-lg-end align-items-center gap-1">
-            <%= link_to "Donate", "#", class: "btn btn-danger rounded-0 text-uppercase fw-bold px-4 py-2 cst-site-masthead__donate" %>
+        <div class="cst-site-masthead__cell cst-site-masthead__cell--end">
+          <div class="d-inline-flex flex-column align-items-end gap-1 text-end">
+            <%= link_to "Donate", "#", class: "btn btn-danger rounded-0 text-uppercase fw-bold px-3 px-md-4 py-2 cst-site-masthead__donate flex-shrink-0" %>
             <a href="#" class="cst-site-masthead__donate-why small text-decoration-underline d-inline-flex align-items-center gap-1">
               <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" class="flex-shrink-0 opacity-75"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg>
-              Why are we asking for donations?
+              <span class="d-none d-sm-inline">Why are we asking for donations?</span>
+              <span class="d-sm-none">Why donate?</span>
             </a>
           </div>
         </div>
@@ -138,28 +138,28 @@
     <div class="cst-site-shell--wide px-3 py-2">
       <div class="d-flex align-items-center justify-content-between gap-2">
         <div class="d-flex align-items-center justify-content-center flex-grow-1 flex-wrap gap-1 gap-xl-2">
-          <%= render "shared/ui/cst_nav_dropdown", label: "News", items: [
+          <%= render "shared/ui/suntimes/nav_dropdown", label: "News", items: [
             ["Chicago", "#"], ["Crime", "#"], ["Education", "#"], ["Illinois", "#"], ["Health", "#"]
           ] %>
-          <%= render "shared/ui/cst_nav_dropdown", label: "Sports", items: [
+          <%= render "shared/ui/suntimes/nav_dropdown", label: "Sports", items: [
             ["Bears", "#"], ["Cubs", "#"], ["White Sox", "#"], ["Bulls", "#"], ["Blackhawks", "#"]
           ] %>
-          <%= render "shared/ui/cst_nav_dropdown", label: "Politics", items: [
+          <%= render "shared/ui/suntimes/nav_dropdown", label: "Politics", items: [
             ["City Hall", "#"], ["Springfield", "#"], ["Washington", "#"]
           ] %>
-          <%= render "shared/ui/cst_nav_dropdown", label: "Commentary", items: [
+          <%= render "shared/ui/suntimes/nav_dropdown", label: "Commentary", items: [
             ["Columnists", "#"], ["Letters to the Editor", "#"], ["Other Views", "#"]
           ] %>
-          <%= render "shared/ui/cst_nav_dropdown", label: "Arts & Culture", items: [
+          <%= render "shared/ui/suntimes/nav_dropdown", label: "Arts & Culture", items: [
             ["Music", "#"], ["Food and Drink", "#"], ["Movies and TV", "#"], ["Art", "#"]
           ] %>
-          <%= render "shared/ui/cst_nav_dropdown", label: "Obituaries", items: [
+          <%= render "shared/ui/suntimes/nav_dropdown", label: "Obituaries", items: [
             ["View Death Notices", "#"], ["Place a Death Notice", "#"]
           ] %>
-          <%= render "shared/ui/cst_nav_dropdown", label: "Games", items: [
+          <%= render "shared/ui/suntimes/nav_dropdown", label: "Games", items: [
             ["Chicago Mini Crossword", "#"], ["Sudoku", "#"], ["Word Search", "#"]
           ] %>
-          <%= render "shared/ui/cst_nav_dropdown", label: "More", items: [
+          <%= render "shared/ui/suntimes/nav_dropdown", label: "More", items: [
             ["Get the App", "#"], ["Newsletter Subscriptions", "#"], ["About the Sun-Times", "#"], ["Contact Us", "#"]
           ] %>
         </div>
@@ -175,9 +175,10 @@
   <div class="offcanvas offcanvas-start offcanvas-suntimes" tabindex="-1" id="siteNavSuntimes" aria-labelledby="siteNavSuntimesLabel">
     <div class="offcanvas-header border-bottom border-secondary">
       <h5 class="offcanvas-title text-white" id="siteNavSuntimesLabel">
-        <%= image_tag "ctimes-logo.svg",
-            alt: "Chicago Sun-Times",
-            class: "img-fluid cst-offcanvas__logo" %>
+        <span class="visually-hidden">Chicago Sun-Times</span>
+        <%= inline_svg "ctimes-logo.svg",
+            class: "cst-offcanvas__logo",
+            preserveAspectRatio: "xMidYMid meet" %>
       </h5>
       <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>

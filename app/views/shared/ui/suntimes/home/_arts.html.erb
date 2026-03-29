@@ -1,31 +1,14 @@
-<%# Arts and Culture section %>
-<section class="mb-5" data-homepage-slot="suntimes-arts">
+<%# Two-column section module + optional rail %>
+<section class="suntimes-home__two-col-section mb-5"
+         data-homepage-slot="suntimes-arts"
+         data-suntimes-module="two-column-section"
+         data-suntimes-module-slug="arts-culture">
   <div class="suntimes-home__section-accent">
     <h2 class="suntimes-home__section-title">Arts and Culture</h2>
   </div>
-  <div class="row g-4 g-lg-5">
+  <div class="row g-4 g-lg-5 align-items-start">
     <div class="col-12 col-lg-8">
-      <div class="row g-4 g-lg-5">
-        <div class="col-12 col-md-6">
-          <%= render "shared/ui/suntimes/placeholder_rect", extra_classes: "suntimes-home__ratio-3-2 mb-3 rounded-0" %>
-          <span class="suntimes-home__category"><%= @arts[:lead][:section] %></span>
-          <h3 class="suntimes-home__headline-xl mt-2 mb-2">
-            <%= link_to @arts[:lead][:title], @story_href, class: "suntimes-home__headline-link" %>
-          </h3>
-          <p class="suntimes-home__meta mb-0 small"><%= @arts[:lead][:meta] %></p>
-        </div>
-        <div class="col-12 col-md-6">
-          <% @arts[:stack].each do |item| %>
-            <article class="<%= item[:divider] == false ? "mb-0" : "suntimes-home__divider" %>">
-              <span class="suntimes-home__category"><%= item[:section] %></span>
-              <h4 class="suntimes-home__headline-md mt-1 mb-1">
-                <%= link_to item[:title], @story_href, class: "suntimes-home__headline-link" %>
-              </h4>
-              <p class="suntimes-home__meta mb-0 small"><%= item[:meta] %></p>
-            </article>
-          <% end %>
-        </div>
-      </div>
+      <%= render "shared/ui/suntimes/home/two_column_section_main", lead: @arts[:lead], stack: @arts[:stack] %>
     </div>
     <div class="col-12 col-lg-4">
       <article class="suntimes-home__divider">
@@ -34,7 +17,7 @@
           <%= link_to @arts[:rail][:title], @story_href, class: "suntimes-home__headline-link" %>
         </h3>
         <p class="suntimes-home__meta suntimes-home__meta-rail-dek mb-2"><%= @arts[:rail][:dek] %></p>
-        <p class="suntimes-home__meta mb-0 small"><%= @arts[:rail][:meta] %></p>
+        <%= render "shared/ui/suntimes/home/story_meta", item: @arts[:rail], extra_classes: "mb-0 small" %>
       </article>
     </div>
   </div>

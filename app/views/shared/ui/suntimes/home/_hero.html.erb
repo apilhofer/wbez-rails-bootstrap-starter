@@ -1,4 +1,4 @@
-<%# Visily-style hero: left stack | center lead + sub | latest rail %>
+<%# Sun-Times homepage hero: left stack | center lead + sub | latest rail %>
 <section class="mb-5 suntimes-home__hero" data-homepage-slot="suntimes-hero">
   <%# No gy-* on this row: vertical gutter adds margin-top on .row > * and sinks the center column. %>
   <div class="row gx-4 gx-lg-5 suntimes-home__hero-grid">
@@ -10,11 +10,7 @@
           <h3 class="suntimes-home__headline-md mt-1 mb-2">
             <%= link_to story[:title], @story_href, class: "suntimes-home__headline-link" %>
           </h3>
-          <p class="suntimes-home__meta mb-1"><%= raw story[:byline_html] %></p>
-          <div class="d-flex align-items-center gap-1 suntimes-home__meta">
-            <%= image_tag "suntimes-visily/IMG_10.svg", alt: "", width: 12, height: 12, class: "flex-shrink-0 opacity-75" %>
-            <span><%= story[:read] %></span>
-          </div>
+          <%= render "shared/ui/suntimes/home/story_meta", item: story, extra_classes: "mb-1" %>
         </article>
       <% end %>
     </div>
@@ -27,16 +23,12 @@
           <%= link_to @hero_center_lead[:title], @story_href, class: "suntimes-home__headline-link" %>
         </h2>
         <p class="suntimes-home__meta suntimes-home__meta-lede mb-3"><%= @hero_center_lead[:dek] %></p>
-        <p class="suntimes-home__meta mb-1"><%= raw @hero_center_lead[:byline_html] %></p>
-        <div class="d-flex align-items-center gap-1 suntimes-home__meta">
-          <%= image_tag "suntimes-visily/IMG_10.svg", alt: "", width: 12, height: 12 %>
-          <span><%= @hero_center_lead[:read] %></span>
-        </div>
+        <%= render "shared/ui/suntimes/home/story_meta", item: @hero_center_lead, extra_classes: "mb-0" %>
       </article>
 
-      <div class="row g-4 mt-4 pt-4 border-top suntimes-home__rule">
+      <div class="row mt-4 suntimes-home__hero-center-sub">
         <% @hero_center_sub.each do |story| %>
-          <div class="col-12">
+          <div class="col-12 suntimes-home__hero-sub-item">
             <article class="d-flex gap-3">
               <%= render "shared/ui/suntimes/placeholder_rect", extra_classes: "suntimes-home__thumb rounded-0" %>
               <div>
@@ -44,9 +36,7 @@
                 <h4 class="suntimes-home__headline-md mt-1 mb-1">
                   <%= link_to story[:title], @story_href, class: "suntimes-home__headline-link" %>
                 </h4>
-                <p class="suntimes-home__meta mb-0 small">
-                  <%= raw story[:byline_html] %> • <%= story[:read] %>
-                </p>
+                <%= render "shared/ui/suntimes/home/story_meta", item: story, extra_classes: "mb-0 small" %>
               </div>
             </article>
           </div>
@@ -63,7 +53,7 @@
             <h4 class="suntimes-home__headline-md mt-1 mb-1">
               <%= link_to item[:title], @story_href, class: "suntimes-home__headline-link" %>
             </h4>
-            <p class="suntimes-home__meta mb-0 small"><%= item[:meta] %></p>
+            <%= render "shared/ui/suntimes/home/story_meta", item: item, extra_classes: "mb-0 small" %>
           </article>
         <% end %>
         <%= link_to "More stories", @story_href, class: "btn suntimes-home__btn-more text-decoration-none mt-4" %>

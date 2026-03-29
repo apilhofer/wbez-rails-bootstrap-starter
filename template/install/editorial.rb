@@ -15,11 +15,11 @@ module WbezBootstrapStarter
         @base.copy_text_file "app/assets/stylesheets/brands/_wbez.scss"
         @base.copy_text_file "app/assets/stylesheets/brands/_suntimes_tokens.scss"
         @base.copy_text_file "app/assets/stylesheets/brands/_suntimes.scss"
-        @base.copy_text_file "app/assets/stylesheets/brands/_suntimes_home_visily.scss"
+        @base.copy_text_file "app/assets/stylesheets/brands/_suntimes_homepage.scss"
         # Default graphic for `full_width_promo_spot` when not using `graphic_placeholder:` (grey div partial).
         @base.copy_text_file "app/assets/images/image.webp"
         @base.copy_text_file "app/assets/images/ctimes-logo.svg"
-        @base.copy_files(suntimes_visily_images)
+        @base.copy_files(suntimes_homepage_images)
       end
 
       private
@@ -32,7 +32,9 @@ module WbezBootstrapStarter
           app/views/shared/ui/_button.html.erb
           app/views/shared/ui/_card.html.erb
           app/views/shared/ui/_article_header.html.erb
-          app/views/shared/ui/_article_shell.html.erb
+          app/views/shared/ui/wbez/_site_header.html.erb
+          app/views/shared/ui/wbez/_site_footer.html.erb
+          app/views/shared/ui/wbez/_article_shell.html.erb
           app/views/shared/ui/_figure.html.erb
           app/views/shared/ui/_hero_story.html.erb
           app/views/shared/ui/_listen_pill.html.erb
@@ -47,14 +49,11 @@ module WbezBootstrapStarter
           app/views/shared/ui/_one_column_event_list.html.erb
           app/views/shared/ui/_one_column_top_list.html.erb
           app/views/shared/ui/_full_width_promo_spot.html.erb
-          app/views/shared/ui/_site_footer.html.erb
-          app/views/shared/ui/_site_footer_suntimes.html.erb
-          app/views/shared/ui/_site_header.html.erb
-          app/views/shared/ui/_site_header_wbez.html.erb
-          app/views/shared/ui/_site_header_suntimes.html.erb
-          app/views/shared/ui/_cst_utility_dropdown.html.erb
-          app/views/shared/ui/_cst_nav_dropdown.html.erb
-          app/views/shared/ui/_article_shell_suntimes.html.erb
+          app/views/shared/ui/suntimes/_site_header.html.erb
+          app/views/shared/ui/suntimes/_site_footer.html.erb
+          app/views/shared/ui/suntimes/_article_shell.html.erb
+          app/views/shared/ui/suntimes/_utility_dropdown.html.erb
+          app/views/shared/ui/suntimes/_nav_dropdown.html.erb
           app/views/shared/ui/_story_card.html.erb
           app/views/shared/ui/_tabs.html.erb
           app/views/shared/ui/_field.html.erb
@@ -77,25 +76,25 @@ module WbezBootstrapStarter
         ]
       end
 
-      def suntimes_visily_images
+      def suntimes_homepage_images
         %w[
-          app/assets/images/suntimes-visily/IMG_1.svg
-          app/assets/images/suntimes-visily/IMG_2.svg
-          app/assets/images/suntimes-visily/IMG_3.svg
-          app/assets/images/suntimes-visily/IMG_4.svg
-          app/assets/images/suntimes-visily/IMG_5.svg
-          app/assets/images/suntimes-visily/IMG_6.svg
-          app/assets/images/suntimes-visily/IMG_7.svg
-          app/assets/images/suntimes-visily/IMG_8.svg
-          app/assets/images/suntimes-visily/IMG_10.svg
-          app/assets/images/suntimes-visily/IMG_22.svg
-          app/assets/images/suntimes-visily/IMG_30.svg
-          app/assets/images/suntimes-visily/IMG_31.svg
-          app/assets/images/suntimes-visily/IMG_69.svg
-          app/assets/images/suntimes-visily/IMG_70.svg
-          app/assets/images/suntimes-visily/IMG_71.svg
-          app/assets/images/suntimes-visily/IMG_72.svg
-          app/assets/images/suntimes-visily/IMG_73.svg
+          app/assets/images/suntimes/homepage/IMG_1.svg
+          app/assets/images/suntimes/homepage/IMG_2.svg
+          app/assets/images/suntimes/homepage/IMG_3.svg
+          app/assets/images/suntimes/homepage/IMG_4.svg
+          app/assets/images/suntimes/homepage/IMG_5.svg
+          app/assets/images/suntimes/homepage/IMG_6.svg
+          app/assets/images/suntimes/homepage/IMG_7.svg
+          app/assets/images/suntimes/homepage/IMG_8.svg
+          app/assets/images/suntimes/homepage/IMG_10.svg
+          app/assets/images/suntimes/homepage/IMG_22.svg
+          app/assets/images/suntimes/homepage/IMG_30.svg
+          app/assets/images/suntimes/homepage/IMG_31.svg
+          app/assets/images/suntimes/homepage/IMG_69.svg
+          app/assets/images/suntimes/homepage/IMG_70.svg
+          app/assets/images/suntimes/homepage/IMG_71.svg
+          app/assets/images/suntimes/homepage/IMG_72.svg
+          app/assets/images/suntimes/homepage/IMG_73.svg
         ]
       end
     end

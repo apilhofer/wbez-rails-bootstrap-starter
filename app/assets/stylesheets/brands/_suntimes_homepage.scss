@@ -1,14 +1,14 @@
-// Sun-Times homepage layout ported from Visily export (Bootstrap + scoped tokens).
-// Use with wrapper: .suntimes-prototype .suntimes-home--visily
+// Sun-Times multi-column homepage layout (Bootstrap + scoped tokens).
+// Use with wrapper: .suntimes-prototype .suntimes-homepage
 
-// Grey blocks — global selector so they render outside `main.suntimes-home--visily` (e.g. full-width promo).
+// Grey blocks — global selector so they render outside `main.suntimes-homepage` (e.g. full-width promo).
 .suntimes-home__placeholder-rect {
   background: #e5e5e5;
   width: 100%;
   display: block;
 }
 
-.suntimes-prototype .suntimes-home--visily {
+.suntimes-prototype .suntimes-homepage {
   --shv-red: var(--brand-primary);
   --shv-red-dark: var(--brand-primary-dark);
   --shv-text: var(--text-body);
@@ -19,6 +19,8 @@
   --shv-newsletter: #f3f3f3;
   --shv-headline: var(--font-headline);
   --shv-sans: var(--font-sans);
+  /* Two-column section lead headline (live: fira-sans-condensed) */
+  --shv-two-col-headline-font: "Fira Sans Condensed", "Fira Sans", "fira-sans-condensed", "Helvetica Neue", Arial, sans-serif;
   --shv-headline-color: var(--text-headline);
   --shv-byline-color: var(--text-byline);
   /* Bootstrap uses this for h1–h6; default is near #000 */
@@ -27,6 +29,20 @@
   font-family: var(--shv-sans);
   color: var(--shv-byline-color);
   max-width: 1110px;
+
+  /* Same headline texture as live (computed: antialiased + optimizeLegibility + break-word) */
+  .suntimes-home__headline-xl,
+  .suntimes-home__headline-lg,
+  .suntimes-home__headline-md,
+  .suntimes-home__two-col-section__headline,
+  .suntimes-home__rail-title,
+  .suntimes-home__section-title,
+  a.suntimes-home__headline-link {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizelegibility;
+    word-break: break-word;
+  }
 
   .suntimes-home__category {
     font-family: var(--shv-sans);
@@ -65,7 +81,7 @@
   .suntimes-home__rail-title {
     font-family: var(--shv-headline);
     font-size: 1.65rem;
-    font-weight: 800;
+    font-weight: 700;
     line-height: 1.1;
     color: var(--shv-headline-color);
   }
@@ -73,7 +89,7 @@
   .suntimes-home__section-title {
     font-family: var(--shv-sans);
     font-size: 0.875rem;
-    font-weight: 800;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.04em;
     color: var(--shv-headline-color);
@@ -98,9 +114,30 @@
   }
 
   .suntimes-home__commentary-intro {
-    color: var(--shv-muted);
-    font-size: 1rem;
-    line-height: 1.6;
+    box-sizing: border-box;
+    color: rgb(101, 101, 101);
+    display: block;
+    font-family: var(--shv-headline);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22.4px;
+    margin-block: 16px;
+    margin-inline: 0;
+    text-rendering: optimizelegibility;
+    word-break: break-word;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .suntimes-home__commentary-read-more {
+    font-size: 13px;
+    letter-spacing: 0.04em;
+  }
+
+  .suntimes-home__commentary-read-more__caret {
+    display: inline-block;
+    margin-left: 0.2em;
+    font-weight: 400;
   }
 
   .suntimes-home__divider {
@@ -113,6 +150,78 @@
     border-top: 6px solid #1a1a1a;
     padding-top: 1rem;
     margin-bottom: 1.5rem;
+  }
+
+  /* —— Two-column section module (Chicago, News & Politics lead stack, Arts, Sports) —— */
+  .suntimes-home__two-col-section__body {
+    display: grid;
+    gap: 1.25rem;
+    max-width: 750px;
+    box-sizing: border-box;
+  }
+
+  @media (min-width: 768px) {
+    .suntimes-home__two-col-section__body {
+      grid-template-columns: 480px minmax(0, 1fr);
+      align-items: start;
+    }
+  }
+
+  .suntimes-home__two-col-section__lead-image-wrap {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 480px;
+    aspect-ratio: 480 / 400;
+    margin-bottom: 0.75rem;
+  }
+
+  .suntimes-home__two-col-section__lead-image-wrap .suntimes-home__placeholder-rect,
+  .suntimes-home__two-col-section__lead-image-wrap .suntimes-home__two-col-section__lead-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    box-sizing: border-box;
+  }
+
+  .suntimes-home__two-col-section__headline {
+    box-sizing: border-box;
+    color: rgb(42, 42, 42);
+    font-family: var(--shv-two-col-headline-font);
+    font-size: 27px;
+    font-weight: 700;
+    letter-spacing: -0.023px;
+    line-height: 32.4px;
+    list-style: none;
+    margin: 0.5rem 0 0;
+    text-rendering: optimizelegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    word-break: break-word;
+  }
+
+  .suntimes-home__two-col-section__headline a.suntimes-home__headline-link {
+    box-sizing: border-box;
+    color: inherit;
+    cursor: pointer;
+    display: inline;
+    text-decoration: none;
+    touch-action: manipulation;
+  }
+
+  .suntimes-home__two-col-section__dek {
+    box-sizing: border-box;
+    color: rgb(42, 42, 42);
+    display: block;
+    font-family: var(--shv-headline);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 21.6px;
+    margin: 12px 0 0;
+    text-rendering: optimizelegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    word-break: break-word;
   }
 
   .suntimes-home__commentary-band {
@@ -240,18 +349,27 @@
       color: var(--shv-headline-color);
     }
 
-    &:hover {
-      color: var(--shv-headline-color);
-      text-decoration: underline;
+    &:hover,
+    &:focus-visible {
+      color: var(--shv-red);
+      text-decoration: none;
     }
   }
 
   .suntimes-home__rail-border {}
 
+  /* Center lead sub-stories: thin rule above each secondary row (Opening Day, 49th Ward, …). */
+  .suntimes-home__hero-center-sub > .suntimes-home__hero-sub-item {
+    border-top: 1px solid var(--shv-rule);
+    padding-top: 1.5rem;
+    padding-bottom: 25px;
+  }
+
   /* "The Latest" rail: rule above each item (not below) */
   .suntimes-home__hero-rail .suntimes-home__rail-item {
     border-top: 1px solid var(--shv-rule);
     padding-top: 1rem;
+    padding-bottom: 15px;
     margin-top: 0;
     margin-bottom: 0;
   }
@@ -343,7 +461,6 @@
   }
 
   .suntimes-home__hero-center > article .suntimes-home__headline-xl {
-    font-family: var(--font-featured);
     font-size: 27px;
     line-height: 1.15;
     color: var(--shv-headline-color);
@@ -362,7 +479,6 @@
   }
 
   .suntimes-home__hero-center .row .suntimes-home__headline-md {
-    font-family: var(--font-featured);
     font-size: 20px;
     line-height: 1.2;
     color: var(--shv-headline-color);

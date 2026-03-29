@@ -1,5 +1,5 @@
 <div class="bg-white wbez-prototype">
-  <%%= render "shared/ui/site_header_wbez" %>
+  <%%= render "shared/ui/wbez/site_header" %>
 
   <main class="content-shell px-3 py-4 wbez-home">
     <!-- Homepage hero (current layout): Lead story + 2 col rail -->
@@ -215,5 +215,5 @@
     heading_id: "wbez-full-width-promo-spot-heading-<%= file_name.underscore %>",
     homepage_slot: "bottom-full-width-promo" %>
 
-  <%%= render "shared/ui/site_footer" %>
+  <%%= render "shared/ui/wbez/site_footer" %>
 </div>

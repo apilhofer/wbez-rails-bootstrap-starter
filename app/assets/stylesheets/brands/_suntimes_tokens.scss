@@ -1,5 +1,6 @@
 :root {
-  --cst-font-headline: "proxima-nova", "Proxima Nova", "Helvetica Neue", Arial, sans-serif;
+  /* Adobe Fonts / Typekit posts `proxima-nova` as the computed family on live */
+  --cst-font-headline: proxima-nova, "Proxima Nova", "Helvetica Neue", Arial, sans-serif;
   --cst-font-featured: "Fira Sans", "fira-sans", "Helvetica Neue", Arial, sans-serif;
   --cst-font-sans: Arial, "Helvetica Neue", sans-serif;
   --cst-font-serif: Merriweather, Georgia, "Times New Roman", Times, serif;
@@ -21,7 +22,8 @@
   --cst-rule-gray: #ddd;
 
   --cst-link-color: #1a1a1a;
-  --cst-link-hover-color: #d3242c;
+  /* Hover/focus: Sun-Times red, no underline (see .suntimes-prototype link rules) */
+  --cst-link-hover-color: var(--cst-brand-primary);
 
   --cst-space-xxs: 12px;
   --cst-space-xs: 16px;

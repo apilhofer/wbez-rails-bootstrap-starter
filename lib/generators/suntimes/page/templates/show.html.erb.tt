@@ -1,10 +1,10 @@
 <div class="bg-white suntimes-prototype">
-  <%%= render "shared/ui/site_header_suntimes" %>
+  <%%= render "shared/ui/suntimes/site_header" %>
 
   <main class="content-shell px-3 py-4">
     <div class="row g-5">
       <div class="col-lg-8">
-        <%%= render "shared/ui/article_shell_suntimes" do %>
+        <%%= render "shared/ui/suntimes/article_shell" do %>
           <%%= render "shared/ui/article_header",
               kicker: @kicker,
               title: @title,
@@ -39,6 +39,6 @@
     </div>
   </main>
 
-  <%%= render "shared/ui/site_footer_suntimes" %>
+  <%%= render "shared/ui/suntimes/site_footer" %>
 </div>
 

@@ -1,10 +1,10 @@
 <div class="bg-white wbez-prototype">
-  <%= render "shared/ui/site_header_wbez" %>
+  <%= render "shared/ui/wbez/site_header" %>
 
   <main class="content-shell px-3 py-4">
     <div class="row g-5">
       <div class="col-lg-8">
-        <%= render "shared/ui/article_shell" do %>
+        <%= render "shared/ui/wbez/article_shell" do %>
           <%= render "shared/ui/article_header",
               kicker: "Curious City",
               title: "Did martial law help Chicago recover after the Great Fire?",
@@ -63,5 +63,5 @@
     </div>
   </main>
 
-  <%= render "shared/ui/site_footer" %>
+  <%= render "shared/ui/wbez/site_footer" %>
 </div>

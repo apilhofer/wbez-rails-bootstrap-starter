@@ -1,0 +1,12 @@
+<%# Sun-Times homepage story line: "55m ago • 4m read" or "By Name • 3m read" (name links to author placeholder). %>
+<%# locals: item (hash), extra_classes (optional) — :published_ago, :read, :author_name, :author_href %>
+<% item = local_assigns.fetch(:item) %>
+<% extra = local_assigns[:extra_classes].presence %>
+<p class="suntimes-home__meta<%= " #{extra}" if extra %>">
+  <%= suntimes_home_story_meta(
+        published_ago: item[:published_ago],
+        read: item[:read],
+        author_name: item[:author_name],
+        author_href: item[:author_href].presence || @author_href
+      ) %>
+</p>
