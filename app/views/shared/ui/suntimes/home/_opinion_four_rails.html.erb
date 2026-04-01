@@ -1,0 +1,48 @@
+<% rails = @opinion_four_rails.presence || [
+  {
+    title: "Columnists",
+    items: [
+      { section: "Columnists", title: "Why neighborhood-level reporting still matters in city politics", published_ago: "1h ago", read: "3m read", image: true, wide_image: true },
+      { section: "Opinion", title: "The transit funding cliff is closer than riders think", published_ago: "3h ago", read: "2m read" },
+      { section: "Commentary", title: "What civic trust looks like after budget season", published_ago: "6h ago", read: "3m read", divider: false }
+    ]
+  },
+  {
+    title: "Other Views",
+    items: [
+      { section: "Other Views", title: "Business leaders call for clearer housing production targets", published_ago: "2h ago", read: "3m read", image: true, wide_image: true },
+      { section: "Guest Essay", title: "Investing in youth programs reduces long-term public costs", published_ago: "4h ago", read: "2m read" },
+      { section: "Perspective", title: "A suburban mayor on balancing growth and affordability", published_ago: "7h ago", read: "3m read", divider: false }
+    ]
+  },
+  {
+    title: "Letters to the Editor",
+    items: [
+      { section: "Letters to the Editor", title: "Readers respond to coverage of school funding inequities", published_ago: "1h ago", read: "2m read", image: true, wide_image: true },
+      { section: "Letters", title: "What commuters say about proposed congestion pricing", published_ago: "5h ago", read: "2m read" },
+      { section: "Reader Mail", title: "Chicagoans debate the future of downtown office space", published_ago: "8h ago", read: "3m read", divider: false }
+    ]
+  },
+  {
+    title: "News",
+    items: [
+      { section: "News", title: "Editors' picks: five stories shaping this week across the metro area", published_ago: "2h ago", read: "3m read", image: true, wide_image: true },
+      { section: "Updates", title: "What we’re watching in Springfield and City Hall today", published_ago: "4h ago", read: "2m read" },
+      { section: "Briefing", title: "Morning briefing: transit, weather, and public safety notes", published_ago: "9h ago", read: "3m read", divider: false }
+    ]
+  }
+] %>
+
+<section class="mb-5" data-homepage-slot="suntimes-opinion-four-rails">
+  <div class="row g-4 g-lg-5 align-items-start">
+    <% rails.each do |rail| %>
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="suntimes-home__section-accent">
+          <h2 class="suntimes-home__section-title"><%= rail[:title] %></h2>
+        </div>
+        <%= render "shared/ui/suntimes/home/one_column_section_zone", items: rail[:items] %>
+      </div>
+    <% end %>
+  </div>
+</section>
+

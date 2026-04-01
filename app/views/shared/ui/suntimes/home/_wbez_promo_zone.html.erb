@@ -1,0 +1,31 @@
+<% listen_to_wbez = @listen_to_wbez.presence || {
+  lead: {
+    section: "WBEZ",
+    title: "What to know this week across Chicago politics, culture, and public media",
+    dek: "Listen live and catch up on essential reporting, interviews, and explainers from the WBEZ newsroom.",
+    published_ago: "1h ago",
+    read: "4m read"
+  },
+  stack: [
+    { section: "Morning Edition", title: "Start your day with the top local headlines and context", published_ago: "2h ago", read: "3m read" },
+    { section: "Reset", title: "A closer look at the week’s biggest stories and what comes next", published_ago: "4h ago", read: "3m read" },
+    { section: "City Cast", title: "Neighborhood voices on transit, schools, and affordability", published_ago: "7h ago", read: "3m read", divider: false }
+  ]
+} %>
+
+<section class="suntimes-home__wbez-promo-zone suntimes-home__full-bleed py-5" data-homepage-slot="suntimes-wbez-promo-zone">
+  <div class="container-xl h-100">
+    <div class="suntimes-home__wbez-promo-zone-inner">
+      <%= render "shared/ui/suntimes/home/two_column_section",
+          homepage_slot: "suntimes-listen-to-wbez",
+          module_slug: "listen-to-wbez",
+          section_title: "Listen to WBEZ",
+          lead: listen_to_wbez[:lead],
+          stack: listen_to_wbez[:stack],
+          right_rail_col_class: "d-flex justify-content-lg-end" do %>
+        <%= render "shared/ui/suntimes/placeholder_rect", extra_classes: "suntimes-home__ad-300x600 rounded-0" %>
+      <% end %>
+    </div>
+  </div>
+</section>
+

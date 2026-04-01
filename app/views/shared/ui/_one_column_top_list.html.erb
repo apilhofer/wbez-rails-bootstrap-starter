@@ -25,7 +25,7 @@
   <ol class="wbez-one-column-top-list__list list-unstyled mb-0">
     <% items.each_with_index do |item, idx| %>
       <% href = item[:href].presence || "#" %>
-      <li class="wbez-one-column-top-list__item py-3">
+      <li class="wbez-one-column-top-list__item">
         <a href="<%= href %>" class="wbez-one-column-top-list__link text-decoration-none link-dark d-flex gap-2 gap-sm-3 align-items-start">
           <span class="wbez-one-column-top-list__rank" aria-hidden="true"><%= idx + 1 %></span>
           <span class="wbez-one-column-top-list__headline"><%= item[:title] %></span>

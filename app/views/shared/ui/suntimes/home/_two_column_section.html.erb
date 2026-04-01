@@ -1,0 +1,28 @@
+<%# Shared two-column section wrapper (left: main module, right: optional rail). %>
+<section class="suntimes-home__two-col-section mb-5"
+         data-homepage-slot="<%= local_assigns[:homepage_slot] %>"
+         data-suntimes-module="two-column-section"
+         data-suntimes-module-slug="<%= local_assigns[:module_slug] %>">
+  <div class="row g-4 g-lg-5 align-items-start">
+    <div class="col-12 col-lg-8">
+      <div class="suntimes-home__section-accent">
+        <h2 class="suntimes-home__section-title"><%= local_assigns[:section_title] %></h2>
+      </div>
+      <%= render "shared/ui/suntimes/home/two_column_section_main",
+          lead: local_assigns[:lead],
+          stack: local_assigns[:stack] %>
+    </div>
+
+    <% unless local_assigns[:show_right_rail] == false %>
+      <div class="col-12 col-lg-4 <%= local_assigns[:right_rail_col_class] %>">
+        <% if local_assigns[:right_rail_title].present? %>
+          <div class="suntimes-home__section-accent">
+            <h2 class="suntimes-home__section-title"><%= local_assigns[:right_rail_title] %></h2>
+          </div>
+        <% end %>
+        <%= yield if block_given? %>
+      </div>
+    <% end %>
+  </div>
+</section>
+

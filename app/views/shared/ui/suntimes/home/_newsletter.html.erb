@@ -10,7 +10,7 @@
           <input type="email" id="suntimes-newsletter-email" name="email" placeholder="name@example.com" class="form-control form-control-lg rounded border-secondary" autocomplete="email">
         </div>
         <div class="col-auto">
-          <button type="submit" class="btn btn-lg text-white fw-bold text-uppercase px-5 rounded suntimes-home__newsletter-submit">Sign Up</button>
+          <button type="submit" class="btn btn-lg text-white fw-bold px-5 rounded suntimes-home__newsletter-submit">Sign Up</button>
         </div>
       </form>
       <p class="small text-muted mt-3 mb-0">
@@ -18,7 +18,14 @@
       </p>
     </div>
     <div class="col-12 col-lg-4 text-center">
-      <%= render "shared/ui/suntimes/placeholder_rect", extra_classes: "mx-auto rounded-0 suntimes-home__newsletter-graphic" %>
+      <% newsletter_clock = Rails.root.join("app/assets/images/a0edb9a03c1cef71abe3815120bea99d.png") %>
+      <% if newsletter_clock.exist? %>
+        <%= image_tag "a0edb9a03c1cef71abe3815120bea99d.png",
+            alt: "Morning Edition alarm clock illustration",
+            class: "img-fluid mx-auto d-block suntimes-home__newsletter-graphic" %>
+      <% else %>
+        <%= render "shared/ui/suntimes/placeholder_rect", extra_classes: "mx-auto rounded-0 suntimes-home__newsletter-graphic" %>
+      <% end %>
     </div>
   </div>
 </section>

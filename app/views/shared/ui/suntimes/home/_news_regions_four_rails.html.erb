@@ -1,0 +1,48 @@
+<% rails = @news_regions_four_rails.presence || [
+  {
+    title: "Nation & World",
+    items: [
+      { section: "Nation & World", title: "Global markets steady as central banks signal slower rate cuts", published_ago: "1h ago", read: "3m read", image: true, wide_image: true },
+      { section: "Nation", title: "Congress weighs bipartisan package on rail safety standards", published_ago: "3h ago", read: "2m read" },
+      { section: "World", title: "Aid corridors expand after cease-fire monitoring agreement", published_ago: "6h ago", read: "3m read", divider: false }
+    ]
+  },
+  {
+    title: "Illinois",
+    items: [
+      { section: "Illinois", title: "State agency proposes timeline for clean-energy permitting updates", published_ago: "2h ago", read: "4m read", image: true, wide_image: true },
+      { section: "Springfield", title: "Budget negotiators narrow gaps ahead of committee vote", published_ago: "4h ago", read: "3m read" },
+      { section: "Downstate", title: "Rural hospital network expands telehealth footprint", published_ago: "7h ago", read: "2m read", divider: false }
+    ]
+  },
+  {
+    title: "Chicago Suburbs",
+    items: [
+      { section: "Chicago Suburbs", title: "Metra-adjacent zoning plans spark debate in west suburban council", published_ago: "1h ago", read: "3m read", image: true, wide_image: true },
+      { section: "Transportation", title: "Pace route redesign aims to improve cross-county service", published_ago: "5h ago", read: "2m read" },
+      { section: "Development", title: "Mixed-use project approved near suburban town center", published_ago: "8h ago", read: "3m read", divider: false }
+    ]
+  },
+  {
+    title: "Education",
+    items: [
+      { section: "Education", title: "District leaders outline tutoring expansion for fall semester", published_ago: "2h ago", read: "3m read", image: true, wide_image: true },
+      { section: "Higher Ed", title: "Community colleges see rebound in adult learner enrollment", published_ago: "4h ago", read: "2m read" },
+      { section: "Schools", title: "What families should know about selective enrollment deadlines", published_ago: "9h ago", read: "3m read", divider: false }
+    ]
+  }
+] %>
+
+<section class="mb-5" data-homepage-slot="suntimes-news-regions-four-rails">
+  <div class="row g-4 g-lg-5 align-items-start">
+    <% rails.each do |rail| %>
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="suntimes-home__section-accent">
+          <h2 class="suntimes-home__section-title"><%= rail[:title] %></h2>
+        </div>
+        <%= render "shared/ui/suntimes/home/one_column_section_zone", items: rail[:items] %>
+      </div>
+    <% end %>
+  </div>
+</section>
+

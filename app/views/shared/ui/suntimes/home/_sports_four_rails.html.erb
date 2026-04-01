@@ -1,0 +1,48 @@
+<% rails = @sports_four_rails.presence || [
+  {
+    title: "High School Sports",
+    items: [
+      { section: "High School Sports", title: "City championship brackets tighten after semifinal upsets", published_ago: "1h ago", read: "3m read", image: true, wide_image: true },
+      { section: "Prep Baseball", title: "Scouts highlight five breakout arms to watch this spring", published_ago: "3h ago", read: "2m read" },
+      { section: "Prep Basketball", title: "Why transfer rules are shaping next season's contender map", published_ago: "6h ago", read: "3m read", divider: false }
+    ]
+  },
+  {
+    title: "College Sports",
+    items: [
+      { section: "College Sports", title: "Big Ten spring storylines: quarterback races and portal moves", published_ago: "2h ago", read: "4m read", image: true, wide_image: true },
+      { section: "NCAA", title: "How NIL collectives are changing recruiting timelines", published_ago: "4h ago", read: "3m read" },
+      { section: "DePaul", title: "Program reset continues with defensive-first roster tweaks", published_ago: "7h ago", read: "2m read", divider: false }
+    ]
+  },
+  {
+    title: "Bulls",
+    items: [
+      { section: "Bulls", title: "Bulls' backcourt chemistry remains the biggest swing factor", published_ago: "1h ago", read: "3m read", image: true, wide_image: true },
+      { section: "Bulls", title: "Front office signals patience ahead of trade deadline", published_ago: "4h ago", read: "2m read" },
+      { section: "Bulls", title: "Three lineup tweaks coaches keep testing in practice", published_ago: "7h ago", read: "3m read", divider: false }
+    ]
+  },
+  {
+    title: "Blackhawks",
+    items: [
+      { section: "Blackhawks", title: "Line combinations shift as coaches search for consistency", published_ago: "2h ago", read: "3m read", image: true, wide_image: true },
+      { section: "Blackhawks", title: "Prospect call-ups add speed to the middle six", published_ago: "5h ago", read: "2m read" },
+      { section: "Blackhawks", title: "Special teams adjustments become late-season priority", published_ago: "8h ago", read: "3m read", divider: false }
+    ]
+  }
+] %>
+
+<section class="mb-5" data-homepage-slot="suntimes-sports-four-rails">
+  <div class="row g-4 g-lg-5 align-items-start">
+    <% rails.each do |rail| %>
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="suntimes-home__section-accent">
+          <h2 class="suntimes-home__section-title"><%= rail[:title] %></h2>
+        </div>
+        <%= render "shared/ui/suntimes/home/one_column_section_zone", items: rail[:items] %>
+      </div>
+    <% end %>
+  </div>
+</section>
+

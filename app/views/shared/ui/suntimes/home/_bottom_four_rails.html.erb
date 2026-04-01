@@ -1,0 +1,48 @@
+<% rails = @bottom_four_rails.presence || [
+  {
+    title: "Horoscopes & Dear Abby",
+    items: [
+      { section: "Horoscopes", title: "Your daily horoscope: what Thursday has in store", published_ago: "1h ago", read: "2m read", image: true, wide_image: true },
+      { section: "Dear Abby", title: "Dear Abby: Navigating a friendship after a major fallout", published_ago: "3h ago", read: "2m read" },
+      { section: "Advice", title: "What etiquette experts say about splitting wedding travel costs", published_ago: "6h ago", read: "3m read", divider: false }
+    ]
+  },
+  {
+    title: "Environment",
+    items: [
+      { section: "Environment", title: "Lakefront restoration project enters final review phase", published_ago: "2h ago", read: "3m read", image: true, wide_image: true },
+      { section: "Climate", title: "How warmer winters are changing migration patterns in Illinois", published_ago: "5h ago", read: "4m read" },
+      { section: "Policy", title: "City council weighs stricter emissions targets for municipal fleets", published_ago: "9h ago", read: "3m read", divider: false }
+    ]
+  },
+  {
+    title: "Outdoors",
+    items: [
+      { section: "Outdoors", title: "Best spring trail loops within 90 minutes of Chicago", published_ago: "1h ago", read: "4m read", image: true, wide_image: true },
+      { section: "Recreation", title: "Forest preserve volunteer days open for April signups", published_ago: "4h ago", read: "2m read" },
+      { section: "Parks", title: "What to know before kayaking the Chicago River this season", published_ago: "8h ago", read: "3m read", divider: false }
+    ]
+  },
+  {
+    title: "Money and Taste",
+    items: [
+      { section: "Money and Taste", title: "How rising ingredient costs are reshaping neighborhood menus", published_ago: "2h ago", read: "3m read", image: true, wide_image: true },
+      { section: "Restaurants", title: "Five standout prix-fixe deals to try this month", published_ago: "5h ago", read: "3m read" },
+      { section: "Budgets", title: "Stretching your grocery budget without sacrificing quality", published_ago: "7h ago", read: "3m read", divider: false }
+    ]
+  }
+] %>
+
+<section class="mb-5" data-homepage-slot="suntimes-bottom-four-rails">
+  <div class="row g-4 g-lg-5 align-items-start">
+    <% rails.each do |rail| %>
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="suntimes-home__section-accent">
+          <h2 class="suntimes-home__section-title"><%= rail[:title] %></h2>
+        </div>
+        <%= render "shared/ui/suntimes/home/one_column_section_zone", items: rail[:items] %>
+      </div>
+    <% end %>
+  </div>
+</section>
+

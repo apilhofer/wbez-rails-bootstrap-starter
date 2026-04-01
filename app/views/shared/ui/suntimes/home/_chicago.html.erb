@@ -1,24 +1,9 @@
-<%# Two-column section module (lead 480×400 + stack); optional right rail. %>
-<section class="suntimes-home__two-col-section mb-5"
-         data-homepage-slot="suntimes-chicago"
-         data-suntimes-module="two-column-section"
-         data-suntimes-module-slug="chicago">
-  <div class="suntimes-home__section-accent">
-    <h2 class="suntimes-home__section-title">Chicago</h2>
-  </div>
-  <div class="row g-4 g-lg-5 align-items-start">
-    <div class="col-12 col-lg-8">
-      <%= render "shared/ui/suntimes/home/two_column_section_main", lead: @chicago[:lead], stack: @chicago[:stack] %>
-    </div>
-    <div class="col-12 col-lg-4">
-      <article class="suntimes-home__divider">
-        <span class="suntimes-home__category"><%= @chicago[:rail][:section] %></span>
-        <h3 class="suntimes-home__headline-xl mt-2 mb-2">
-          <%= link_to @chicago[:rail][:title], @story_href, class: "suntimes-home__headline-link" %>
-        </h3>
-        <p class="suntimes-home__meta suntimes-home__meta-rail-dek mb-2"><%= @chicago[:rail][:dek] %></p>
-        <%= render "shared/ui/suntimes/home/story_meta", item: @chicago[:rail], extra_classes: "mb-0 small" %>
-      </article>
-    </div>
-  </div>
-</section>
+<%= render "shared/ui/suntimes/home/two_column_section",
+    homepage_slot: "suntimes-chicago",
+    module_slug: "chicago",
+    section_title: "Chicago",
+    lead: @chicago[:lead],
+    stack: @chicago[:stack],
+    right_rail_col_class: "d-flex justify-content-lg-end" do %>
+  <%= render "shared/ui/suntimes/placeholder_rect", extra_classes: "suntimes-home__ad-300x600 rounded-0" %>
+<% end %>

@@ -1,42 +1,9 @@
-<%# News & Politics (two-column section) + watchdog; Public Safety rail %>
-<div class="row g-4 g-lg-5 mb-5 align-items-start" data-homepage-slot="suntimes-news-politics">
-  <div class="col-12 col-lg-8">
-    <div class="suntimes-home__two-col-section"
-         data-suntimes-module="two-column-section"
-         data-suntimes-module-slug="news-politics">
-      <div class="suntimes-home__section-accent">
-        <h2 class="suntimes-home__section-title">News &amp; Politics</h2>
-      </div>
-      <%= render "shared/ui/suntimes/home/two_column_section_main", lead: @news_politics[:lead], stack: @news_politics[:stack] %>
-    </div>
-
-    <div class="mt-5 pt-4 border-top suntimes-home__rule">
-      <span class="suntimes-home__category"><%= @news_politics[:watchdog][:section] %></span>
-      <h3 class="suntimes-home__headline-xl mt-2 mb-2">
-        <%= link_to @news_politics[:watchdog][:title], @story_href, class: "suntimes-home__headline-link" %>
-      </h3>
-      <p class="suntimes-home__meta suntimes-home__meta-rail-dek mb-2"><%= @news_politics[:watchdog][:dek] %></p>
-      <%= render "shared/ui/suntimes/home/story_meta", item: @news_politics[:watchdog], extra_classes: "mb-0 small" %>
-    </div>
-  </div>
-
-  <div class="col-12 col-lg-4">
-    <div class="suntimes-home__section-accent">
-      <h2 class="suntimes-home__section-title">Public Safety</h2>
-    </div>
-    <div class="vstack gap-4">
-      <% @public_safety.each do |item| %>
-        <article class="<%= item[:divider] == false ? "mb-0" : "suntimes-home__divider" %>">
-          <% if item[:image] %>
-            <%= render "shared/ui/suntimes/placeholder_rect", extra_classes: "mb-3 rounded-0 #{item[:wide_image] ? 'suntimes-home__ratio-16-9' : 'suntimes-home__ratio-3-2'}" %>
-          <% end %>
-          <span class="suntimes-home__category"><%= item[:section] %></span>
-          <h4 class="suntimes-home__headline-md mt-1 mb-1">
-            <%= link_to item[:title], @story_href, class: "suntimes-home__headline-link" %>
-          </h4>
-          <%= render "shared/ui/suntimes/home/story_meta", item: item, extra_classes: "mb-0 small" %>
-        </article>
-      <% end %>
-    </div>
-  </div>
-</div>
+<%= render "shared/ui/suntimes/home/two_column_section",
+    homepage_slot: "suntimes-news-politics",
+    module_slug: "news-politics",
+    section_title: "News & Politics",
+    lead: @news_politics[:lead],
+    stack: @news_politics[:stack],
+    right_rail_title: "Public Safety" do %>
+  <%= render "shared/ui/suntimes/home/one_column_section_zone", items: @public_safety %>
+<% end %>

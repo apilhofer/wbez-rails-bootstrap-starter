@@ -1,0 +1,26 @@
+<%# Paying Your Taxes 4-up grid (same layout/pattern as Investigations). %>
+<% items = @paying_your_taxes.presence || [
+  { section: "Property Taxes", title: "How to appeal your Cook County property tax assessment before the deadline" },
+  { section: "Explainers", title: "Where your Chicago property tax bill goes and who decides the split" },
+  { section: "Springfield", title: "State lawmakers debate new relief options for homeowners facing reassessments" },
+  { section: "Personal Finance", title: "Tax prep checklist: credits and records to gather before you file" }
+] %>
+<section class="mb-5" data-homepage-slot="suntimes-paying-your-taxes">
+  <div class="suntimes-home__section-accent">
+    <h2 class="suntimes-home__section-title">Paying Your Taxes</h2>
+  </div>
+  <div class="row g-4 g-lg-5">
+    <% items.each do |item| %>
+      <div class="col-6 col-md-3">
+        <article>
+          <%= render "shared/ui/suntimes/placeholder_rect", extra_classes: "suntimes-home__ratio-3-2 mb-3 rounded-0" %>
+          <span class="suntimes-home__category"><%= item[:section] %></span>
+          <h4 class="suntimes-home__headline-md mt-1">
+            <%= link_to item[:title], @story_href, class: "suntimes-home__headline-link" %>
+          </h4>
+        </article>
+      </div>
+    <% end %>
+  </div>
+</section>
+
