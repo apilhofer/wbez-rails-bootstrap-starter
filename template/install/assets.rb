@@ -19,7 +19,7 @@ module WbezBootstrapStarter
       private
 
       def install_brand_assets
-        @base.empty_dir "app/assets/images/logos"
+        @g.run %(mkdir -p "app/assets/images/logos")
         @base.empty_dir "app/assets/images/icons/wbez"
         @base.empty_dir "app/assets/images/icons/marketing"
 
@@ -88,6 +88,8 @@ module WbezBootstrapStarter
         }
 
         logo_sources.each do |destination, url|
+          next if File.exist?(destination)
+
           download_file(url, destination)
         end
 
@@ -123,8 +125,15 @@ module WbezBootstrapStarter
       end
 
       def download_file(url, destination)
-        @g.run %(mkdir -p "#{File.dirname(destination)}")
-        @g.run %(curl -fsSL "#{url}" -o "#{destination}")
+        FileUtils.mkdir_p(File.dirname(destination))
+        return if File.exist?(destination)
+
+        begin
+          payload = URI.open(url, open_timeout: 8, read_timeout: 20).read
+          File.binwrite(destination, payload)
+        rescue => e
+          @g.say "Logo download skipped for #{destination}: #{e.message}"
+        end
       end
 
       def install_npm_and_css_pipeline

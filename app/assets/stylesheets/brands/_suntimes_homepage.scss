@@ -296,6 +296,32 @@
     object-fit: cover;
   }
 
+  .suntimes-home__ad-300x600 {
+    width: 100%;
+    max-width: 300px;
+    min-height: 600px;
+  }
+
+  .suntimes-home__full-width-ad {
+    min-height: 150px;
+  }
+
+  .suntimes-home__full-bleed {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
+
+  .suntimes-home__wbez-promo-zone {
+    background: rgb(232, 246, 255);
+    min-height: 750px;
+  }
+
+  .suntimes-home__wbez-promo-zone-inner {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
   .suntimes-home__listen-pill {
     background: var(--shv-red);
     color: #fff;

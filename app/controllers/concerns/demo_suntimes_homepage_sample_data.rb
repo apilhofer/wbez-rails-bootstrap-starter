@@ -158,5 +158,188 @@ module DemoSuntimesHomepageSampleData
       title: "Morning Edition",
       dek: "Start your day informed. Don’t miss our award-winning local newsletter in your inbox each morning."
     }
+
+    @paying_your_taxes = [
+      { section: "Property Taxes", title: "How to appeal your Cook County property tax assessment before the deadline" },
+      { section: "Explainers", title: "Where your Chicago property tax bill goes and who decides the split" },
+      { section: "Springfield", title: "State lawmakers debate new relief options for homeowners facing reassessments" },
+      { section: "Personal Finance", title: "Tax prep checklist: credits and records to gather before you file" }
+    ]
+
+    @bears = {
+      lead: {
+        section: "Bears",
+        title: "Bears reset expectations as camp opens with a new coordinator",
+        dek: "Chicago's offseason priorities shift from roster churn to consistency and development.",
+        published_ago: "2h ago",
+        read: "4m read"
+      },
+      stack: [
+        { section: "Bears", title: "What we learned from the first depth-chart look", published_ago: "3h ago", read: "3m read" },
+        { section: "Bears", title: "How the offensive line battle could shape Week 1", published_ago: "5h ago", read: "4m read" },
+        { section: "Bears", title: "Rookie reps increase as coaches evaluate versatility", published_ago: "8h ago", read: "2m read", divider: false }
+      ]
+    }
+
+    @bulls = [
+      { section: "Bulls", title: "Bulls' backcourt chemistry remains the biggest swing factor", published_ago: "1h ago", read: "3m read", image: true, wide_image: true },
+      { section: "Bulls", title: "Front office signals patience ahead of trade deadline", published_ago: "4h ago", read: "2m read" },
+      { section: "Bulls", title: "Three lineup tweaks coaches keep testing in practice", published_ago: "7h ago", read: "3m read", divider: false }
+    ]
+
+    @bottom_four_rails = [
+      {
+        title: "Horoscopes & Dear Abby",
+        items: [
+          { section: "Horoscopes", title: "Your daily horoscope: what Thursday has in store", published_ago: "1h ago", read: "2m read", image: true, wide_image: true },
+          { section: "Dear Abby", title: "Dear Abby: Navigating a friendship after a major fallout", published_ago: "3h ago", read: "2m read" },
+          { section: "Advice", title: "What etiquette experts say about splitting wedding travel costs", published_ago: "6h ago", read: "3m read", divider: false }
+        ]
+      },
+      {
+        title: "Environment",
+        items: [
+          { section: "Environment", title: "Lakefront restoration project enters final review phase", published_ago: "2h ago", read: "3m read", image: true, wide_image: true },
+          { section: "Climate", title: "How warmer winters are changing migration patterns in Illinois", published_ago: "5h ago", read: "4m read" },
+          { section: "Policy", title: "City council weighs stricter emissions targets for municipal fleets", published_ago: "9h ago", read: "3m read", divider: false }
+        ]
+      },
+      {
+        title: "Outdoors",
+        items: [
+          { section: "Outdoors", title: "Best spring trail loops within 90 minutes of Chicago", published_ago: "1h ago", read: "4m read", image: true, wide_image: true },
+          { section: "Recreation", title: "Forest preserve volunteer days open for April signups", published_ago: "4h ago", read: "2m read" },
+          { section: "Parks", title: "What to know before kayaking the Chicago River this season", published_ago: "8h ago", read: "3m read", divider: false }
+        ]
+      },
+      {
+        title: "Money and Taste",
+        items: [
+          { section: "Money and Taste", title: "How rising ingredient costs are reshaping neighborhood menus", published_ago: "2h ago", read: "3m read", image: true, wide_image: true },
+          { section: "Restaurants", title: "Five standout prix-fixe deals to try this month", published_ago: "5h ago", read: "3m read" },
+          { section: "Budgets", title: "Stretching your grocery budget without sacrificing quality", published_ago: "7h ago", read: "3m read", divider: false }
+        ]
+      }
+    ]
+
+    @sports_four_rails = [
+      {
+        title: "High School Sports",
+        items: [
+          { section: "High School Sports", title: "City championship brackets tighten after semifinal upsets", published_ago: "1h ago", read: "3m read", image: true, wide_image: true },
+          { section: "Prep Baseball", title: "Scouts highlight five breakout arms to watch this spring", published_ago: "3h ago", read: "2m read" },
+          { section: "Prep Basketball", title: "Why transfer rules are shaping next season's contender map", published_ago: "6h ago", read: "3m read", divider: false }
+        ]
+      },
+      {
+        title: "College Sports",
+        items: [
+          { section: "College Sports", title: "Big Ten spring storylines: quarterback races and portal moves", published_ago: "2h ago", read: "4m read", image: true, wide_image: true },
+          { section: "NCAA", title: "How NIL collectives are changing recruiting timelines", published_ago: "4h ago", read: "3m read" },
+          { section: "DePaul", title: "Program reset continues with defensive-first roster tweaks", published_ago: "7h ago", read: "2m read", divider: false }
+        ]
+      },
+      {
+        title: "Bulls",
+        items: [
+          { section: "Bulls", title: "Bulls' backcourt chemistry remains the biggest swing factor", published_ago: "1h ago", read: "3m read", image: true, wide_image: true },
+          { section: "Bulls", title: "Front office signals patience ahead of trade deadline", published_ago: "4h ago", read: "2m read" },
+          { section: "Bulls", title: "Three lineup tweaks coaches keep testing in practice", published_ago: "7h ago", read: "3m read", divider: false }
+        ]
+      },
+      {
+        title: "Blackhawks",
+        items: [
+          { section: "Blackhawks", title: "Line combinations shift as coaches search for consistency", published_ago: "2h ago", read: "3m read", image: true, wide_image: true },
+          { section: "Blackhawks", title: "Prospect call-ups add speed to the middle six", published_ago: "5h ago", read: "2m read" },
+          { section: "Blackhawks", title: "Special teams adjustments become late-season priority", published_ago: "8h ago", read: "3m read", divider: false }
+        ]
+      }
+    ]
+
+    @news_regions_four_rails = [
+      {
+        title: "Nation & World",
+        items: [
+          { section: "Nation & World", title: "Global markets steady as central banks signal slower rate cuts", published_ago: "1h ago", read: "3m read", image: true, wide_image: true },
+          { section: "Nation", title: "Congress weighs bipartisan package on rail safety standards", published_ago: "3h ago", read: "2m read" },
+          { section: "World", title: "Aid corridors expand after cease-fire monitoring agreement", published_ago: "6h ago", read: "3m read", divider: false }
+        ]
+      },
+      {
+        title: "Illinois",
+        items: [
+          { section: "Illinois", title: "State agency proposes timeline for clean-energy permitting updates", published_ago: "2h ago", read: "4m read", image: true, wide_image: true },
+          { section: "Springfield", title: "Budget negotiators narrow gaps ahead of committee vote", published_ago: "4h ago", read: "3m read" },
+          { section: "Downstate", title: "Rural hospital network expands telehealth footprint", published_ago: "7h ago", read: "2m read", divider: false }
+        ]
+      },
+      {
+        title: "Chicago Suburbs",
+        items: [
+          { section: "Chicago Suburbs", title: "Metra-adjacent zoning plans spark debate in west suburban council", published_ago: "1h ago", read: "3m read", image: true, wide_image: true },
+          { section: "Transportation", title: "Pace route redesign aims to improve cross-county service", published_ago: "5h ago", read: "2m read" },
+          { section: "Development", title: "Mixed-use project approved near suburban town center", published_ago: "8h ago", read: "3m read", divider: false }
+        ]
+      },
+      {
+        title: "Education",
+        items: [
+          { section: "Education", title: "District leaders outline tutoring expansion for fall semester", published_ago: "2h ago", read: "3m read", image: true, wide_image: true },
+          { section: "Higher Ed", title: "Community colleges see rebound in adult learner enrollment", published_ago: "4h ago", read: "2m read" },
+          { section: "Schools", title: "What families should know about selective enrollment deadlines", published_ago: "9h ago", read: "3m read", divider: false }
+        ]
+      }
+    ]
+
+    @opinion_four_rails = [
+      {
+        title: "Columnists",
+        items: [
+          { section: "Columnists", title: "Why neighborhood-level reporting still matters in city politics", published_ago: "1h ago", read: "3m read", image: true, wide_image: true },
+          { section: "Opinion", title: "The transit funding cliff is closer than riders think", published_ago: "3h ago", read: "2m read" },
+          { section: "Commentary", title: "What civic trust looks like after budget season", published_ago: "6h ago", read: "3m read", divider: false }
+        ]
+      },
+      {
+        title: "Other Views",
+        items: [
+          { section: "Other Views", title: "Business leaders call for clearer housing production targets", published_ago: "2h ago", read: "3m read", image: true, wide_image: true },
+          { section: "Guest Essay", title: "Investing in youth programs reduces long-term public costs", published_ago: "4h ago", read: "2m read" },
+          { section: "Perspective", title: "A suburban mayor on balancing growth and affordability", published_ago: "7h ago", read: "3m read", divider: false }
+        ]
+      },
+      {
+        title: "Letters to the Editor",
+        items: [
+          { section: "Letters to the Editor", title: "Readers respond to coverage of school funding inequities", published_ago: "1h ago", read: "2m read", image: true, wide_image: true },
+          { section: "Letters", title: "What commuters say about proposed congestion pricing", published_ago: "5h ago", read: "2m read" },
+          { section: "Reader Mail", title: "Chicagoans debate the future of downtown office space", published_ago: "8h ago", read: "3m read", divider: false }
+        ]
+      },
+      {
+        title: "News",
+        items: [
+          { section: "News", title: "Editors' picks: five stories shaping this week across the metro area", published_ago: "2h ago", read: "3m read", image: true, wide_image: true },
+          { section: "Updates", title: "What we’re watching in Springfield and City Hall today", published_ago: "4h ago", read: "2m read" },
+          { section: "Briefing", title: "Morning briefing: transit, weather, and public safety notes", published_ago: "9h ago", read: "3m read", divider: false }
+        ]
+      }
+    ]
+
+    @listen_to_wbez = {
+      lead: {
+        section: "WBEZ",
+        title: "What to know this week across Chicago politics, culture, and public media",
+        dek: "Listen live and catch up on essential reporting, interviews, and explainers from the WBEZ newsroom.",
+        published_ago: "1h ago",
+        read: "4m read"
+      },
+      stack: [
+        { section: "Morning Edition", title: "Start your day with the top local headlines and context", published_ago: "2h ago", read: "3m read" },
+        { section: "Reset", title: "A closer look at the week’s biggest stories and what comes next", published_ago: "4h ago", read: "3m read" },
+        { section: "City Cast", title: "Neighborhood voices on transit, schools, and affordability", published_ago: "7h ago", read: "3m read", divider: false }
+      ]
+    }
   end
 end

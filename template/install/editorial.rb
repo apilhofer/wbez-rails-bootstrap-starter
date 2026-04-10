@@ -19,6 +19,7 @@ module WbezBootstrapStarter
         # Default graphic for `full_width_promo_spot` when not using `graphic_placeholder:` (grey div partial).
         @base.copy_text_file "app/assets/images/image.webp"
         @base.copy_text_file "app/assets/images/ctimes-logo.svg"
+        @base.copy_text_file "app/assets/images/a0edb9a03c1cef71abe3815120bea99d.png"
         @base.copy_files(suntimes_homepage_images)
       end
 
@@ -60,11 +61,24 @@ module WbezBootstrapStarter
           app/views/shared/ui/suntimes/home/_home_main.html.erb
           app/views/shared/ui/suntimes/_placeholder_rect.html.erb
           app/views/shared/ui/suntimes/home/_hero.html.erb
+          app/views/shared/ui/suntimes/home/_story_meta.html.erb
+          app/views/shared/ui/suntimes/home/_one_column_section_zone.html.erb
+          app/views/shared/ui/suntimes/home/_two_column_section.html.erb
+          app/views/shared/ui/suntimes/home/_two_column_section_main.html.erb
           app/views/shared/ui/suntimes/home/_commentary.html.erb
           app/views/shared/ui/suntimes/home/_chicago.html.erb
           app/views/shared/ui/suntimes/home/_news_politics.html.erb
           app/views/shared/ui/suntimes/home/_investigations.html.erb
           app/views/shared/ui/suntimes/home/_newsletter.html.erb
+          app/views/shared/ui/suntimes/home/_paying_your_taxes.html.erb
+          app/views/shared/ui/suntimes/home/_bears.html.erb
+          app/views/shared/ui/suntimes/home/_bottom_four_rails.html.erb
+          app/views/shared/ui/suntimes/home/_sports_four_rails.html.erb
+          app/views/shared/ui/suntimes/home/_news_regions_four_rails.html.erb
+          app/views/shared/ui/suntimes/home/_opinion_four_rails.html.erb
+          app/views/shared/ui/suntimes/home/_full_width_ad_unit.html.erb
+          app/views/shared/ui/suntimes/home/_all_latest_stories_cta.html.erb
+          app/views/shared/ui/suntimes/home/_wbez_promo_zone.html.erb
           app/views/shared/ui/suntimes/home/_arts.html.erb
           app/views/shared/ui/suntimes/home/_sports.html.erb
           app/views/shared/ui/wbez/style_guide/_tokens.html.erb

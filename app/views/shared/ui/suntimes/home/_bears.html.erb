@@ -1,0 +1,28 @@
+<% bears_lead = (@bears && @bears[:lead]) || {
+  section: "Bears",
+  title: "Bears reset expectations as camp opens with a new coordinator",
+  dek: "Chicago's offseason priorities shift from roster churn to consistency and development.",
+  published_ago: "2h ago",
+  read: "4m read"
+} %>
+<% bears_stack = (@bears && @bears[:stack]).presence || [
+  { section: "Bears", title: "What we learned from the first depth-chart look", published_ago: "3h ago", read: "3m read" },
+  { section: "Bears", title: "How the offensive line battle could shape Week 1", published_ago: "5h ago", read: "4m read" },
+  { section: "Bears", title: "Rookie reps increase as coaches evaluate versatility", published_ago: "8h ago", read: "2m read", divider: false }
+] %>
+<% bulls_items = @bulls.presence || [
+  { section: "Bulls", title: "Bulls' backcourt chemistry remains the biggest swing factor", published_ago: "1h ago", read: "3m read", image: true, wide_image: true },
+  { section: "Bulls", title: "Front office signals patience ahead of trade deadline", published_ago: "4h ago", read: "2m read" },
+  { section: "Bulls", title: "Three lineup tweaks coaches keep testing in practice", published_ago: "7h ago", read: "3m read", divider: false }
+] %>
+
+<%= render "shared/ui/suntimes/home/two_column_section",
+    homepage_slot: "suntimes-bears",
+    module_slug: "bears",
+    section_title: "Bears",
+    lead: bears_lead,
+    stack: bears_stack,
+    right_rail_title: "Bulls" do %>
+  <%= render "shared/ui/suntimes/home/one_column_section_zone", items: bulls_items %>
+<% end %>
+

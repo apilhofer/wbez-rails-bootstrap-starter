@@ -1,0 +1,18 @@
+<% items = local_assigns.fetch(:items, []) %>
+<div class="vstack">
+  <% items.each_with_index do |item, idx| %>
+    <% show_image = item.key?(:image) ? item[:image] : idx.zero? %>
+    <% wide_image = item.key?(:wide_image) ? item[:wide_image] : idx.zero? %>
+    <article class="<%= item[:divider] == false ? "mb-0" : "suntimes-home__divider" %>">
+      <% if show_image %>
+        <%= render "shared/ui/suntimes/placeholder_rect", extra_classes: "mb-3 rounded-0 #{wide_image ? 'suntimes-home__ratio-16-9' : 'suntimes-home__ratio-3-2'}" %>
+      <% end %>
+      <span class="suntimes-home__category"><%= item[:section] %></span>
+      <h4 class="suntimes-home__headline-md mt-1 mb-1">
+        <%= link_to item[:title], @story_href, class: "suntimes-home__headline-link" %>
+      </h4>
+      <%= render "shared/ui/suntimes/home/story_meta", item: item, extra_classes: "mb-0 small" %>
+    </article>
+  <% end %>
+</div>
+

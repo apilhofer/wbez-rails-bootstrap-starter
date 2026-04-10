@@ -46,7 +46,7 @@ module WbezBootstrapStarter
         content = fetch_template_text(rel_path)
         destination_abs = Rails.root.join(destination_rel_path)
         FileUtils.mkdir_p(destination_abs.dirname)
-        File.write(destination_abs, content)
+        File.binwrite(destination_abs, content)
       end
 
       def copy_files(rel_paths)
