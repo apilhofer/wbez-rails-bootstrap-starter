@@ -7,7 +7,7 @@ module AppPrototypeHelper
   end
 
   def app_theme_color
-    app_body_class.include?("suntimes") ? "#c41230" : "#ed0000"
+    app_body_class.include?("suntimes") ? "#d3242c" : "#ed0000"
   end
 
   def app_manifest_path

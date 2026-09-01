@@ -1,46 +1,290 @@
-// Chicago Sun-Times mobile app prototype scope.
+// Chicago Sun-Times mobile app prototype — aligned with _suntimes_tokens.scss
+// and suntimes-home patterns. White masthead, black topbar cue, #d3242c accents,
+// Proxima headlines (uppercase), Arial UI, dark default links.
 .suntimes-app-prototype {
-  --app-chrome-bg: #fff;
-  --app-accent: var(--cst-brand-primary, #c41230);
-  --app-headline-font: var(--cst-headline-font, "Proxima Nova", Helvetica, Arial, sans-serif);
-  --app-ui-font: var(--cst-body-font, "Proxima Nova", Helvetica, Arial, sans-serif);
+  --app-chrome-bg: var(--cst-bg-page, #fff);
+  --app-chrome-border: var(--cst-border-color, #dfdfdf);
+  --app-accent: var(--cst-brand-primary, #d3242c);
+  --app-headline-font: var(--cst-font-headline, proxima-nova, "Proxima Nova", "Helvetica Neue", Arial, sans-serif);
+  --app-ui-font: var(--cst-font-sans, Arial, "Helvetica Neue", sans-serif);
   font-family: var(--app-ui-font);
-  color: var(--cst-text-primary, #1a1a1a);
+  color: var(--cst-text-body, #2a2a2a);
+  background: var(--cst-bg-page, #fff);
+
+  a:not(.app-story-row):not(.app-tabbar__item):not(.btn) {
+    color: var(--cst-link-color, #1a1a1a);
+    text-decoration: none;
+  }
+
+  a:not(.app-story-row):not(.app-tabbar__item):not(.btn):hover,
+  a:not(.app-story-row):not(.app-tabbar__item):not(.btn):focus-visible {
+    color: var(--cst-link-hover-color, var(--cst-brand-primary));
+  }
+
+  .app-header--suntimes {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0;
+    min-height: 0;
+    background: #fff;
+    border-bottom: 1px solid var(--cst-border-color);
+    box-shadow: none;
+  }
+
+  .app-header__cst-topbar {
+    background: #000;
+    color: #fff;
+    padding-left: max(1rem, var(--app-safe-left));
+    padding-right: max(1rem, var(--app-safe-right));
+    padding-bottom: 0.5rem;
+    padding-top: calc(0.5rem + var(--app-safe-top));
+    flex-shrink: 0;
+  }
+
+  .app-header__cst-topbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 1.25rem;
+  }
+
+  .app-header__cst-topbar-logo {
+    width: auto;
+    max-width: min(100%, 11rem);
+    height: auto;
+    max-height: 14px;
+  }
+
+  .app-header--suntimes .app-header__inner {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: var(--app-header-height);
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
+    padding-left: max(1rem, var(--app-safe-left));
+    padding-right: max(1rem, var(--app-safe-right));
+  }
+
+  .app-header--suntimes .app-header__inner--logo {
+    position: relative;
+    justify-content: center;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .app-header__brand--logo {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .app-header__inner--logo .app-header__action {
+    position: absolute;
+    right: max(1rem, var(--app-safe-right));
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .app-header__logo--cst-wordmark {
+    display: block;
+    width: clamp(11rem, 72vw, 18rem);
+    max-width: 100%;
+    height: auto;
+  }
+
+  .app-header__back {
+    color: var(--cst-text-headline, #2a2a2a);
+    font-family: var(--app-ui-font);
+    font-weight: 700;
+    font-size: 0.8125rem;
+    text-transform: none;
+    letter-spacing: 0;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--cst-brand-primary);
+    }
+  }
+
+  .app-header__action {
+    color: var(--cst-text-headline, #2a2a2a);
+    font-family: var(--app-headline-font);
+    font-weight: 700;
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--cst-brand-primary);
+    }
+  }
 
   .app-header__title {
     font-family: var(--app-headline-font);
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-weight: 700;
-    margin: 0;
+    line-height: 1.15;
+    color: var(--cst-text-headline, #2a2a2a);
     text-transform: uppercase;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .app-tabbar {
+    border-top-color: var(--cst-border-color);
+    background: #fff;
+  }
+
+  .app-tabbar__item {
+    color: var(--cst-text-muted, #656565);
+    font-family: var(--app-headline-font);
+    font-weight: 700;
+    font-size: 0.6875rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    position: relative;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--cst-text-headline);
+    }
   }
 
   .app-tabbar__item--active {
-    color: var(--app-accent);
+    color: var(--cst-text-headline);
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 18%;
+      right: 18%;
+      height: 3px;
+      background: var(--cst-brand-primary);
+      border-radius: 0;
+    }
+  }
+
+  .app-story-row {
+    color: var(--cst-text-headline);
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible,
+    &:active {
+      color: var(--cst-text-headline);
+    }
+  }
+
+  .app-story-row:active {
+    background: #f7f7f7;
+  }
+
+  .app-story-row .story-kicker {
+    color: var(--cst-brand-primary);
+    font-family: var(--app-headline-font);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
   }
 
   .app-story-row__headline {
     font-family: var(--app-headline-font);
     font-size: 1rem;
-    line-height: 1.2;
+    font-weight: 700;
+    line-height: 1.15;
     margin: 0 0 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--cst-text-headline);
+    -webkit-font-smoothing: antialiased;
+    word-break: break-word;
   }
 
   .app-story-row--dense .app-story-row__headline {
     font-size: 0.875rem;
   }
 
+  .app-story-row .small.text-muted {
+    color: var(--cst-text-muted) !important;
+    font-family: var(--app-ui-font);
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
   .app-story-row__meta {
+    font-family: var(--app-ui-font);
     font-size: 0.75rem;
-    color: var(--cst-text-secondary, #656565);
+    color: var(--cst-text-muted);
+  }
+
+  .app-story-row__thumb:not(img) {
+    background: #e5e5e5;
+    border: 1px solid var(--cst-border-color);
   }
 
   .app-article-shell {
     padding: 1rem max(1rem, var(--app-safe-left)) 2rem max(1rem, var(--app-safe-right));
   }
 
+  .app-article-shell .article-title {
+    font-family: var(--app-headline-font);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--cst-text-headline);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .app-article-shell .wbez-kicker {
+    color: var(--cst-brand-primary);
+    font-family: var(--app-headline-font);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+  }
+
+  .app-article-shell .article-dek {
+    color: var(--cst-text-body);
+    font-family: var(--app-ui-font);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .app-article-shell .article-meta {
+    color: var(--cst-text-muted);
+    font-family: var(--app-ui-font);
+    font-size: 0.875rem;
+  }
+
   .app-article-shell .prose-suntimes {
     max-width: none;
+    font-family: var(--app-ui-font);
+    color: var(--cst-text-body);
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--app-headline-font);
+      color: var(--cst-text-headline);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+  }
+
+  .app-experiment-banner {
+    background: #f7f7f7;
+    border-bottom: 1px solid var(--cst-border-color);
+    color: var(--cst-text-muted);
+    font-family: var(--app-headline-font);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: 0.6875rem;
   }
 }

@@ -1,44 +1,216 @@
-// WBEZ mobile app prototype scope.
+// WBEZ mobile app prototype — aligned with bootstrap-wbez.md and site chrome.
+// Black masthead, bright red accent (#ed0000), muted kickers, Charter headlines.
 .wbez-app-prototype {
   --app-chrome-bg: #fff;
+  --app-chrome-border: var(--wbez-border, #dcddde);
   --app-accent: var(--wbez-red, #ed0000);
   --app-headline-font: var(--wbez-serif, Charter, serif);
   --app-ui-font: var(--wbez-sans, "Source Sans 3", sans-serif);
   font-family: var(--app-ui-font);
   color: var(--wbez-black, #252525);
+  background: #fff;
+
+  a:not(.app-story-row):not(.app-tabbar__item):not(.btn) {
+    color: var(--app-accent);
+  }
+
+  a:not(.app-story-row):not(.app-tabbar__item):not(.btn):hover {
+    color: var(--wbez-red-dark, #cf0000);
+  }
+
+  .app-header--wbez {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0;
+    min-height: 0;
+    background: #000;
+    color: #fff;
+    border-bottom: none;
+    border-top: 4px solid var(--wbez-red);
+    box-shadow: none;
+  }
+
+  .app-header--wbez .app-header__inner {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: var(--app-header-height);
+    padding-top: var(--app-safe-top);
+    padding-left: max(1rem, var(--app-safe-left));
+    padding-right: max(1rem, var(--app-safe-right));
+  }
+
+  .app-header__back {
+    color: #fff;
+    font-family: var(--app-ui-font);
+    font-weight: 600;
+    font-size: 0.8125rem;
+    text-transform: none;
+    letter-spacing: 0;
+
+    &:hover,
+    &:focus-visible {
+      color: #fff;
+      opacity: 0.85;
+    }
+  }
+
+  .app-header__action {
+    color: var(--wbez-red);
+    font-family: var(--app-ui-font);
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+
+    &:hover,
+    &:focus-visible {
+      color: #fff;
+    }
+  }
 
   .app-header__title {
     font-family: var(--app-headline-font);
     font-size: 1.125rem;
     font-weight: 700;
-    margin: 0;
+    line-height: 1.2;
+    color: #fff;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .app-tabbar {
+    border-top-color: var(--wbez-border);
+    background: #fff;
+  }
+
+  .app-tabbar__item {
+    color: var(--wbez-muted);
+    font-family: var(--app-ui-font);
+    font-weight: 600;
+    font-size: 0.6875rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    position: relative;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--wbez-black);
+    }
   }
 
   .app-tabbar__item--active {
-    color: var(--app-accent);
+    color: var(--wbez-red);
+    font-weight: 700;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 18%;
+      right: 18%;
+      height: 3px;
+      background: var(--wbez-red);
+      border-radius: 0;
+    }
+  }
+
+  .app-story-row {
+    color: var(--wbez-black);
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible,
+    &:active {
+      color: var(--wbez-black);
+    }
+  }
+
+  .app-story-row:active {
+    background: var(--wbez-subtle, #f3f3f3);
+  }
+
+  .app-story-row .story-kicker {
+    color: var(--wbez-muted);
+    font-family: var(--app-ui-font);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
 
   .app-story-row__headline {
     font-family: var(--app-headline-font);
-    font-size: 1rem;
-    line-height: 1.25;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    line-height: 1.2;
     margin: 0 0 0.25rem;
+    color: var(--wbez-black);
+    text-transform: none;
+    letter-spacing: 0;
   }
 
   .app-story-row--dense .app-story-row__headline {
     font-size: 0.9375rem;
   }
 
+  .app-story-row .small.text-muted {
+    color: var(--wbez-muted) !important;
+  }
+
   .app-story-row__meta {
+    font-family: var(--app-ui-font);
     font-size: 0.75rem;
-    color: var(--wbez-muted, #636466);
+    color: var(--wbez-muted);
+  }
+
+  .app-story-row__thumb:not(img) {
+    background: var(--wbez-subtle);
+    border: 1px solid var(--wbez-border);
   }
 
   .app-article-shell {
     padding: 1rem max(1rem, var(--app-safe-left)) 2rem max(1rem, var(--app-safe-right));
   }
 
+  .app-article-shell .article-title {
+    font-family: var(--app-headline-font);
+    color: var(--wbez-black);
+    text-transform: none;
+  }
+
+  .app-article-shell .wbez-kicker {
+    color: var(--wbez-muted);
+    font-family: var(--app-ui-font);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .app-article-shell .article-dek {
+    color: rgba(37, 37, 37, 0.82);
+    font-family: var(--app-ui-font);
+    font-size: 1.125rem;
+    line-height: 1.45;
+  }
+
+  .app-article-shell .article-meta {
+    color: var(--wbez-muted);
+    font-family: var(--app-ui-font);
+    font-size: 0.875rem;
+  }
+
   .app-article-shell .prose-wbez {
     max-width: none;
+  }
+
+  .app-experiment-banner {
+    background: var(--wbez-subtle);
+    border-bottom: 1px solid var(--wbez-border);
+    color: var(--wbez-muted);
+    font-family: var(--app-ui-font);
+    font-weight: 600;
+    font-size: 0.75rem;
   }
 }

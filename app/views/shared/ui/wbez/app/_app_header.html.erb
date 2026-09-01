@@ -1,9 +1,21 @@
-<header class="app-header" data-turbo-permanent id="wbez-app-header">
-  <% if local_assigns[:back_href].present? %>
-    <%= link_to "Back", local_assigns[:back_href], class: "btn btn-sm btn-link text-decoration-none px-0" %>
-  <% end %>
-  <h1 class="app-header__title flex-grow-1 mb-0 text-truncate"><%= local_assigns.fetch(:title, "WBEZ") %></h1>
-  <% if local_assigns[:experiments_href].present? %>
-    <%= link_to "Labs", local_assigns[:experiments_href], class: "btn btn-sm btn-link text-decoration-none" %>
-  <% end %>
+<header class="app-header app-header--wbez" data-turbo-permanent id="wbez-app-header">
+  <div class="app-header__inner">
+    <% if local_assigns[:back_href].present? %>
+      <%= link_to "Back", local_assigns[:back_href], class: "app-header__back btn btn-sm btn-link text-decoration-none px-0" %>
+    <% end %>
+
+    <div class="app-header__brand flex-grow-1 min-w-0">
+      <% if local_assigns[:show_logo] %>
+        <%= link_to (local_assigns[:home_href] || "#"), class: "app-header__logo-link d-inline-flex align-items-center text-decoration-none" do %>
+          <%= render "shared/ui/brand_lockup", style: "max-height: 26px;" %>
+        <% end %>
+      <% else %>
+        <h1 class="app-header__title text-truncate mb-0"><%= local_assigns.fetch(:title, "WBEZ") %></h1>
+      <% end %>
+    </div>
+
+    <% if local_assigns[:experiments_href].present? %>
+      <%= link_to "Labs", local_assigns[:experiments_href], class: "app-header__action btn btn-sm btn-link text-decoration-none flex-shrink-0" %>
+    <% end %>
+  </div>
 </header>

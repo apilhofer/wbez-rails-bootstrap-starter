@@ -1,9 +1,30 @@
-<header class="app-header" data-turbo-permanent id="suntimes-app-header">
-  <% if local_assigns[:back_href].present? %>
-    <%= link_to "Back", local_assigns[:back_href], class: "btn btn-sm btn-link text-decoration-none px-0" %>
-  <% end %>
-  <h1 class="app-header__title flex-grow-1 mb-0 text-truncate"><%= local_assigns.fetch(:title, "Sun-Times") %></h1>
-  <% if local_assigns[:experiments_href].present? %>
-    <%= link_to "Labs", local_assigns[:experiments_href], class: "btn btn-sm btn-link text-decoration-none" %>
-  <% end %>
+<header class="app-header app-header--suntimes" data-turbo-permanent id="suntimes-app-header">
+  <div class="app-header__cst-topbar">
+    <div class="app-header__cst-topbar-inner">
+      <%= image_tag "logos/cst-global-header.svg",
+          alt: "Chicago Sun-Times",
+          class: "app-header__cst-topbar-logo",
+          height: 14 %>
+    </div>
+  </div>
+
+  <div class="app-header__inner<%= " app-header__inner--logo" if local_assigns[:show_logo] %>">
+    <% if local_assigns[:back_href].present? %>
+      <%= link_to "Back", local_assigns[:back_href], class: "app-header__back btn btn-sm btn-link text-decoration-none px-0" %>
+    <% end %>
+
+    <div class="app-header__brand<%= " app-header__brand--logo" if local_assigns[:show_logo] %>">
+      <% if local_assigns[:show_logo] %>
+        <%= link_to (local_assigns[:home_href] || "#"), class: "app-header__logo-link text-decoration-none", "aria-label": "Chicago Sun-Times home" do %>
+          <%= inline_svg "ctimes-logo.svg", class: "app-header__logo app-header__logo--cst-wordmark", preserveAspectRatio: "xMidYMid meet" %>
+        <% end %>
+      <% else %>
+        <h1 class="app-header__title text-truncate mb-0"><%= local_assigns.fetch(:title, "Sun-Times") %></h1>
+      <% end %>
+    </div>
+
+    <% if local_assigns[:experiments_href].present? %>
+      <%= link_to "Labs", local_assigns[:experiments_href], class: "app-header__action btn btn-sm btn-link text-decoration-none flex-shrink-0" %>
+    <% end %>
+  </div>
 </header>
