@@ -1,0 +1,10 @@
+<%% content_for :title, "<%= file_name.humanize %>" %>
+<%% content_for :app_experiment_banner do %>Experiment: <%%= current_experiment %><%% end %>
+<%% content_for :app_header do %>
+  <%%= render "shared/ui/wbez/app/app_header", title: "<%= file_name.humanize %>", experiments_href: <%= route_helper_name %>_experiments_path %>
+<%% end %>
+<%% content_for :app_tabbar do %>
+  <%%= render "shared/ui/wbez/app/bottom_tab_bar", tabs: @app_tabs, active_tab: @active_tab %>
+<%% end %>
+
+<%%= render_experiment_partial "river", stories: @app_stories, story_path_helper: :<%= route_helper_name.singularize %>_story_path %>

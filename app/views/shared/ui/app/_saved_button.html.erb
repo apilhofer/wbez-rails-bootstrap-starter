@@ -1,0 +1,9 @@
+<button type="button"
+        class="btn btn-sm <%= local_assigns.fetch(:saved, false) ? "btn-primary" : "btn-outline-secondary" %>"
+        data-controller="saved-story"
+        data-saved-story-id-value="<%= local_assigns.fetch(:story_id) %>"
+        data-saved-story-saved-class="btn-primary"
+        data-saved-story-unsaved-class="btn-outline-secondary"
+        data-action="saved-story#toggle">
+  <%= local_assigns.fetch(:saved, false) ? "Saved" : "Save" %>
+</button>

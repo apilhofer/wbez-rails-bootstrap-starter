@@ -1,0 +1,6 @@
+<div class="app-empty-state" role="status">
+  <h2 class="h5 mb-2"><%= local_assigns.fetch(:title, "Nothing here yet") %></h2>
+  <% if local_assigns[:message].present? %>
+    <p class="mb-0"><%= local_assigns[:message] %></p>
+  <% end %>
+</div>

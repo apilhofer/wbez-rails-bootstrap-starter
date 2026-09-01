@@ -1,0 +1,22 @@
+<% heading_id = local_assigns.fetch(:heading_id, "experiments-heading") %>
+<section class="p-3" aria-labelledby="<%= heading_id %>">
+  <h1 id="<%= heading_id %>" class="h5 mb-3">Experiments</h1>
+  <p class="small text-muted">Switch UI variants for internal testing. Your choice is saved in this browser session.</p>
+  <ul class="list-group list-group-flush">
+    <% experiments.each do |experiment| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <div>
+          <div class="fw-semibold"><%= experiment[:label] %></div>
+          <% if experiment[:description].present? %>
+            <div class="small text-muted"><%= experiment[:description] %></div>
+          <% end %>
+        </div>
+        <% if experiment[:id] == current_experiment %>
+          <span class="badge text-bg-success">Active</span>
+        <% else %>
+          <%= link_to "Use", send(experiment_switch_path, experiment[:id]), class: "btn btn-sm btn-outline-primary", data: { turbo_method: :post } %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</section>

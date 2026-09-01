@@ -1,0 +1,44 @@
+<% brand = @app_brand == "suntimes" ? "suntimes" : "wbez" %>
+<% story_path = brand == "suntimes" ? :demo_app_suntimes_story_path : :demo_app_wbez_story_path %>
+<% back_path = brand == "suntimes" ? demo_app_suntimes_path : demo_app_wbez_path %>
+<% experiments_path = brand == "suntimes" ? demo_app_suntimes_experiments_path : demo_app_wbez_experiments_path %>
+
+<% content_for :title, @story[:title] %>
+<% content_for :app_header do %>
+  <% if brand == "suntimes" %>
+    <%= render "shared/ui/suntimes/app/app_header", title: "Story", back_href: back_path, experiments_href: experiments_path %>
+  <% else %>
+    <%= render "shared/ui/wbez/app/app_header", title: "Story", back_href: back_path, experiments_href: experiments_path %>
+  <% end %>
+<% end %>
+<% content_for :app_tabbar do %>
+  <% if brand == "suntimes" %>
+    <%= render "shared/ui/suntimes/app/bottom_tab_bar", tabs: @app_tabs, active_tab: @active_tab %>
+  <% else %>
+    <%= render "shared/ui/wbez/app/bottom_tab_bar", tabs: @app_tabs, active_tab: @active_tab %>
+  <% end %>
+<% end %>
+
+<% if brand == "suntimes" %>
+  <%= render "shared/ui/suntimes/app/article_shell",
+      kicker: @story[:kicker],
+      title: @story[:title],
+      dek: @story[:dek],
+      meta: @story[:author_name],
+      audio_url: @story[:audio_url] do %>
+    <%= raw @story[:body] %>
+  <% end %>
+<% else %>
+  <%= render "shared/ui/wbez/app/article_shell",
+      kicker: @story[:kicker],
+      title: @story[:title],
+      dek: @story[:dek],
+      meta: [@story[:published_ago], @story[:read]].compact.join(" • "),
+      audio_url: @story[:audio_url] do %>
+    <%= raw @story[:body] %>
+  <% end %>
+<% end %>
+
+<div class="px-3 pb-4">
+  <%= render "shared/ui/app/saved_button", story_id: @story[:id] %>
+</div>

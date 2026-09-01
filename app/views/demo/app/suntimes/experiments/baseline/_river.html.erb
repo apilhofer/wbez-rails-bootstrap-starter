@@ -1,0 +1,10 @@
+<% story_path_helper = local_assigns.fetch(:story_path_helper) %>
+<% stories = local_assigns.fetch(:stories) %>
+<section aria-label="Story river">
+  <% stories.each do |story| %>
+    <%= render "shared/ui/app/story_row",
+        story: story,
+        href: send(story_path_helper, story[:id]),
+        dense: false %>
+  <% end %>
+</section>

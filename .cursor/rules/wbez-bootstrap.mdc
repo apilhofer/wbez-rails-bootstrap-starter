@@ -28,6 +28,8 @@ Follow these rules when generating or editing code:
 - `/demo` → component playground
 - `/demo/home` → homepage-style reference
 - `/demo/article` → article-page reference
+- `/demo/app-wbez` → WBEZ mobile app prototype reference
+- `/demo/app-suntimes` → Sun-Times mobile app prototype reference
 - `/demo/cookbook` → editorial patterns reference
 - `/demo/icons` → icon inventory
 - `/demo/logos` → logo inventory
@@ -61,3 +63,9 @@ Follow these rules when generating or editing code:
 - arbitrary colors or spacing scales
 - deeply nested custom HTML when an existing partial already matches
 - JavaScript-heavy behavior when Turbo can handle it
+
+## App prototypes
+- Mobile app shells use `layouts/app.html.erb` and `.wbez-app-prototype` / `.suntimes-app-prototype` — not website `site_header` / `site_footer`.
+- Reuse `shared/ui/app/*` and brand mirrors under `shared/ui/wbez/app/` and `shared/ui/suntimes/app/`.
+- UX experiments live in `app/views/<app>/experiments/<variant>/`; never overwrite baseline when adding variants.
+- Do not put RSS feeds, credentials, or product-specific tab IA in shared starter UI.

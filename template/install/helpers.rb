@@ -20,6 +20,7 @@ module WbezBootstrapStarter
         %w[
           app/helpers/application_helper.rb
           app/helpers/ui_helper.rb
+          app/helpers/app_prototype_helper.rb
         ]
       end
     end

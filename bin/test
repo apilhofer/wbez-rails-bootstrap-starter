@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$(dirname "$0")/.."
+
+bundle install >/dev/null 2>&1 || bundle install
+
+export KEEP_TEST_APPS="${KEEP_TEST_APPS:-0}"
+bundle exec ruby -Itest -e '
+  files = Dir["test/**/*_test.rb"] + Dir["examples/wbez-app-lab/test/*_test.rb"]
+  files.each { |file| require "./#{file}" }
+'

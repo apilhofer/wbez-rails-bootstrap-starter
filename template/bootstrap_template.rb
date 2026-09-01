@@ -17,6 +17,7 @@ module_files = [
   ["template/install/assets.rb", "install/assets"],
   ["template/install/helpers.rb", "install/helpers"],
   ["template/install/editorial.rb", "install/editorial"],
+  ["template/install/app_shell.rb", "install/app_shell"],
   ["template/install/demos.rb", "install/demos"],
   ["template/install/cursor.rb", "install/cursor"],
   ["template/install/docs.rb", "install/docs"],
@@ -42,6 +43,7 @@ WbezBootstrapStarter::Install::Cursor.new(base).install
 WbezBootstrapStarter::Install::Docs.new(base).install
 WbezBootstrapStarter::Install::Helpers.new(base).install
 WbezBootstrapStarter::Install::Editorial.new(base).install
+WbezBootstrapStarter::Install::AppShell.new(base).install
 WbezBootstrapStarter::Install::Demos.new(base).install
 WbezBootstrapStarter::Install::Assets.new(base).install
 WbezBootstrapStarter::Install::Routes.new(base).install

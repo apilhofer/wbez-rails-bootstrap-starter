@@ -1,0 +1,11 @@
+<section class="p-3 border-top" aria-label="Audio player">
+  <h2 class="h6 mb-2"><%= local_assigns.fetch(:title, "Listen") %></h2>
+  <% if local_assigns[:audio_url].present? %>
+    <audio controls class="w-100" src="<%= local_assigns[:audio_url] %>"></audio>
+  <% else %>
+    <%= render "shared/ui/listen_pill" %>
+  <% end %>
+  <% if local_assigns[:dek].present? %>
+    <p class="small text-muted mt-2 mb-0"><%= local_assigns[:dek] %></p>
+  <% end %>
+</section>

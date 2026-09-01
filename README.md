@@ -53,6 +53,14 @@ bin/rails generate suntimes:page city_desk_roundup --type=home
 bin/rails generate suntimes:page metro_investigation --type=article
 ```
 
+**App prototypes (mobile PWA)** — generate an installable app-like shell with story river, article screen, and UX experiments:
+```bash
+bin/rails generate wbez:app news_lab
+bin/rails generate suntimes:app city_desk_lab
+```
+
+Reference demos: `/demo/app-wbez`, `/demo/app-suntimes`. See `docs/app-prototype/README.md` and `examples/wbez-app-lab/` for RSS-backed validation.
+
 Each generator creates:
 - `app/controllers/<name_plural>_controller.rb`
 - `app/views/<name_plural>/show.html.erb`

@@ -1,0 +1,46 @@
+// Chicago Sun-Times mobile app prototype scope.
+.suntimes-app-prototype {
+  --app-chrome-bg: #fff;
+  --app-accent: var(--cst-brand-primary, #c41230);
+  --app-headline-font: var(--cst-headline-font, "Proxima Nova", Helvetica, Arial, sans-serif);
+  --app-ui-font: var(--cst-body-font, "Proxima Nova", Helvetica, Arial, sans-serif);
+  font-family: var(--app-ui-font);
+  color: var(--cst-text-primary, #1a1a1a);
+
+  .app-header__title {
+    font-family: var(--app-headline-font);
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+
+  .app-tabbar__item--active {
+    color: var(--app-accent);
+  }
+
+  .app-story-row__headline {
+    font-family: var(--app-headline-font);
+    font-size: 1rem;
+    line-height: 1.2;
+    margin: 0 0 0.25rem;
+  }
+
+  .app-story-row--dense .app-story-row__headline {
+    font-size: 0.875rem;
+  }
+
+  .app-story-row__meta {
+    font-size: 0.75rem;
+    color: var(--cst-text-secondary, #656565);
+  }
+
+  .app-article-shell {
+    padding: 1rem max(1rem, var(--app-safe-left)) 2rem max(1rem, var(--app-safe-right));
+  }
+
+  .app-article-shell .prose-suntimes {
+    max-width: none;
+  }
+}

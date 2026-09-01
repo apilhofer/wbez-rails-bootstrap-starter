@@ -94,6 +94,19 @@ module WbezBootstrapStarter
           lib/generators/suntimes/page/templates/controller.rb.tt
           lib/generators/suntimes/page/templates/show.html.erb.tt
           lib/generators/suntimes/page/templates/home.html.erb.tt
+          lib/generators/app_prototype/generator_base.rb
+          lib/generators/wbez/app/app_generator.rb
+          lib/generators/wbez/app/templates/controller.rb.tt
+          lib/generators/wbez/app/templates/river.html.erb.tt
+          lib/generators/wbez/app/templates/story.html.erb.tt
+          lib/generators/wbez/app/templates/experiments.html.erb.tt
+          lib/generators/wbez/app/templates/experiments/river.html.erb.tt
+          lib/generators/suntimes/app/app_generator.rb
+          lib/generators/suntimes/app/templates/controller.rb.tt
+          lib/generators/suntimes/app/templates/river.html.erb.tt
+          lib/generators/suntimes/app/templates/story.html.erb.tt
+          lib/generators/suntimes/app/templates/experiments.html.erb.tt
+          lib/generators/suntimes/app/templates/experiments/river.html.erb.tt
         ]
       end
     end

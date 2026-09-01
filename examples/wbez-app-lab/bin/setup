@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -euo pipefail
+echo "WBEZ App Lab setup"
+echo "Create a Rails app, install the starter template, run: bin/rails generate wbez:app news_lab"
+echo "Then copy files from examples/wbez-app-lab/app and examples/wbez-app-lab/db into your app."

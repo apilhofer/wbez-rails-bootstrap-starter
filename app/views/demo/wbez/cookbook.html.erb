@@ -312,6 +312,18 @@
       <strong>Pattern name:</strong> <strong>full-width promo spot</strong> — final module before the site footer on the homepage: two columns (image/graphic column, then serif title, body, red donate button). Placed <strong>outside</strong> <code>&lt;main&gt;</code> so it can span the full content shell. DOM: <code>data-wbez-pattern=&quot;full-width-promo-spot&quot;</code>. On generated homepages the root section also has <code>data-homepage-slot=&quot;bottom-full-width-promo&quot;</code> (pass <code>homepage_slot:</code> when rendering). Partial: <code>shared/ui/full_width_promo_spot</code>. Data: <code>@full_width_promo_spot</code> (<code>:graphic_line1</code>, <code>:graphic_line2</code>, <code>:title</code>, <code>:body</code>, <code>:button</code>, <code>:href</code>).
     </p>
     <p class="small text-muted mb-4">The live example renders below this main column (same placement as the final block on a generated home page).</p>
+
+    <%= render "shared/ui/section_header", title: "App prototype modules" %>
+    <p class="text-muted small mb-3">
+      Mobile app shells use <code>layouts/app.html.erb</code> and partials under <code>shared/ui/app/</code>.
+      Reference: <a href="/demo/app-wbez">/demo/app-wbez</a>.
+    </p>
+    <div class="wbez-app-prototype border rounded mb-5">
+      <%= render "shared/ui/app/story_row",
+          story: { kicker: "News", title: "Sample app story row", published_ago: "1h ago", read: "3m read" },
+          href: "#" %>
+      <%= render "shared/ui/app/loading_skeleton" %>
+    </div>
   </main>
 
   <%= render "shared/ui/full_width_promo_spot",

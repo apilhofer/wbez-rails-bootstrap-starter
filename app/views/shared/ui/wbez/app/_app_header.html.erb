@@ -1,0 +1,9 @@
+<header class="app-header" data-turbo-permanent id="wbez-app-header">
+  <% if local_assigns[:back_href].present? %>
+    <%= link_to "Back", local_assigns[:back_href], class: "btn btn-sm btn-link text-decoration-none px-0" %>
+  <% end %>
+  <h1 class="app-header__title flex-grow-1 mb-0 text-truncate"><%= local_assigns.fetch(:title, "WBEZ") %></h1>
+  <% if local_assigns[:experiments_href].present? %>
+    <%= link_to "Labs", local_assigns[:experiments_href], class: "btn btn-sm btn-link text-decoration-none" %>
+  <% end %>
+</header>

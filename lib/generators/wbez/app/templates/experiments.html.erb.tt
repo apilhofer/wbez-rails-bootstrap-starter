@@ -1,0 +1,10 @@
+<%% content_for :title, "Experiments" %>
+<%% content_for :app_hide_tabbar, true %>
+<%% content_for :app_header do %>
+  <%%= render "shared/ui/wbez/app/app_header", title: "Experiments", back_href: <%= route_helper_name %>_path %>
+<%% end %>
+
+<%%= render "shared/ui/app/experiment_selector",
+    experiments: available_experiments,
+    current_experiment: current_experiment,
+    experiment_switch_path: :<%= route_helper_name %>_experiment_path %>

@@ -102,3 +102,11 @@ When asked to build a new page:
 3. Apply WBEZ editorial hierarchy and typography.
 4. Use local logos/icons/helpers.
 5. Keep the result easy to refactor into reusable UI.
+
+## App prototypes (mobile PWA)
+- Use `.wbez-app-prototype` / `.suntimes-app-prototype` for mobile app shells (not `.wbez-prototype` website chrome).
+- App UI lives under `shared/ui/app/` (neutral), `shared/ui/wbez/app/`, `shared/ui/suntimes/app/`.
+- Layout: `layouts/app.html.erb`. Generators: `wbez:app`, `suntimes:app`.
+- Experiments: view folders under `app/views/<app>/experiments/<variant>/`; register in `config/app_prototype.yml`.
+- **Do not** put feed URLs, credentials, or product-specific IA in shared app UI — keep those in generated apps or `examples/wbez-app-lab`.
+- PWA: `public/service-worker.js`, `/manifest.webmanifest`. See `docs/app-prototype/`.

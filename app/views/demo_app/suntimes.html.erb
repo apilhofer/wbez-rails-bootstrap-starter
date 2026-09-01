@@ -1,0 +1,12 @@
+<% content_for :title, "Sun-Times App Lab" %>
+<% content_for :app_experiment_banner do %>
+  Experiment: <%= available_experiments.find { |e| e[:id] == current_experiment }&.dig(:label) || current_experiment %>
+<% end %>
+<% content_for :app_header do %>
+  <%= render "shared/ui/suntimes/app/app_header", title: "Sun-Times", experiments_href: demo_app_suntimes_experiments_path %>
+<% end %>
+<% content_for :app_tabbar do %>
+  <%= render "shared/ui/suntimes/app/bottom_tab_bar", tabs: @app_tabs, active_tab: @active_tab %>
+<% end %>
+
+<%= render_experiment_partial "river", stories: @app_stories, story_path_helper: :demo_app_suntimes_story_path %>

@@ -1,0 +1,18 @@
+<%% content_for :title, @story[:title] %>
+<%% content_for :app_header do %>
+  <%%= render "shared/ui/wbez/app/app_header", title: "Story", back_href: <%= route_helper_name %>_path, experiments_href: <%= route_helper_name %>_experiments_path %>
+<%% end %>
+<%% content_for :app_tabbar do %>
+  <%%= render "shared/ui/wbez/app/bottom_tab_bar", tabs: @app_tabs, active_tab: @active_tab %>
+<%% end %>
+
+<%%= render "shared/ui/wbez/app/article_shell",
+    kicker: @story[:kicker],
+    title: @story[:title],
+    dek: @story[:dek],
+    meta: [@story[:published_ago], @story[:read]].compact.join(" • "),
+    audio_url: @story[:audio_url] do %>
+  <%%= raw @story[:body] %>
+<%% end %>
+
+<div class="px-3 pb-4"><%%= render "shared/ui/app/saved_button", story_id: @story[:id] %></div>

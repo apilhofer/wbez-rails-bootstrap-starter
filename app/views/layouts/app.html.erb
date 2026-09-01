@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%= content_for?(:title) ? yield(:title) : "App prototype" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="theme-color" content="<%= app_theme_color %>">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <link rel="manifest" href="<%= app_manifest_path %>">
+    <link rel="apple-touch-icon" href="<%= app_icon_path %>">
+  </head>
+  <body class="<%= app_body_class %>">
+    <div class="app-screen">
+      <% if content_for?(:app_experiment_banner) %>
+        <div class="app-experiment-banner"><%= yield :app_experiment_banner %></div>
+      <% end %>
+
+      <%= yield :app_header if content_for?(:app_header) %>
+
+      <main class="app-screen__main <%= "app-screen__main--no-tabbar" if content_for?(:app_hide_tabbar) %>" id="app-main">
+        <div class="app-screen__inner">
+          <%= yield %>
+        </div>
+      </main>
+
+      <%= render "shared/ui/app/mini_audio_player" %>
+      <%= yield :app_tabbar if content_for?(:app_tabbar) %>
+    </div>
+
+    <div data-controller="pwa-register"></div>
+  </body>
+</html>

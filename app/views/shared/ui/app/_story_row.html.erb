@@ -1,0 +1,30 @@
+<%# Neutral app story row for mobile rivers. %>
+<%
+  story = local_assigns.fetch(:story)
+  href = local_assigns.fetch(:href, "#")
+  dense = local_assigns.fetch(:dense, false)
+  row_class = ["app-story-row", ("app-story-row--dense" if dense)].compact.join(" ")
+%>
+<%= link_to href, class: row_class, data: { turbo_frame: local_assigns[:turbo_frame] } do %>
+  <% if story[:image_url].present? %>
+    <img src="<%= story[:image_url] %>" alt="" class="app-story-row__thumb object-fit-cover" loading="lazy">
+  <% else %>
+    <div class="app-story-row__thumb" aria-hidden="true"></div>
+  <% end %>
+  <div class="app-story-row__body">
+    <% if story[:kicker].present? %>
+      <div class="story-kicker mb-1"><%= story[:kicker] %></div>
+    <% end %>
+    <h2 class="app-story-row__headline"><%= story[:title] %></h2>
+    <% if story[:dek].present? && !dense %>
+      <p class="mb-1 small text-muted"><%= story[:dek] %></p>
+    <% end %>
+    <div class="app-story-row__meta">
+      <% if story[:published_ago].present? && story[:read].present? %>
+        <%= story[:published_ago] %> • <%= story[:read] %>
+      <% elsif story[:published_ago].present? %>
+        <%= story[:published_ago] %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

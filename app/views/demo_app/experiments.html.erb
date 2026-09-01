@@ -1,0 +1,14 @@
+<% content_for :title, "Experiments" %>
+<% content_for :app_hide_tabbar, true %>
+<% content_for :app_header do %>
+  <% if @app_brand == "suntimes" %>
+    <%= render "shared/ui/suntimes/app/app_header", title: "Experiments", back_href: demo_app_suntimes_path %>
+  <% else %>
+    <%= render "shared/ui/wbez/app/app_header", title: "Experiments", back_href: demo_app_wbez_path %>
+  <% end %>
+<% end %>
+
+<%= render "shared/ui/app/experiment_selector",
+    experiments: available_experiments,
+    current_experiment: current_experiment,
+    experiment_switch_path: (@app_brand == "suntimes" ? :demo_app_suntimes_experiment_path : :demo_app_wbez_experiment_path) %>

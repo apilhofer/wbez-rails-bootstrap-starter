@@ -1,0 +1,7 @@
+<nav class="app-tabbar" data-turbo-permanent id="wbez-app-tabbar" aria-label="Primary">
+  <% tabs = local_assigns.fetch(:tabs) %>
+  <% active = local_assigns.fetch(:active_tab) %>
+  <% tabs.each do |tab| %>
+    <%= link_to tab[:label], tab[:href], class: ["app-tabbar__item", ("app-tabbar__item--active" if tab[:id] == active)].compact.join(" ") %>
+  <% end %>
+</nav>

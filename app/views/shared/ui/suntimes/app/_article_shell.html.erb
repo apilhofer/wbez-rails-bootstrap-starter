@@ -1,0 +1,13 @@
+<div class="app-article-shell">
+  <%= render "shared/ui/article_header",
+    kicker: local_assigns[:kicker],
+    title: local_assigns[:title],
+    dek: local_assigns[:dek],
+    meta: local_assigns[:meta] %>
+  <div class="prose-suntimes">
+    <%= yield %>
+  </div>
+  <% if local_assigns[:audio_url].present? %>
+    <%= render "shared/ui/app/full_audio_player", title: "Listen", audio_url: local_assigns[:audio_url], dek: local_assigns[:audio_dek] %>
+  <% end %>
+</div>

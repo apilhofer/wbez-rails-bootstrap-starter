@@ -28,7 +28,20 @@ module WbezBootstrapStarter
               get "/demo/cookbook-suntimes", to: "demo#cookbook_suntimes"
               get "/demo/style-guide-wbez", to: "demo#style_guide_wbez"
               get "/demo/style-guide-suntimes", to: "demo#style_guide_suntimes"
+              get "/demo/app-wbez", to: "demo_app#wbez", as: :demo_app_wbez
+              get "/demo/app-suntimes", to: "demo_app#suntimes", as: :demo_app_suntimes
+              get "/demo/app-wbez/stories/:id", to: "demo_app#wbez_story", as: :demo_app_wbez_story
+              get "/demo/app-suntimes/stories/:id", to: "demo_app#suntimes_story", as: :demo_app_suntimes_story
+              get "/demo/app-wbez/experiments", to: "demo_app#wbez_experiments", as: :demo_app_wbez_experiments
+              get "/demo/app-suntimes/experiments", to: "demo_app#suntimes_experiments", as: :demo_app_suntimes_experiments
+              post "/demo/app-wbez/experiments/:experiment_id", to: "demo_app#switch_wbez_experiment", as: :demo_app_wbez_experiment
+              post "/demo/app-suntimes/experiments/:experiment_id", to: "demo_app#switch_suntimes_experiment", as: :demo_app_suntimes_experiment
             end
+
+            # WBEZ_BOOTSTRAP_PWA_ROUTES
+            get "/manifest.webmanifest", to: "pwa#manifest"
+            get "/service-worker.js", to: "pwa#service_worker"
+            get "/offline", to: "pwa#offline"
           RUBY
 
           @g.insert_into_file routes_path, development_block, before: /^end\s*$/

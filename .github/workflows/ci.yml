@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Run unit tests
+        run: bundle exec ruby -Itest test/unit/*_test.rb
+
+      - name: Run integration tests
+        env:
+          RUN_INTEGRATION: "1"
+        run: bundle exec ruby -Itest test/integration/template_install_test.rb test/generators/wbez_page_generator_test.rb test/generators/suntimes_page_generator_test.rb test/generators/wbez_app_generator_test.rb

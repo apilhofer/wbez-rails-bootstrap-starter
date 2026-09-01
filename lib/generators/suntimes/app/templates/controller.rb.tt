@@ -1,0 +1,73 @@
+# frozen_string_literal: true
+
+class <%= class_name.pluralize %>Controller < ApplicationController
+  include AppExperiment
+  include AppPrototypeState
+
+  layout "app"
+
+  app_experiments "<%= plural_name.underscore %>"
+
+  before_action :assign_sample_stories
+  before_action :assign_navigation
+
+  def river
+    @app_brand = "suntimes"
+    render :river
+  end
+
+  def story
+    @app_brand = "suntimes"
+    @story = @app_stories.find { |s| s[:id].to_s == params[:id].to_s } || @app_stories.first
+    remember_story_view(@story[:id])
+    render :story
+  end
+
+  def experiments
+    @app_brand = "suntimes"
+    render :experiments
+  end
+
+  def switch_experiment
+    set_experiment!(params[:experiment_id])
+    redirect_to <%= route_helper_name %>_path
+  end
+
+  private
+
+  def assign_sample_stories
+    @app_stories = [
+      {
+        id: "1",
+        kicker: "News",
+        title: "<%= file_name.humanize %>: Lorem ipsum dolor sit amet",
+        dek: "Sample story for your Sun-Times app prototype.",
+        published_ago: "45m ago",
+        read: "3m read",
+        author_name: "Staff Writer",
+        body: "<p>Replace this sample data with feed-backed stories in your prototype app.</p>"
+      },
+      {
+        id: "2",
+        kicker: "Sports",
+        title: "Duis aute irure dolor in reprehenderit in voluptate",
+        published_ago: "2h ago",
+        read: "4m read",
+        body: "<p>Second sample story body.</p>"
+      }
+    ]
+  end
+
+  def assign_navigation
+    @app_tabs = [
+      { id: "latest", label: "Latest", href: <%= route_helper_name %>_path },
+      { id: "listen", label: "Listen", href: "#" },
+      { id: "saved", label: "Saved", href: "#" }
+    ]
+    @active_tab = "latest"
+  end
+
+  def experiment_views_root
+    "<%= plural_name %>/experiments"
+  end
+end

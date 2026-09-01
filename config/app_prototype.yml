@@ -1,0 +1,26 @@
+default:
+  experiments:
+    - id: baseline
+      label: Baseline
+      description: Default app river density.
+    - id: dense_river
+      label: Dense river
+      description: Smaller thumbnails and tighter rows.
+
+apps:
+  demo_app_wbez:
+    experiments:
+      - id: baseline
+        label: Baseline
+        description: Default WBEZ app river.
+      - id: dense_river
+        label: Dense river
+        description: Higher story density for WBEZ.
+  demo_app_suntimes:
+    experiments:
+      - id: baseline
+        label: Baseline
+        description: Default Sun-Times app river.
+      - id: dense_river
+        label: Dense river
+        description: Higher story density for Sun-Times.

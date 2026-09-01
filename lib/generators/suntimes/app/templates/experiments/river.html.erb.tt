@@ -1,0 +1,8 @@
+<section aria-label="Story river">
+  <%% stories = local_assigns.fetch(:stories) %>
+  <%% story_path_helper = local_assigns.fetch(:story_path_helper) %>
+  <%% dense = <%= @experiment_dense.inspect %> %>
+  <%% stories.each do |story| %>
+    <%%= render "shared/ui/app/story_row", story: story, href: send(story_path_helper, story[:id]), dense: dense %>
+  <%% end %>
+</section>
