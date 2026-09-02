@@ -1,7 +1,38 @@
+<% variant = local_assigns[:variant] %>
+<% tabs = local_assigns.fetch(:tabs) %>
+<% active = local_assigns.fetch(:active_tab) %>
+
+<% if variant == :home %>
+<nav class="app-tabbar app-tabbar--cst-home" data-turbo-permanent id="suntimes-app-tabbar" aria-label="Primary">
+  <% tabs.each do |tab| %>
+    <%= link_to tab[:href], class: ["app-tabbar__item", ("app-tabbar__item--active" if tab[:id] == active)].compact.join(" ") do %>
+      <span class="app-tabbar__icon" aria-hidden="true">
+        <% case tab[:icon] %>
+        <% when "top-news" %>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.75"/><rect x="14" y="4" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.75"/><rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.75"/><path d="M14 14h7v7h-7z" stroke="currentColor" stroke-width="1.75"/></svg>
+        <% when "paper" %>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 4h11a2 2 0 0 1 2 2v14l-4-2-4 2-4-2-4 2V6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/><path d="M9 8h6M9 12h6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+        <% when "my-content" %>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="9" r="3.5" stroke="currentColor" stroke-width="1.75"/><path d="M6 19c0-3 2.7-5 6-5s6 2 6 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path d="M17 7h3v3" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <% when "search" %>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.75"/><path d="M16 16l4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+        <% end %>
+      </span>
+      <span class="app-tabbar__label"><%= tab[:label] %></span>
+    <% end %>
+  <% end %>
+
+  <button type="button" class="app-tabbar__fab" aria-label="Open menu">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M5 7h14M5 12h14M5 17h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M18 17v4M16 19h4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+    </svg>
+  </button>
+</nav>
+<% else %>
 <nav class="app-tabbar" data-turbo-permanent id="suntimes-app-tabbar" aria-label="Primary">
-  <% tabs = local_assigns.fetch(:tabs) %>
-  <% active = local_assigns.fetch(:active_tab) %>
   <% tabs.each do |tab| %>
     <%= link_to tab[:label], tab[:href], class: ["app-tabbar__item", ("app-tabbar__item--active" if tab[:id] == active)].compact.join(" ") %>
   <% end %>
 </nav>
+<% end %>

@@ -1,0 +1,40 @@
+<% content_for :title, "Browse" %>
+
+<% content_for :app_header do %>
+  <%= render "shared/ui/wbez/app/listen_header",
+      home_href: demo_app_wbez_browse_path,
+      menu_href: demo_app_wbez_menu_path(return_to: request.path) %>
+<% end %>
+
+<% content_for :app_tabbar do %>
+  <%= render "shared/ui/wbez/app/bottom_tab_bar", tabs: @app_tabs, active_tab: @active_tab, variant: :dark %>
+<% end %>
+
+<% content_for :app_mini_player do %>
+  <%= render "shared/ui/wbez/app/mini_audio_player", show: @now_playing %>
+<% end %>
+
+<div class="wbez-browse-screen">
+  <section class="wbez-browse-news" aria-label="News snippets">
+    <%= render "shared/ui/wbez/app/browse_news_carousel", snippets: @news_snippets %>
+  </section>
+
+  <section class="wbez-browse-audio" aria-label="Featured audio">
+    <%= render "shared/ui/wbez/app/browse_audio_card", item: @featured_audio %>
+
+    <div class="wbez-browse-newscasts">
+      <% @newscasts.each do |newscast| %>
+        <%= render "shared/ui/wbez/app/browse_audio_card", item: newscast, compact: true %>
+      <% end %>
+    </div>
+  </section>
+
+  <section class="wbez-browse-podcasts" aria-labelledby="wbez-browse-podcasts-heading">
+    <h2 id="wbez-browse-podcasts-heading" class="wbez-browse-podcasts__heading">Podcasts</h2>
+    <div class="wbez-browse-podcasts__grid">
+      <% @podcasts.each do |podcast| %>
+        <%= render "shared/ui/wbez/app/browse_podcast_tile", podcast: podcast %>
+      <% end %>
+    </div>
+  </section>
+</div>

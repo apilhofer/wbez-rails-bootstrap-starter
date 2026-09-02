@@ -1,0 +1,8 @@
+<% podcast = local_assigns.fetch(:podcast) %>
+
+<a href="#" class="wbez-browse-podcast-tile text-decoration-none">
+  <div class="wbez-browse-podcast-tile__art" style="--show-art-bg: <%= podcast[:artwork_bg] %>;">
+    <span class="wbez-browse-podcast-tile__label" aria-hidden="true"><%= podcast[:artwork_label] %></span>
+  </div>
+  <div class="wbez-browse-podcast-tile__title text-truncate"><%= podcast[:title] %></div>
+</a>

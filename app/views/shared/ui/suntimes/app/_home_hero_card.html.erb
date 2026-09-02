@@ -1,0 +1,16 @@
+<% story = local_assigns.fetch(:story) %>
+<% story_href = local_assigns.fetch(:story_href) %>
+
+<article class="cst-home-hero-card">
+  <%= link_to story_href, class: "cst-home-hero-card__link text-decoration-none" do %>
+    <div class="cst-home-hero-card__media" style="background: <%= story[:artwork_bg] %>;">
+      <div class="cst-home-hero-card__overlay">
+        <h2 class="cst-home-hero-card__title"><%= story[:title] %></h2>
+        <time class="cst-home-hero-card__date" datetime="<%= story[:date] %>"><%= story[:date] %></time>
+      </div>
+    </div>
+  <% end %>
+  <div class="cst-home-hero-card__actions">
+    <%= render "shared/ui/suntimes/app/home_story_actions", story: story, story_href: story_href %>
+  </div>
+</article>

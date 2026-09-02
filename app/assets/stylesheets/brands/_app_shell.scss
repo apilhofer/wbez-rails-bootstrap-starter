@@ -35,6 +35,14 @@
   padding-bottom: calc(var(--app-safe-bottom) + var(--app-mini-player-height, 0px));
 }
 
+.app-screen__main--no-mini-player {
+  padding-bottom: calc(var(--app-tabbar-height) + var(--app-safe-bottom));
+}
+
+.app-screen__main--no-tabbar.app-screen__main--no-mini-player {
+  padding-bottom: var(--app-safe-bottom);
+}
+
 .app-header {
   position: sticky;
   top: 0;

@@ -29,7 +29,11 @@ module WbezBootstrapStarter
               get "/demo/style-guide-wbez", to: "demo#style_guide_wbez"
               get "/demo/style-guide-suntimes", to: "demo#style_guide_suntimes"
               get "/demo/app-wbez", to: "demo_app#wbez", as: :demo_app_wbez
+              get "/demo/app-wbez/listen", to: "demo_app#wbez_listen", as: :demo_app_wbez_listen
+              get "/demo/app-wbez/browse", to: "demo_app#wbez_browse", as: :demo_app_wbez_browse
+              get "/demo/app-wbez/menu", to: "demo_app#wbez_menu", as: :demo_app_wbez_menu
               get "/demo/app-suntimes", to: "demo_app#suntimes", as: :demo_app_suntimes
+              get "/demo/app-suntimes/home", to: "demo_app#suntimes_home", as: :demo_app_suntimes_home
               get "/demo/app-wbez/stories/:id", to: "demo_app#wbez_story", as: :demo_app_wbez_story
               get "/demo/app-suntimes/stories/:id", to: "demo_app#suntimes_story", as: :demo_app_suntimes_story
               get "/demo/app-wbez/experiments", to: "demo_app#wbez_experiments", as: :demo_app_wbez_experiments

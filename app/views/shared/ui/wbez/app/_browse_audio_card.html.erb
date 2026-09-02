@@ -1,0 +1,17 @@
+<% item = local_assigns.fetch(:item) %>
+<% compact = local_assigns.fetch(:compact, false) %>
+
+<article class="wbez-browse-audio-card<%= " wbez-browse-audio-card--compact" if compact %>">
+  <div class="wbez-browse-audio-card__thumb" style="--show-art-bg: <%= item[:artwork_bg] %>;">
+    <span aria-hidden="true"><%= item[:artwork_label] %></span>
+  </div>
+  <div class="wbez-browse-audio-card__body min-w-0">
+    <div class="wbez-browse-audio-card__title text-truncate"><%= item[:title] %></div>
+    <% if item[:meta].present? %>
+      <div class="wbez-browse-audio-card__meta text-truncate"><%= item[:meta] %></div>
+    <% end %>
+  </div>
+  <button type="button" class="wbez-browse-audio-card__play" aria-label="Play <%= item[:title] %>">
+    <%= ferris_icon "play", classes: "wbez-browse-audio-card__play-icon", size: 14 %>
+  </button>
+</article>

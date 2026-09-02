@@ -4,7 +4,7 @@
     <title><%= content_for?(:title) ? yield(:title) : "App prototype" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="<%= app_theme_color %>">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -21,13 +21,19 @@
 
       <%= yield :app_header if content_for?(:app_header) %>
 
-      <main class="app-screen__main <%= "app-screen__main--no-tabbar" if content_for?(:app_hide_tabbar) %>" id="app-main">
+      <main class="app-screen__main<%= " app-screen__main--no-tabbar" if content_for?(:app_hide_tabbar) %><%= " app-screen__main--no-mini-player" if content_for?(:app_hide_mini_player) %><%= " app-screen__main--with-listen-player" if content_for?(:app_mini_player) %>" id="app-main">
         <div class="app-screen__inner">
           <%= yield %>
         </div>
       </main>
 
-      <%= render "shared/ui/app/mini_audio_player" %>
+      <% unless content_for?(:app_hide_mini_player) %>
+        <% if content_for?(:app_mini_player) %>
+          <%= yield :app_mini_player %>
+        <% else %>
+          <%= render "shared/ui/app/mini_audio_player" %>
+        <% end %>
+      <% end %>
       <%= yield :app_tabbar if content_for?(:app_tabbar) %>
     </div>
 

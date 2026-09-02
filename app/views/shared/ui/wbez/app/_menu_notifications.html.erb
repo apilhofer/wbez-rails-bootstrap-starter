@@ -1,0 +1,38 @@
+<% frequencies = local_assigns.fetch(:frequencies) %>
+
+<section class="wbez-menu-notifications" aria-labelledby="wbez-menu-notifications-heading">
+  <div class="wbez-menu-notifications__row">
+    <div class="wbez-menu-notifications__label-group">
+      <span class="wbez-menu-notifications__icon" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M12 22a2.5 2.5 0 0 0 2.45-2h-4.9A2.5 2.5 0 0 0 12 22Zm7-6V11a7 7 0 1 0-14 0v5l-2 2v1h18v-1l-2-2Z" fill="currentColor"/>
+        </svg>
+      </span>
+      <h2 id="wbez-menu-notifications-heading" class="wbez-menu-notifications__title">Notifications</h2>
+    </div>
+
+    <label class="wbez-menu-toggle">
+      <input type="checkbox" class="wbez-menu-toggle__input" checked>
+      <span class="wbez-menu-toggle__track" aria-hidden="true"></span>
+      <span class="visually-hidden">Enable notifications</span>
+    </label>
+  </div>
+
+  <div class="wbez-menu-notifications__frequency">
+    <p class="wbez-menu-notifications__frequency-label">Frequency:</p>
+    <fieldset class="wbez-menu-radio-group">
+      <legend class="visually-hidden">Notification frequency</legend>
+      <% frequencies.each do |option| %>
+        <label class="wbez-menu-radio">
+          <input type="radio"
+                 name="notification_frequency"
+                 value="<%= option[:id] %>"
+                 class="wbez-menu-radio__input"
+                 <%= "checked" if option[:selected] %>>
+          <span class="wbez-menu-radio__control" aria-hidden="true"></span>
+          <span class="wbez-menu-radio__label"><%= option[:label] %></span>
+        </label>
+      <% end %>
+    </fieldset>
+  </div>
+</section>

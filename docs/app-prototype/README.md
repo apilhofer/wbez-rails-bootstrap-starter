@@ -14,8 +14,12 @@ bin/rails generate wbez:app news_lab
 
 Open `/news_lab` on a phone, or try the built-in demos:
 
-- `/demo/app-wbez`
-- `/demo/app-suntimes`
+- `/demo/app-wbez/listen` — WBEZ Radio (Listen)
+- `/demo/app-wbez/browse` — WBEZ Browse
+- `/demo/app-wbez/menu` — WBEZ Menu
+- `/demo/app-wbez` — WBEZ story river (experiments)
+- `/demo/app-suntimes/home` — Sun-Times Home
+- `/demo/app-suntimes` — Sun-Times story river (experiments)
 
 ## Architecture
 

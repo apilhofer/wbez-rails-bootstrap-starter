@@ -1,0 +1,15 @@
+<header class="app-header app-header--wbez app-header--wbez-menu">
+  <div class="app-header__inner app-header__inner--menu">
+    <%= link_to local_assigns.fetch(:back_href),
+        class: "app-header__icon-btn text-decoration-none",
+        aria: { label: "Go back" } do %>
+      <svg class="app-header__icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M14.5 5 8 11.5 14.5 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    <% end %>
+
+    <h1 class="app-header__menu-title">Menu</h1>
+
+    <span class="app-header__icon-btn app-header__icon-btn--spacer" aria-hidden="true"></span>
+  </div>
+</header>

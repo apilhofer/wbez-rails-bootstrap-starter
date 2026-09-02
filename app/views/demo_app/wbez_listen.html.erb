@@ -1,0 +1,32 @@
+<% content_for :title, "Radio" %>
+
+<% content_for :app_header do %>
+  <%= render "shared/ui/wbez/app/listen_header",
+      home_href: demo_app_wbez_listen_path,
+      menu_href: demo_app_wbez_menu_path(return_to: request.path) %>
+<% end %>
+
+<% content_for :app_tabbar do %>
+  <%= render "shared/ui/wbez/app/bottom_tab_bar", tabs: @app_tabs, active_tab: @active_tab, variant: :dark %>
+<% end %>
+
+<% content_for :app_mini_player do %>
+  <%= render "shared/ui/wbez/app/mini_audio_player", show: @now_playing %>
+<% end %>
+
+<div class="wbez-listen-screen">
+  <%= render "shared/ui/wbez/app/listen_now_hero", show: @now_playing %>
+
+  <section class="wbez-listen-earlier" aria-labelledby="wbez-listen-earlier-heading">
+    <div class="wbez-listen-earlier__header">
+      <h2 id="wbez-listen-earlier-heading" class="wbez-listen-earlier__title">Live Earlier</h2>
+      <a href="#" class="wbez-listen-earlier__schedule">Full Schedule ›</a>
+    </div>
+
+    <div class="wbez-listen-earlier__list">
+      <% @earlier_shows.each do |show| %>
+        <%= render "shared/ui/wbez/app/listen_earlier_row", show: show %>
+      <% end %>
+    </div>
+  </section>
+</div>

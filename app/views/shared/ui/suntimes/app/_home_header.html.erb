@@ -1,0 +1,18 @@
+<header class="app-header app-header--suntimes app-header--cst-home" data-turbo-permanent id="suntimes-app-header">
+  <div class="app-header__inner app-header__inner--cst-home">
+    <span class="app-header__icon-btn app-header__icon-btn--spacer" aria-hidden="true"></span>
+
+    <div class="app-header__brand app-header__brand--cst-home">
+      <%= link_to (local_assigns[:home_href] || "#"), class: "app-header__logo-link text-decoration-none", "aria-label": "Chicago Sun-Times home" do %>
+        <%= inline_svg "ctimes-logo.svg", class: "app-header__logo app-header__logo--cst-wordmark", preserveAspectRatio: "xMidYMid meet" %>
+      <% end %>
+    </div>
+
+    <button type="button" class="app-header__icon-btn" aria-label="Settings">
+      <svg class="app-header__icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z" stroke="currentColor" stroke-width="1.75"/>
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9c.26.604.852.997 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+</header>

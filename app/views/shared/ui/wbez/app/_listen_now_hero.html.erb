@@ -1,0 +1,35 @@
+<% show = local_assigns.fetch(:show) %>
+<section class="wbez-listen-hero" aria-label="On air now">
+  <div class="wbez-listen-hero__art-wrap">
+    <div class="wbez-listen-hero__art" style="--show-art-bg: <%= show[:artwork_bg] %>;">
+      <span class="wbez-listen-hero__art-label"><%= show[:artwork_label] %></span>
+    </div>
+  </div>
+
+  <% if show[:live] %>
+    <div class="wbez-listen-hero__live">
+      <span class="wbez-listen-live-badge">LIVE</span>
+    </div>
+  <% end %>
+
+  <div class="wbez-listen-hero__meta-row">
+    <div class="wbez-listen-hero__meta">
+      <div class="wbez-listen-hero__signal" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="18" r="2" fill="currentColor"/>
+          <path d="M8.5 14.5a5.5 5.5 0 0 1 7.8 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M5.5 11.5a10 10 0 0 1 13.4 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="min-w-0">
+        <h1 class="wbez-listen-hero__title"><%= show[:title] %></h1>
+        <p class="wbez-listen-hero__time"><%= show[:time_range] %></p>
+      </div>
+    </div>
+
+    <button type="button" class="wbez-listen-hero__listen-btn">
+      <%= ferris_icon "play", classes: "wbez-listen-hero__listen-icon", size: 12 %>
+      <span>Listen</span>
+    </button>
+  </div>
+</section>

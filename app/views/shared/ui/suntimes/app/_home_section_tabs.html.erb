@@ -1,0 +1,13 @@
+<% tabs = local_assigns.fetch(:tabs) %>
+
+<nav class="cst-home-section-tabs" aria-label="Sections">
+  <div class="cst-home-section-tabs__scroll">
+    <% tabs.each do |tab| %>
+      <% if tab[:active] %>
+        <span class="cst-home-section-tabs__item cst-home-section-tabs__item--active" aria-current="page"><%= tab[:label] %></span>
+      <% else %>
+        <a href="#" class="cst-home-section-tabs__item"><%= tab[:label] %></a>
+      <% end %>
+    <% end %>
+  </div>
+</nav>

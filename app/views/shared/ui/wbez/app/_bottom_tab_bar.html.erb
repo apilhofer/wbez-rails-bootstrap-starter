@@ -1,7 +1,19 @@
-<nav class="app-tabbar" data-turbo-permanent id="wbez-app-tabbar" aria-label="Primary">
+<nav class="app-tabbar app-tabbar--wbez<%= " app-tabbar--wbez-dark" if local_assigns[:variant] == :dark %>" data-turbo-permanent id="wbez-app-tabbar" aria-label="Primary">
   <% tabs = local_assigns.fetch(:tabs) %>
   <% active = local_assigns.fetch(:active_tab) %>
   <% tabs.each do |tab| %>
-    <%= link_to tab[:label], tab[:href], class: ["app-tabbar__item", ("app-tabbar__item--active" if tab[:id] == active)].compact.join(" ") %>
+    <%= link_to tab[:href], class: ["app-tabbar__item", ("app-tabbar__item--active" if tab[:id] == active)].compact.join(" ") do %>
+      <span class="app-tabbar__icon" aria-hidden="true">
+        <% case tab[:icon] %>
+        <% when "grid" %>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
+        <% when "radio" %>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="18" r="2" fill="currentColor"/><path d="M8.5 14.5a5.5 5.5 0 0 1 7.8 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M5.5 11.5a10 10 0 0 1 13.4 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <% when "heart" %>
+          <%= ferris_icon "heart", classes: "app-tabbar__ferris-icon", size: 22 %>
+        <% end %>
+      </span>
+      <span class="app-tabbar__label"><%= tab[:label] %></span>
+    <% end %>
   <% end %>
 </nav>

@@ -1,0 +1,16 @@
+<% story = local_assigns.fetch(:story) %>
+<% story_href = local_assigns[:story_href] || "#" %>
+
+<article class="cst-home-story-actions">
+  <button type="button" class="cst-home-story-actions__btn" aria-label="Save story">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M7 4h10v16l-5-3.5L7 20V4Z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <button type="button" class="cst-home-story-actions__btn" aria-label="Share story">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 5v10M12 5l-4 4M12 5l4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M5 19h14" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+    </svg>
+  </button>
+</article>

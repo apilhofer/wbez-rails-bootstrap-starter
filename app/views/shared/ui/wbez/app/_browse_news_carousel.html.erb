@@ -1,0 +1,32 @@
+<% snippets = local_assigns.fetch(:snippets) %>
+<% carousel_id = local_assigns.fetch(:carousel_id, "wbez-browse-news-carousel") %>
+
+<div id="<%= carousel_id %>" class="carousel slide wbez-browse-carousel" data-bs-ride="false">
+  <div class="carousel-inner">
+    <% snippets.each_with_index do |snippet, index| %>
+      <div class="carousel-item<%= " active" if index.zero? %>">
+        <article class="wbez-browse-snippet" style="background: <%= snippet[:artwork_bg] %>;">
+          <div class="wbez-browse-snippet__content">
+            <h2 class="wbez-browse-snippet__title"><%= snippet[:title] %></h2>
+          </div>
+          <button type="button" class="wbez-browse-snippet__play" aria-label="Play <%= snippet[:title] %>">
+            <%= ferris_icon "play", classes: "wbez-browse-snippet__play-icon", size: 16 %>
+          </button>
+        </article>
+      </div>
+    <% end %>
+  </div>
+
+  <% if snippets.size > 1 %>
+    <div class="wbez-browse-carousel__dots">
+      <% snippets.each_with_index do |_snippet, index| %>
+        <button type="button"
+                data-bs-target="#<%= carousel_id %>"
+                data-bs-slide-to="<%= index %>"
+                class="<%= "active" if index.zero? %>"
+                aria-label="Slide <%= index + 1 %>"
+                aria-current="<%= index.zero? ? "true" : "false" %>"></button>
+      <% end %>
+    </div>
+  <% end %>
+</div>

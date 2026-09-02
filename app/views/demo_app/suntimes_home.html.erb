@@ -1,0 +1,35 @@
+<% content_for :title, "Chicago Sun-Times" %>
+<% content_for :app_hide_mini_player, true %>
+
+<% content_for :app_header do %>
+  <%= render "shared/ui/suntimes/app/home_header", home_href: demo_app_suntimes_home_path %>
+  <%= render "shared/ui/suntimes/app/home_section_tabs", tabs: @section_tabs %>
+  <%= render "shared/ui/suntimes/app/home_filter_bar", label: @filter_label %>
+<% end %>
+
+<% content_for :app_tabbar do %>
+  <%= render "shared/ui/suntimes/app/bottom_tab_bar", tabs: @app_tabs, active_tab: @active_tab, variant: :home %>
+<% end %>
+
+<div class="cst-home-screen">
+  <%= render "shared/ui/suntimes/app/home_hero_card",
+      story: @hero_story,
+      story_href: demo_app_suntimes_story_path(@hero_story[:id]) %>
+
+  <div class="cst-home-grid">
+    <% @grid_stories.each do |story| %>
+      <%= render "shared/ui/suntimes/app/home_grid_card",
+          story: story,
+          story_href: demo_app_suntimes_story_path(story[:id]) %>
+    <% end %>
+  </div>
+
+  <% @list_stories.each_with_index do |story, index| %>
+    <%= render "shared/ui/suntimes/app/home_list_card",
+        story: story,
+        story_href: demo_app_suntimes_story_path(story[:id]) %>
+    <% if index == 1 %>
+      <%= render "shared/ui/suntimes/app/home_ad_slot" %>
+    <% end %>
+  <% end %>
+</div>

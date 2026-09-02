@@ -36,9 +36,27 @@ module WbezBootstrapStarter
           app/views/shared/ui/wbez/app/_app_header.html.erb
           app/views/shared/ui/wbez/app/_bottom_tab_bar.html.erb
           app/views/shared/ui/wbez/app/_article_shell.html.erb
+          app/views/shared/ui/wbez/app/_listen_header.html.erb
+          app/views/shared/ui/wbez/app/_listen_now_hero.html.erb
+          app/views/shared/ui/wbez/app/_listen_earlier_row.html.erb
+          app/views/shared/ui/wbez/app/_browse_news_carousel.html.erb
+          app/views/shared/ui/wbez/app/_browse_audio_card.html.erb
+          app/views/shared/ui/wbez/app/_browse_podcast_tile.html.erb
+          app/views/shared/ui/wbez/app/_menu_header.html.erb
+          app/views/shared/ui/wbez/app/_menu_nav_row.html.erb
+          app/views/shared/ui/wbez/app/_menu_notifications.html.erb
+          app/views/shared/ui/wbez/app/_mini_audio_player.html.erb
           app/views/shared/ui/suntimes/app/_app_header.html.erb
           app/views/shared/ui/suntimes/app/_bottom_tab_bar.html.erb
           app/views/shared/ui/suntimes/app/_article_shell.html.erb
+          app/views/shared/ui/suntimes/app/_home_header.html.erb
+          app/views/shared/ui/suntimes/app/_home_section_tabs.html.erb
+          app/views/shared/ui/suntimes/app/_home_filter_bar.html.erb
+          app/views/shared/ui/suntimes/app/_home_hero_card.html.erb
+          app/views/shared/ui/suntimes/app/_home_grid_card.html.erb
+          app/views/shared/ui/suntimes/app/_home_list_card.html.erb
+          app/views/shared/ui/suntimes/app/_home_story_actions.html.erb
+          app/views/shared/ui/suntimes/app/_home_ad_slot.html.erb
           app/helpers/app_prototype_helper.rb
           app/controllers/concerns/app_experiment.rb
           app/controllers/concerns/app_prototype_state.rb
@@ -46,9 +64,17 @@ module WbezBootstrapStarter
           app/controllers/demo_app_controller.rb
           app/controllers/concerns/demo_wbez_app_sample_data.rb
           app/controllers/concerns/demo_suntimes_app_sample_data.rb
+          app/controllers/concerns/demo_wbez_listen_sample_data.rb
+          app/controllers/concerns/demo_wbez_browse_sample_data.rb
+          app/controllers/concerns/demo_wbez_menu_sample_data.rb
+          app/controllers/concerns/demo_cst_home_sample_data.rb
           app/views/pwa/offline.html.erb
           app/views/demo_app/wbez.html.erb
+          app/views/demo_app/wbez_listen.html.erb
+          app/views/demo_app/wbez_browse.html.erb
+          app/views/demo_app/wbez_menu.html.erb
           app/views/demo_app/suntimes.html.erb
+          app/views/demo_app/suntimes_home.html.erb
           app/views/demo_app/story.html.erb
           app/views/demo_app/experiments.html.erb
           app/views/demo/app/wbez/experiments/baseline/_river.html.erb
@@ -72,7 +98,7 @@ module WbezBootstrapStarter
         return unless File.exist?(path)
 
         contents = File.read(path)
-        imports = %w[brands/app_shell brands/wbez_app brands/suntimes_app]
+        imports = %w[brands/app_shell brands/wbez_app brands/wbez_listen brands/wbez_browse brands/wbez_menu brands/cst_home brands/suntimes_app]
         imports.each do |import_name|
           line = %(@import "#{import_name}";)
           next if contents.include?(line)

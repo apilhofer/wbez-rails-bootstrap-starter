@@ -1,0 +1,21 @@
+<header class="app-header app-header--wbez app-header--wbez-listen" data-turbo-permanent id="wbez-app-header">
+  <div class="app-header__inner app-header__inner--listen">
+    <%= link_to local_assigns.fetch(:menu_href),
+        class: "app-header__icon-btn text-decoration-none",
+        aria: { label: "Open menu" } do %>
+      <%= ferris_icon "menu", classes: "app-header__icon", size: 22 %>
+    <% end %>
+
+    <div class="app-header__brand app-header__brand--listen">
+      <%= link_to (local_assigns[:home_href] || "#"), class: "app-header__logo-link text-decoration-none" do %>
+        <%= render "shared/ui/brand_lockup", style: "max-height: 22px;" %>
+      <% end %>
+    </div>
+
+    <button type="button" class="app-header__icon-btn" aria-label="Notifications">
+      <svg class="app-header__icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 22a2.5 2.5 0 0 0 2.45-2h-4.9A2.5 2.5 0 0 0 12 22Zm7-6V11a7 7 0 1 0-14 0v5l-2 2v1h18v-1l-2-2Z" fill="currentColor"/>
+      </svg>
+    </button>
+  </div>
+</header>

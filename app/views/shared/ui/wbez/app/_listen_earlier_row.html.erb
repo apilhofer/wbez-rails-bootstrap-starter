@@ -1,0 +1,13 @@
+<% show = local_assigns.fetch(:show) %>
+<div class="wbez-listen-earlier-row">
+  <div class="wbez-listen-earlier-row__thumb" style="--show-art-bg: <%= show[:artwork_bg] %>;">
+    <span aria-hidden="true"><%= show[:artwork_label] %></span>
+  </div>
+  <div class="wbez-listen-earlier-row__body min-w-0">
+    <div class="wbez-listen-earlier-row__title text-truncate"><%= show[:title] %></div>
+    <div class="wbez-listen-earlier-row__time"><%= show[:aired_at] %></div>
+  </div>
+  <button type="button" class="wbez-listen-earlier-row__play" aria-label="Play <%= show[:title] %>">
+    <%= ferris_icon "play", classes: "wbez-listen-earlier-row__play-icon", size: 14 %>
+  </button>
+</div>

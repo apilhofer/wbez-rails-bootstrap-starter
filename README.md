@@ -59,7 +59,7 @@ bin/rails generate wbez:app news_lab
 bin/rails generate suntimes:app city_desk_lab
 ```
 
-Reference demos: `/demo/app-wbez`, `/demo/app-suntimes`. See `docs/app-prototype/README.md` and `examples/wbez-app-lab/` for RSS-backed validation.
+Reference demos: `/demo/app-wbez/listen`, `/demo/app-wbez/browse`, `/demo/app-suntimes/home`, plus river experiment pages at `/demo/app-wbez` and `/demo/app-suntimes`. See `docs/app-prototype/README.md` and `examples/wbez-app-lab/` for RSS-backed validation.
 
 Each generator creates:
 - `app/controllers/<name_plural>_controller.rb`

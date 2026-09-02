@@ -1,0 +1,23 @@
+<% content_for :title, "Menu" %>
+<% content_for :app_hide_tabbar, true %>
+<% content_for :app_hide_mini_player, true %>
+
+<% content_for :app_header do %>
+  <%= render "shared/ui/wbez/app/menu_header", back_href: @menu_back_href %>
+<% end %>
+
+<div class="wbez-menu-screen">
+  <nav class="wbez-menu-nav" aria-label="App menu">
+    <% @menu_items.each do |item| %>
+      <%= render "shared/ui/wbez/app/menu_nav_row", item: item %>
+    <% end %>
+  </nav>
+
+  <%= render "shared/ui/wbez/app/menu_notifications", frequencies: @notification_frequencies %>
+
+  <footer class="wbez-menu-footer">
+    <a href="#" class="wbez-menu-footer__link">Privacy Policy</a>
+    <a href="#" class="wbez-menu-footer__link">Terms of Use</a>
+    <span class="wbez-menu-footer__version"><%= @app_version %></span>
+  </footer>
+</div>
