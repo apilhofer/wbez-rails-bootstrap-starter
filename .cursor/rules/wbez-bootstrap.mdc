@@ -28,8 +28,11 @@ Follow these rules when generating or editing code:
 - `/demo` → component playground
 - `/demo/home` → homepage-style reference
 - `/demo/article` → article-page reference
-- `/demo/app-wbez` → WBEZ mobile app prototype reference
-- `/demo/app-suntimes` → Sun-Times mobile app prototype reference
+- `/demo/app-wbez/listen` → WBEZ Listen (Radio) screen
+- `/demo/app-wbez/browse` → WBEZ Browse screen
+- `/demo/app-wbez` → WBEZ river / experiments reference
+- `/demo/app-suntimes/home` → Sun-Times Home screen
+- `/demo/app-suntimes` → Sun-Times river / experiments reference
 - `/demo/cookbook` → editorial patterns reference
 - `/demo/icons` → icon inventory
 - `/demo/logos` → logo inventory
